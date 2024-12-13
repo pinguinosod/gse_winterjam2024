@@ -16,10 +16,11 @@
 transform = Transform3D(-0.0131768, 0.999913, 0, -0.999913, -0.0131768, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Weapons" type="Node3D" parent="Player"]
-transform = Transform3D(-0.0131768, -0.999913, 0, 0.999913, -0.0131768, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-0.134226, -0.94861, 0.286572, 0.959992, -0.0527567, 0.275012, -0.24576, 0.31202, 0.917739, 0, 0, 0)
 script = ExtResource("3_7r03o")
 
 [node name="Enemies" parent="." instance=ExtResource("3_fuddb")]
+transform = Transform3D(0.997753, -0.0424395, 0.05184, 0.046388, 0.995912, -0.0775024, -0.0483389, 0.0797331, 0.995643, 0, 0, 0)
 
 [node name="Objects" parent="." instance=ExtResource("4_vypmj")]
 script = ExtResource("6_jj2ed")
