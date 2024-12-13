@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://buuc6fpud4fcd"]
+[gd_scene load_steps=3 format=3 uid="uid://buuc6fpud4fcd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsb8n"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnlpf"]
+albedo_color = Color(0.329412, 1, 0.211765, 1)
+
+[node name="Player" type="Node3D" groups=["Player"]]
 script = ExtResource("1_xsb8n")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material_override = SubResource("StandardMaterial3D_dnlpf")
