@@ -18,3 +18,4 @@ func _input(event: InputEvent) -> void:
 		var viewport = get_viewport()
 		var camera = $"../Camera3D"
 		target_position = camera.project_position(event.position, camera.transform.origin.distance_to(position))
+		
