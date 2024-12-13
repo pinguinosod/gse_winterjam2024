@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://u7fsfln4lu8r"]
+
+[ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_3npnx"]
+
+[resource]
+script = ExtResource("1_3npnx")
+basicEnemyCount = null
