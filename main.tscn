@@ -16,4 +16,9 @@
 
 [node name="Objects" parent="." instance=ExtResource("4_vypmj")]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_3od5a")]
+[node name="UI" parent="." instance=ExtResource("5_3od5a")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.73352)
