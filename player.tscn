@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsb8n"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Player" type="Node3D" groups=["Player"]]
 script = ExtResource("1_xsb8n")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
