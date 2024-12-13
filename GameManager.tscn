@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhml57ffwa4iu"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_brgg7"]
+[ext_resource type="PackedScene" uid="uid://cjvk2cmsdisqn" path="res://enemies.tscn" id="2_4iq3d"]
+
+[node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder")]
+script = ExtResource("1_brgg7")
+enemyScene = ExtResource("2_4iq3d")
+enemyPoolHolder = NodePath("EnemyPoolHolder")
+
+[node name="EnemyPoolHolder" type="Node3D" parent="."]

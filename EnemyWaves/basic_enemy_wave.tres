@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyWave" load_steps=2 format=3 uid="uid://dnhv5ovxvbr14"]
+
+[ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_isqk8"]
+
+[resource]
+script = ExtResource("1_isqk8")
+basicEnemyCount = 10
+eliteEnemyCount = 0
+waveName = "Basic Enemy Wave"
+waveNumber = 1

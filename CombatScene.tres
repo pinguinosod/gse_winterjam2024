@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://sf2cigfmolf"]
+
+[ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_ko730"]
+[ext_resource type="Script" path="res://scripts/combat_scene.gd" id="1_ob7m4"]
+
+[resource]
+script = ExtResource("1_ob7m4")
+enemyWaves = Array[ExtResource("1_ko730")]([])
+doorOpensAfterTurns = 3
