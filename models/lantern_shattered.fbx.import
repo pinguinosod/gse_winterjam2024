@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cbjdcd6adwrhg"
-path="res://.godot/imported/lantern_shattered.fbx-51bb3b7db509f48a1d29a58872f59c12.scn"
+valid=false
 
 [deps]
 
 source_file="res://models/lantern_shattered.fbx"
-dest_files=["res://.godot/imported/lantern_shattered.fbx-51bb3b7db509f48a1d29a58872f59c12.scn"]
 
 [params]
 
