@@ -1,7 +1,7 @@
-[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://btdpvdv0uvrnf"]
+[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://cb68cd7vsqlkw"]
 
-[ext_resource type="ArrayMesh" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
-[ext_resource type="ArrayMesh" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
+[ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
+[ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
 
 [resource]
 item/0/name = "floorBlack"

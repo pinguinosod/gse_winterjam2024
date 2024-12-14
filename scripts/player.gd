@@ -11,11 +11,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if position != target_position:
 		position = position.move_toward(target_position, speed * delta)
-
-# Called when input is detected.
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var viewport = get_viewport()
-		var camera = $"../Camera3D"
-		target_position = camera.project_position(event.position, camera.transform.origin.distance_to(position))
-		
