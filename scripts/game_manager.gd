@@ -7,6 +7,9 @@ class_name GameManager
 @export var maxEnemyPoolSize = 100
 @export var enemyScene: PackedScene
 @export var enemyPoolHolder: Node3D
+@export var textDisplay: Label
+@export var textDisplayDurationSeconds = 2.0
+
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
 var occupiedEnemies: Array[Enemy] = []
@@ -14,6 +17,9 @@ var currentScene = 0
 var currentWave = 0
 var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
+
+var timeElapsed = 0.0
+var secondsPassed = 0
 
 var playerTurn = true
 
@@ -89,6 +95,9 @@ func free_enemy(enemy: Enemy):
 		freeEnemies.append(enemy)
 		enemy.hide()
 		enemy.set_process(false)
+
+func showText(text: String, clearAfterSeconds: float):
+	textDisplay.text = text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

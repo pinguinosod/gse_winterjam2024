@@ -5,10 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="2_4iq3d"]
 [ext_resource type="Resource" uid="uid://cvvg7vxnelgmm" path="res://CombatScenes/scene1.tres" id="3_rlxk1"]
 
-[node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder")]
+[node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder", "textDisplay")]
 script = ExtResource("1_brgg7")
 combatScenesToRun = Array[ExtResource("2_0ajky")]([ExtResource("3_rlxk1")])
 enemyScene = ExtResource("2_4iq3d")
 enemyPoolHolder = NodePath("EnemyPoolHolder")
+textDisplay = NodePath("Label")
 
 [node name="EnemyPoolHolder" type="Node3D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Hello world"
+horizontal_alignment = 1
+vertical_alignment = 1
