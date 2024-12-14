@@ -7,7 +7,7 @@ class_name Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	AudioManager.play_bg_music(step_sound)
+	# AudioManager.play_bg_music(step_sound)
 	pass # Replace with function body.
 
 
