@@ -1,11 +1,10 @@
-extends Node3D
+extends "res://Objects.gd"
 
+var heal_amount: int = 20
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func interact() -> void:
+	if is_interactive:
+		print("You healed for %d health!" % heal_amount)
+		queue_free()  # Remove the healing object after use
+	else:
+		print("This healing object is not active.")

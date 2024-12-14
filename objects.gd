@@ -1,11 +1,11 @@
 extends Node3D
 
+# Common properties for all objects
+var is_interactive: bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Called when an interaction is attempted
+func interact() -> void:
+	if is_interactive:
+		print("This object can be interacted with.")
+	else:
+		print("This object is non-interactive.")
