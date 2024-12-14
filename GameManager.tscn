@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhml57ffwa4iu"]
+[gd_scene load_steps=5 format=3 uid="uid://dhml57ffwa4iu"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_brgg7"]
+[ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_0ajky"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="2_4iq3d"]
+[ext_resource type="Resource" uid="uid://cvvg7vxnelgmm" path="res://CombatScenes/scene1.tres" id="3_rlxk1"]
 
 [node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder")]
 script = ExtResource("1_brgg7")
+combatScenesToRun = Array[ExtResource("2_0ajky")]([ExtResource("3_rlxk1")])
 enemyScene = ExtResource("2_4iq3d")
 enemyPoolHolder = NodePath("EnemyPoolHolder")
 

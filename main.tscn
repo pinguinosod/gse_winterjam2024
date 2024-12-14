@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3n3e4vjd3syp"]
+[gd_scene load_steps=9 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
 [ext_resource type="PackedScene" path="res://player.tscn" id="2_tjp8u"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
 [ext_resource type="Script" path="res://objects.gd" id="6_jj2ed"]
 [ext_resource type="PackedScene" uid="uid://dhml57ffwa4iu" path="res://GameManager.tscn" id="8_130yo"]
-[ext_resource type="Script" path="res://scripts/combat_scene.gd" id="9_odmca"]
-[ext_resource type="Resource" uid="uid://cvvg7vxnelgmm" path="res://CombatScenes/scene1.tres" id="10_jk0ri"]
 
 [sub_resource type="Environment" id="Environment_6gimq"]
 
@@ -41,4 +39,3 @@ transform = Transform3D(0.892704, -0.129429, -0.431657, 0.442805, 0.429811, 0.78
 shadow_enabled = true
 
 [node name="GameManager" parent="." instance=ExtResource("8_130yo")]
-combatScenesToRun = Array[ExtResource("9_odmca")]([ExtResource("10_jk0ri")])
