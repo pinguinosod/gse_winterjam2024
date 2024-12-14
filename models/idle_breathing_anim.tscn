@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccevp2anhj2td"]
+
+[ext_resource type="PackedScene" uid="uid://bxgv4ggb17jxf" path="res://models/CharactersAnimations/idleBreathingAnim.glb" id="1_a6vuv"]
+
+[node name="idleBreathingAnim" instance=ExtResource("1_a6vuv")]
