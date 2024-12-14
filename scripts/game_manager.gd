@@ -11,10 +11,6 @@ class_name GameManager
 @export var textDisplayDurationSeconds = 5.0
 
 @export var nextWaveAlarm: AudioStream
-@export var alwaysOn: AudioStream
-
-@export var loseSound: AudioStream
-@export var winSound: AudioStream
 
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
@@ -23,8 +19,6 @@ var currentScene = 0
 var currentWave = 0
 var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
-
-var currentRoom: Room
 
 var timeElapsed = 0.0
 var secondsPassed = 0
@@ -41,7 +35,6 @@ func _ready() -> void:
 		# instance.position = Vector3(i * (-1 ** i), 0, i * (-1 ** i))
 		instance.set_process(false)
 		instance.hide()
-	currentRoom = $"../Rooms"
 	pass # Replace with function body.
 
 func load_next_scene():
@@ -50,7 +43,6 @@ func load_next_scene():
 	currentCombatScene = combatScenesToRun[currentScene]
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
-	AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
 	load_next_wave()
@@ -119,6 +111,7 @@ func enemyTurn():
 	for enemy in occupiedEnemies:
 		if enemy.inTurn:
 			return true
+	playerTurn = true
 	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -127,11 +120,8 @@ func _process(delta: float) -> void:
 		if not playerTurn:
 			#if not is_wave_active():
 			#	load_next_wave()
-			showText("Enemy Turn")
 			for enemy in occupiedEnemies:
-				enemy.take_turn(currentRoom)
-		playerTurn = true
-	check_win()
+				enemy.take_turn()
 	timeElapsed += delta
 	if timeElapsed > 1:
 		secondsPassed += 1
@@ -139,22 +129,13 @@ func _process(delta: float) -> void:
 	if secondsPassed >= textDisplayDurationSeconds:
 		secondsPassed = 0
 		textDisplay.hide()
-
-func check_win():
-	for enemy in occupiedEnemies:
-		if enemy.position.distance_to($"../Player".position) <= 0.1:
-			showText("You lose!")
-			AudioManager.stop_bg_music()
-			AudioManager.play_sfx(loseSound)
-			currentScene = 0
-			clear_enemies()
-
+	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
+	if Input.is_action_just_pressed("end_turn") and playerTurn:
 		playerTurn = false
-	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and not enemyTurn():
+	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and playerTurn:
 		clear_enemies()
-	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and not enemyTurn():
+	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and playerTurn:
 		clear_enemies()
 		load_next_scene()
 	
