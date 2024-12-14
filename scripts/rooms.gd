@@ -14,7 +14,8 @@ func _unhandled_input(event):
 		var cellClicked = currentRoom.local_to_map(clickPosition)
 		print("cell clicked: ", cellClicked)
 		var targetPosition = Vector3(cellClicked.x + 0.5, 1, cellClicked.z + 0.5)
-		get_node("/root/main/Player").target_position = targetPosition
+		if targetPosition.x <= 25 and targetPosition.x >= 1 and targetPosition.z <= 13 and targetPosition.z >= 1:
+			get_node("/root/main/Player").target_position = targetPosition
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 128
