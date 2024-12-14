@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
 [ext_resource type="PackedScene" uid="uid://buuc6fpud4fcd" path="res://player.tscn" id="2_tjp8u"]
-[ext_resource type="Script" path="res://weapons.gd" id="3_7r03o"]
+[ext_resource type="PackedScene" uid="uid://1ytg8klhkx4x" path="res://weapons.tscn" id="3_0yghg"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
 [ext_resource type="PackedScene" uid="uid://ch7lfvfup1r3d" path="res://UI.tscn" id="5_3od5a"]
@@ -21,9 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="Player" parent="." instance=ExtResource("2_tjp8u")]
 transform = Transform3D(-0.0131768, 0.999913, 0, -0.999913, -0.0131768, 0, 0, 0, 1, 0, 0.691039, 0)
 
-[node name="Weapons" type="Node3D" parent="Player"]
-transform = Transform3D(-0.134226, -0.94861, 0.286572, 0.959992, -0.0527567, 0.275012, -0.24576, 0.31202, 0.917739, 0, 0, 0)
-script = ExtResource("3_7r03o")
+[node name="Weapons" parent="Player" instance=ExtResource("3_0yghg")]
 
 [node name="Enemies" parent="." instance=ExtResource("3_fuddb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06125, -3.36286)
