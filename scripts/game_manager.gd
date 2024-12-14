@@ -31,6 +31,14 @@ var secondsPassed = 0
 
 var playerTurn = true
 
+var playerStart: Vector3
+
+func get_player_start_position():
+	if not currentRoom:
+		currentRoom = $"../Rooms"
+	playerStart = currentRoom.get_random_cell_position(1, 5, 1, 5)
+	return playerStart
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(maxEnemyPoolSize):
@@ -60,7 +68,7 @@ func load_next_wave():
 		spawn_all_waves()
 		return
 	currentEnemyWave = currentCombatScene.enemyWaves[currentWave]
-	showText("Wave " + str(currentEnemyWave.waveNumber) + ": " + currentEnemyWave.waveName)
+	showText("Wave " + str(currentEnemyWave.waveNumber) + ": " + currentEnemyWave.waveName, 3)
 	currentWave += 1
 	AudioManager.play_sfx(nextWaveAlarm)
 	load_in_enemies()
@@ -89,8 +97,12 @@ func is_wave_active():
 func spawn_next_free_enemy():
 	if len(freeEnemies) > 0:
 		var enemy = freeEnemies.pop_front()
+		var enemyPos = currentRoom.get_random_cell_position()
+		while (enemyPos == playerStart):
+			enemyPos = currentRoom.get_random_cell_position()
 		enemy.show()
 		enemy.set_process(true)
+		enemy.position = enemyPos
 		occupiedEnemies.append(enemy)
 		return enemy
 	print("No free enemy found? Try increasing the pool size.")
@@ -109,9 +121,10 @@ func free_enemy(enemy: Enemy):
 		enemy.hide()
 		enemy.set_process(false)
 
-func showText(text: String):
+func showText(text: String, duration: float):
 	textDisplay.show()
 	textDisplay.text = text
+	textDisplayDurationSeconds = duration
 	secondsPassed = 0
 	timeElapsed = 0
 
@@ -123,15 +136,6 @@ func enemyTurn():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not enemyTurn():
-		if not playerTurn:
-			#if not is_wave_active():
-			#	load_next_wave()
-			showText("Enemy Turn")
-			for enemy in occupiedEnemies:
-				enemy.take_turn(currentRoom)
-		playerTurn = true
-	check_win()
 	timeElapsed += delta
 	if timeElapsed > 1:
 		secondsPassed += 1
@@ -139,11 +143,21 @@ func _process(delta: float) -> void:
 	if secondsPassed >= textDisplayDurationSeconds:
 		secondsPassed = 0
 		textDisplay.hide()
+	if not enemyTurn():
+		if not playerTurn:
+			#if not is_wave_active():
+			#	load_next_wave()
+			showText("Enemy Turn", 1.5)
+			for enemy in occupiedEnemies:
+				enemy.take_turn(currentRoom)
+		playerTurn = true
+	check_win()
+	
 
 func check_win():
 	for enemy in occupiedEnemies:
 		if enemy.position.distance_to($"../Player".position) <= 0.1:
-			showText("You lose!")
+			showText("You lose!", 3.5)
 			AudioManager.stop_bg_music()
 			AudioManager.play_sfx(loseSound)
 			currentScene = 0

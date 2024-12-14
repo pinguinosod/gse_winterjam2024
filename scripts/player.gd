@@ -8,6 +8,8 @@ var game_manager: GameManager
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	game_manager = $"../GameManager"
+	position = game_manager.get_player_start_position()
+	target_position = position
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
