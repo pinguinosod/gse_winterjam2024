@@ -1,11 +1,9 @@
-extends Node3D
+extends "res://Objects.gd"
 
+var is_on: bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func interact() -> void:
+	if is_interactive:
+		is_on = !is_on
+	else:
+		print("This lamp cannot be interacted with.")
