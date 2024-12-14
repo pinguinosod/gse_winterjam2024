@@ -4,9 +4,7 @@ extends CanvasLayer
 @export var game_manager: GameManager
 
 var current_story_index: int = 0  # Track the number of times "start" is pressed
-
 var texture_rect: TextureRect
-var label: Label
 
 func _ready():
 	texture_rect = $TextureRect_start
@@ -14,10 +12,6 @@ func _ready():
 	
 	if texture_rect == null:
 		print("Error: TextureRect node not found!")
-	
-	# Initialize the scene: 
-	if label:
-		label.visible = false  # Ensure Label starts hidden
 
 func _input(event):
 	# Detect "ui_accept" action (spacebar by default)
@@ -40,15 +34,14 @@ func _change_slide():
 	if current_story_index == 0: 
 		print("----- first page ----")
 		texture_rect = $TextureRect_0
+		var	label_3: Label = $TextureRect_0.find_child("Label")
+		if(label_3):
+			label_3.visible = true
 		
 	if current_story_index == 1: 
 		print("----- second page ----")
 		texture_rect = $TextureRect_1
-	
-	if current_story_index == 2: 
-		print("----- second page ----")
-		texture_rect = $TextureRect_2
-	
+
 	if current_story_index == 3: 
 		print("----- GAME ----")
 		var	playingAudio: AudioStreamPlayer = $TextureRect_start.find_child("AudioStreamPlayer")
@@ -57,14 +50,22 @@ func _change_slide():
 			
 		texture_rect = $TextureRect_3
 		_play_audio_new_slide()
-		if label:
-			label.visible = true
-		_go_into_game()
-		
 		
 	texture_rect.visible = true
+	
 
 func _go_into_game():
 	#going into game
 		game_manager.load_next_scene()
 	
+func _on_start_game_button_pressed() -> void:
+	print("START Button pressed!!")
+	print( "current_story_index = ", current_story_index)
+	_change_slide()
+	current_story_index += 1
+	pass # Replace with function body.
+
+
+func _on_button_pressed() -> void:
+	$TextureRect_start/AudioStreamPlayer.stream_paused = !$TextureRect_start/settings_menu.visible
+	$TextureRect_start/settings_menu.visible = !$TextureRect_start/settings_menu.visible
