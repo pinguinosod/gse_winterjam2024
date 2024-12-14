@@ -37,6 +37,7 @@ environment = SubResource("Environment_6gimq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.573577, 0.79124, -0.212012, 0, 0.258819, 0.965926, 0.819152, 0.554032, -0.148453, 0, 20, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="GameManager" parent="." instance=ExtResource("8_130yo")]
