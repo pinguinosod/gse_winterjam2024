@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crj37bo36phwd"]
 
-[ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
+[ext_resource type="MeshLibrary" uid="uid://btdpvdv0uvrnf" path="res://MeshLibrary.tres" id="1_aqf6v"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
 [ext_resource type="PackedScene" uid="uid://c0042cykxseku" path="res://models/tiles/fireplaceTile.glb" id="3_akdbk"]
 

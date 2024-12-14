@@ -107,14 +107,21 @@ func showText(text: String):
 	secondsPassed = 0
 	timeElapsed = 0
 
+func enemyTurn():
+	for enemy in occupiedEnemies:
+		if enemy.inTurn:
+			return true
+	playerTurn = true
+	return false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not playerTurn:
-		#if not is_wave_active():
-		#	load_next_wave()
-		for enemy in occupiedEnemies:
-			enemy.take_turn()
-		playerTurn = true
+	if not enemyTurn():
+		if not playerTurn:
+			#if not is_wave_active():
+			#	load_next_wave()
+			for enemy in occupiedEnemies:
+				enemy.take_turn()
 	timeElapsed += delta
 	if timeElapsed > 1:
 		secondsPassed += 1

@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyysjuf2pl57c"]
+[gd_scene load_steps=5 format=3 uid="uid://cyysjuf2pl57c"]
 
 [ext_resource type="Script" path="res://scripts/enemies.gd" id="1_1yk5q"]
-[ext_resource type="AudioStream" uid="uid://brk3tnwhlno0x" path="res://audio/Run.mp3" id="2_x3hl4"]
+[ext_resource type="AudioStream" uid="uid://dmst6ds0yifac" path="res://audio/Footsteps Sound Effect  NO COPYRIGHT.mp3" id="2_2l50l"]
 [ext_resource type="AudioStream" uid="uid://3888qdr7wrwn" path="res://audio/Punch.mp3" id="3_1cv4b"]
+[ext_resource type="PackedScene" uid="uid://cl158bgei8482" path="res://models/count_falling_dying.tscn" id="4_gpatt"]
 
 [node name="Enemy" type="Node3D" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_1yk5q")
-step_sound = ExtResource("2_x3hl4")
+step_sound = ExtResource("2_2l50l")
 attack_sound = ExtResource("3_1cv4b")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+visible = false
+
+[node name="countFallingDying" parent="." instance=ExtResource("4_gpatt")]
