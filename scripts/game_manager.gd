@@ -11,6 +11,7 @@ class_name GameManager
 @export var textDisplayDurationSeconds = 5.0
 
 @export var nextWaveAlarm: AudioStream
+@export var alwaysOn: AudioStream
 
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
@@ -19,6 +20,8 @@ var currentScene = 0
 var currentWave = 0
 var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
+
+var currentRoom: Room
 
 var timeElapsed = 0.0
 var secondsPassed = 0
@@ -35,6 +38,7 @@ func _ready() -> void:
 		# instance.position = Vector3(i * (-1 ** i), 0, i * (-1 ** i))
 		instance.set_process(false)
 		instance.hide()
+	currentRoom = $"../Rooms"
 	pass # Replace with function body.
 
 func load_next_scene():
@@ -43,6 +47,7 @@ func load_next_scene():
 	currentCombatScene = combatScenesToRun[currentScene]
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
+	AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
 	load_next_wave()
@@ -119,8 +124,9 @@ func _process(delta: float) -> void:
 		if not playerTurn:
 			#if not is_wave_active():
 			#	load_next_wave()
+			showText("Enemy Turn")
 			for enemy in occupiedEnemies:
-				enemy.take_turn()
+				enemy.take_turn(currentRoom)
 		playerTurn = true
 	timeElapsed += delta
 	if timeElapsed > 1:

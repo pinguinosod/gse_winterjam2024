@@ -1,11 +1,16 @@
 extends Node3D
 
+class_name Room
 
 var currentRoom: GridMap
 @export var offSet: Vector3
 
 func _ready():
 	currentRoom = $Room01
+
+func get_cell_position(world_position: Vector3):
+	var cell = currentRoom.local_to_map(world_position)
+	return Vector3(cell.x + 0.5, 1, cell.z + 0.5)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
