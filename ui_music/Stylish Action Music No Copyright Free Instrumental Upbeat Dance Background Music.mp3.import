@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2dg5mdx3yqjg"
+path="res://.godot/imported/Stylish Action Music No Copyright Free Instrumental Upbeat Dance Background Music.mp3-68e629eb3467d7ca93a2b53c806cfe02.mp3str"
+
+[deps]
+
+source_file="res://ui_music/Stylish Action Music No Copyright Free Instrumental Upbeat Dance Background Music.mp3"
+dest_files=["res://.godot/imported/Stylish Action Music No Copyright Free Instrumental Upbeat Dance Background Music.mp3-68e629eb3467d7ca93a2b53c806cfe02.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

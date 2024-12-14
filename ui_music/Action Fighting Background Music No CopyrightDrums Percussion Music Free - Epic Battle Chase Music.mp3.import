@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6pog1a38h1e6"
+path="res://.godot/imported/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3-77dbc22b057528c1c772792ebac2d658.mp3str"
+
+[deps]
+
+source_file="res://ui_music/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3"
+dest_files=["res://.godot/imported/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3-77dbc22b057528c1c772792ebac2d658.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
