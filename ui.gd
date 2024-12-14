@@ -11,31 +11,32 @@ var label: Label
 func _ready():
 	# Print the node tree for debugging
 	print_tree()
-	
-	# Cache references to child nodes
-	texture_rect = $TextureRect
+    
+    # Cache references to child nodes
+	texture_rect = $TextureRect_start
 	label = $Label
-	
-	# Error handling for missing nodes
+    
+    # Error handling for missing nodes
 	if texture_rect == null:
 		print("Error: TextureRect node not found!")
-	if label == null:
-		print("Error: Label node not found!")
+		if label == null:
+			print("Error: Label node not found!")
 	
-	# Initialize the scene:  hide the Label
+    
+    # Initialize the scene:  hide the Label
 	if label:
 		label.visible = false  # Ensure Label starts hidden
-	
-	# Print the initial texture name for debugging
+    
+    # Print the initial texture name for debugging
 	_print_texture_name()
 
 func _print_texture_name():
 	if texture_rect and texture_rect.texture:
-		# Get the file path of the texture
+        # Get the file path of the texture
 		var texture_path = texture_rect.texture.resource_path
-		# Extract just the file name
+        # Extract just the file name
 		var texture_name = texture_path.get_file()
-		# Print the texture name to the console
+        # Print the texture name to the console
 		print("Current texture file: ", texture_name)
 	else:
 		print("No texture assigned to TextureRect.")
@@ -45,17 +46,36 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		_handle_space_pressed()
 
+func _change_slide():
+	texture_rect.visible = false
+	
+	if current_story_index == 0: 
+		print("----- first page ----")
+		texture_rect = $TextureRect_0
+		
+	if current_story_index == 1: 
+		print("----- second page ----")
+		texture_rect = $TextureRect_1
+	
+	if current_story_index == 2: 
+		print("----- GAME ----")
+		var	playingAudio: AudioStreamPlayer = $TextureRect_start.find_child("AudioStreamPlayer")
+		if (playingAudio):
+			playingAudio.stop()
+			
+		texture_rect = $TextureRect_2
+		_play_audio_new_slide()
+		label.visible = true
+		
+	texture_rect.visible = true
+	
+func _play_audio_new_slide():
+	var	playingAudio: AudioStreamPlayer = texture_rect.find_child("AudioStreamPlayer")
+	if (playingAudio):
+		playingAudio.play()
+		
 func _handle_space_pressed():
-	if texture_rect and texture_rect.visible:
-		if current_story_index < 2:  # First two presses assign random textures
-			texture_rect.set_random_image()  # Call the method from the TextureRect script
-			current_story_index += 1
-		else:
-			# Hide the TextureRect and show the Label
-			texture_rect.visible = false
-			if label:
-				label.text = "5"  # Set the Label text to "5"
-				label.visible = true
-	elif label and label.visible:
-		# Add optional logic for when the Label is visible (e.g., reset or other behavior)
-		pass
+	print( "current_story_index = ", current_story_index)
+	_change_slide()
+	current_story_index += 1
+		
