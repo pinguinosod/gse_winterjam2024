@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ytg8klhkx4x"]
+
+[ext_resource type="Script" path="res://weapons.gd" id="1_yenjf"]
+
+[node name="Weapons" type="Node3D"]
+transform = Transform3D(-0.134226, -0.94861, 0.286572, 0.959992, -0.0527567, 0.275012, -0.24576, 0.31202, 0.917739, 0, 0, 0)
+script = ExtResource("1_yenjf")
