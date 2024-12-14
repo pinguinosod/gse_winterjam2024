@@ -25,18 +25,21 @@ transform = Transform3D(-0.0131768, 0.999913, 0, -0.999913, -0.0131768, 0, 0, 0,
 
 [node name="Enemies" parent="." instance=ExtResource("3_fuddb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06125, -3.36286)
+visible = false
 step_sound = ExtResource("5_8yy2t")
 
 [node name="Objects" parent="." instance=ExtResource("4_vypmj")]
 script = ExtResource("6_jj2ed")
 
-[node name="UI" parent="." instance=ExtResource("5_3od5a")]
+[node name="UI" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_3od5a")]
+game_manager = NodePath("../GameManager")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6gimq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.573577, 0.79124, -0.212012, 0, 0.258819, 0.965926, 0.819152, 0.554032, -0.148453, 0, 20, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="GameManager" parent="." instance=ExtResource("8_130yo")]

@@ -35,13 +35,13 @@ func _ready() -> void:
 		# instance.position = Vector3(i * (-1 ** i), 0, i * (-1 ** i))
 		instance.set_process(false)
 		instance.hide()
-	load_next_scene()
 	pass # Replace with function body.
 
 func load_next_scene():
 	if currentScene >= len(combatScenesToRun):
 		return
 	currentCombatScene = combatScenesToRun[currentScene]
+	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
 	currentScene += 1
 	currentWave = 0
@@ -110,8 +110,8 @@ func showText(text: String):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not playerTurn:
-		if not is_wave_active():
-			load_next_wave()
+		#if not is_wave_active():
+		#	load_next_wave()
 		for enemy in occupiedEnemies:
 			enemy.take_turn()
 		playerTurn = true
