@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://1ytg8klhkx4x"]
+[gd_scene load_steps=9 format=3 uid="uid://1ytg8klhkx4x"]
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_yenjf"]
 [ext_resource type="Script" path="res://weapon_1.gd" id="2_owbgx"]
 [ext_resource type="Script" path="res://weapon_2.gd" id="3_im5vi"]
 [ext_resource type="Script" path="res://weapon_5.gd" id="4_ncnkk"]
 [ext_resource type="Script" path="res://weapon_3.gd" id="5_fwqo1"]
+[ext_resource type="PackedScene" uid="uid://blcplh2bjao71" path="res://models/book_thrown_weapon.tscn" id="6_5bhp7"]
 [ext_resource type="Script" path="res://weapon_4.gd" id="6_jmahl"]
 [ext_resource type="Script" path="res://weapon_6_(umbrella).gd" id="7_erbbp"]
 
@@ -24,6 +25,8 @@ script = ExtResource("4_ncnkk")
 
 [node name="Weapon 4 (Book)" type="Node3D" parent="."]
 script = ExtResource("5_fwqo1")
+
+[node name="bookThrownWeapon" parent="Weapon 4 (Book)" instance=ExtResource("6_5bhp7")]
 
 [node name="Weapon 5 (Fire Book)" type="Node3D" parent="."]
 script = ExtResource("6_jmahl")
