@@ -30,6 +30,7 @@ var secondsPassed = 0
 var playerTurn = true
 
 var playerStart: Vector3
+var player: Player
 
 func get_player_start_position():
 	if not currentRoom:

@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name Player
+
 var game_manager
 var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 points
 var speed: float = 10.0
@@ -14,6 +16,7 @@ var currentWeapon = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	game_manager = $"../GameManager"
+	game_manager.player = self
 	position = game_manager.get_player_start_position()
 	current_path_index = 0  # Start from the beginning of the path
 
@@ -29,7 +32,7 @@ func _process(delta: float) -> void:
 			# Move to the next point in the path when the current one is reached
 			current_path_index += 1
 	else:
-		get_node("/root/main/Rooms").toggleClickIgnore(false)
+		get_node("/root/main/Rooms").toggleClickIgnore(game_manager.enemyTurn())
 
 func setPathToFollow(_pathToFollow: PackedVector2Array) -> void:
 	print(currentAP)
