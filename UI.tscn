@@ -25,6 +25,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 873.0
 offset_top = 13.0
 offset_right = 913.0
