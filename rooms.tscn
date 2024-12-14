@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crj37bo36phwd"]
 
-[ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
+[ext_resource type="MeshLibrary" path="res://MeshLibrary.tres" id="1_aqf6v"]
 
 [node name="Rooms" type="Node3D"]
 
