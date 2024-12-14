@@ -1,5 +1,6 @@
 extends Node3D
 
+var game_manager
 var target_position: Vector3 = Vector3.ZERO
 var speed: float = 10.0
 

@@ -5,8 +5,8 @@
 [ext_resource type="ArrayMesh" uid="uid://cj0edtpfyj86y" path="res://models/tiles/berryBush.tres" id="3_8ar2b"]
 [ext_resource type="ArrayMesh" uid="uid://p6nr3ra7pl6y" path="res://models/tiles/fireplaceTile.tres" id="4_o266r"]
 [ext_resource type="ArrayMesh" uid="uid://dc336q6l8vf4b" path="res://models/tiles/chairTile.tres" id="5_4k2wy"]
-[ext_resource type="ArrayMesh" uid="uid://d0uuxlympyxe" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
-[ext_resource type="ArrayMesh" uid="uid://hw24suopn03k" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
+[ext_resource type="ArrayMesh" uid="uid://kp1qm076x4h8" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
+[ext_resource type="ArrayMesh" uid="uid://c44lxrgie2ut8" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
 
 [resource]
 item/0/name = "floorBlack"

@@ -28,26 +28,27 @@ func _process(delta: float) -> void:
 	pass
 
 # calls and processes the results of get_movement and get_next_action
-func take_turn():
+func take_turn(room: Room):
 	inTurn = true
-	var moveTo = get_movement()
+	var moveTo = get_movement(room)
 	# TODO change that to change the grid position actually
 	
-	$countFallingDying.travel("Walk")
-	target_position = moveTo + position
+	if moveTo != position:
+		$countFallingDying.travel("Walk")
+	target_position = moveTo
 	idle = false
 	AudioManager.play_sfx(step_sound)
 	pass
 
 # checks if valid and returns the grid field the enemy wants to move to
-func get_movement():
+func get_movement(room: Room):
 	# check all fields in range of the enemy, starting with the closest to the player
 	# for field in grid:
 	# check if the field is not occupied
 	# if grid.isFree(field):
 	# return field
 	
-	return Vector3(randf(), 0, randf()) * speed
+	return room.get_cell_position(Vector3(randf(), 0, randf()) * speed + position)
 	pass
 
 # returns the action of the enemy for this turn
