@@ -2,6 +2,7 @@ extends AudioStreamPlayer3D
 
 var sfx_player
 
+
 func _ready() -> void:
 	self.play()
 	sfx_player = AudioStreamPlayer3D.new()

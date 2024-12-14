@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1jxvkgl801gb"]
+[gd_scene load_steps=2 format=3 uid="uid://d1jxvkgl801gb"]
 
 [ext_resource type="Script" path="res://audio_manager.gd" id="1_dbwrk"]
-[ext_resource type="AudioStream" uid="uid://dna4obyxtkqus" path="res://audio/Air Horn.mp3" id="1_qc8ra"]
 
 [node name="AudioManager" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_qc8ra")
-volume_db = 6.115
+volume_db = -80.0
 autoplay = true
 script = ExtResource("1_dbwrk")
 
