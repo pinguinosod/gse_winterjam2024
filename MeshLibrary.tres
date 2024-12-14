@@ -1,11 +1,18 @@
-[gd_resource type="MeshLibrary" load_steps=2 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://cb68cd7vsqlkw"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jq86j"]
+[ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
+[ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
 
 [resource]
-item/0/name = ""
-item/0/mesh = SubResource("BoxMesh_jq86j")
+item/0/name = "floorBlack"
+item/0/mesh = ExtResource("1_2w8vd")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/shapes = []
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/navigation_layers = 1
+item/1/name = "floorWhite"
+item/1/mesh = ExtResource("2_tj8s8")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
