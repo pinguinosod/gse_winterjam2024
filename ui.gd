@@ -58,12 +58,16 @@ func _change_slide():
 		texture_rect = $TextureRect_1
 	
 	if current_story_index == 2: 
+		print("----- second page ----")
+		texture_rect = $TextureRect_2
+	
+	if current_story_index == 3: 
 		print("----- GAME ----")
 		var	playingAudio: AudioStreamPlayer = $TextureRect_start.find_child("AudioStreamPlayer")
 		if (playingAudio):
 			playingAudio.stop()
 			
-		texture_rect = $TextureRect_2
+		texture_rect = $TextureRect_3
 		_play_audio_new_slide()
 		label.visible = true
 		
