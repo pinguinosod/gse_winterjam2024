@@ -2,6 +2,7 @@ extends Node3D
 
 
 var currentRoom: GridMap
+@export var offSet: Vector3
 
 func _ready():
 	currentRoom = $Room01
@@ -11,7 +12,10 @@ func _unhandled_input(event):
 		var clickPosition = get_cursor_world_position()
 		print("click Position: ", clickPosition)
 		var cellClicked = currentRoom.local_to_map(clickPosition)
-		#print("cell clicked: ", cellClicked)
+		print("cell clicked: ", cellClicked)
+		var targetPosition = Vector3(cellClicked.x + 0.5, 1, cellClicked.z + 0.5)
+		if targetPosition.x <= 25 and targetPosition.x >= 1 and targetPosition.z <= 13 and targetPosition.z >= 1:
+			get_node("/root/main/Player").target_position = targetPosition
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 128
@@ -30,4 +34,4 @@ func get_cursor_world_position() -> Vector3:
 
 	var ray_result: Dictionary = get_world_3d().direct_space_state.intersect_ray(ray_params)
 	
-	return ray_result.get("position", to) # return Vector3.ZERO if needed
+	return ray_result.get("position", to)# + offSet # - camera.global_position
