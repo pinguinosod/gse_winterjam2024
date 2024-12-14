@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vrelend6gifd"
+path="res://.godot/imported/NoCopyright Tension Background Music Compilation by Soundridemusic.mp3-0b15c58069456564b459128306be1879.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/NoCopyright Tension Background Music Compilation by Soundridemusic.mp3"
+dest_files=["res://.godot/imported/NoCopyright Tension Background Music Compilation by Soundridemusic.mp3-0b15c58069456564b459128306be1879.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

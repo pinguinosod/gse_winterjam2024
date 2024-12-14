@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CombatScene" load_steps=6 format=3 uid="uid://bpke3qdqn6e81"]
+
+[ext_resource type="AudioStream" uid="uid://d4kottpr4c14" path="res://audio/Music/Cinematic Epic Music by Infraction [No Copyright Music]  Action.mp3" id="1_cuc0k"]
+[ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_o1s8w"]
+[ext_resource type="Resource" uid="uid://dnhv5ovxvbr14" path="res://EnemyWaves/basic_enemy_wave.tres" id="2_04cpd"]
+[ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_tcg2n"]
+[ext_resource type="Resource" uid="uid://lqxshiqtid3p" path="res://EnemyWaves/basic_enemy_wave2.tres" id="3_f3o5w"]
+
+[resource]
+script = ExtResource("2_tcg2n")
+enemyWaves = Array[ExtResource("1_o1s8w")]([ExtResource("2_04cpd"), ExtResource("3_f3o5w")])
+doorOpensAfterTurns = 5
+bgm = ExtResource("1_cuc0k")

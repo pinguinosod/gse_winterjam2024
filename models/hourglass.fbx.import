@@ -3,13 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpaomljfwga5b"
-path="res://.godot/imported/hourglass.fbx-ffac6b904f289bcdfd46dbf6f9bdd61b.scn"
+uid="uid://c2ud815kj787d"
+valid=false
 
 [deps]
 
 source_file="res://models/hourglass.fbx"
-dest_files=["res://.godot/imported/hourglass.fbx-ffac6b904f289bcdfd46dbf6f9bdd61b.scn"]
 
 [params]
 
@@ -32,6 +31,6 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
+fbx/importer=1
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

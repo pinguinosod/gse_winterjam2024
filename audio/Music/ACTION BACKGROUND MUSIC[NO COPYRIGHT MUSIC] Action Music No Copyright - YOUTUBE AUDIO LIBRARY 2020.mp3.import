@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgfykobfatltc"
+path="res://.godot/imported/ACTION BACKGROUND MUSIC[NO COPYRIGHT MUSIC] Action Music No Copyright - YOUTUBE AUDIO LIBRARY 2020.mp3-3a020a2257f2d63029f7c8d486c03f0b.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/ACTION BACKGROUND MUSIC[NO COPYRIGHT MUSIC] Action Music No Copyright - YOUTUBE AUDIO LIBRARY 2020.mp3"
+dest_files=["res://.godot/imported/ACTION BACKGROUND MUSIC[NO COPYRIGHT MUSIC] Action Music No Copyright - YOUTUBE AUDIO LIBRARY 2020.mp3-3a020a2257f2d63029f7c8d486c03f0b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

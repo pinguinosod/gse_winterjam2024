@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=8 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
 [ext_resource type="Script" path="res://ui_image.gd" id="3_hy5lo"]
+[ext_resource type="AudioStream" uid="uid://25bco1hvrhi0" path="res://ui_music/Die Entführung aus dem Serail, Act 3_ Ha! Wie will ich triumphiren!.mp3" id="4_ngj2h"]
+[ext_resource type="Texture2D" uid="uid://bphsny4uxy2yb" path="res://ui_images/story_1.png" id="5_dn7ii"]
+[ext_resource type="Texture2D" uid="uid://d0kecrpcli6kg" path="res://ui_images/story_2.png" id="7_o03d0"]
+[ext_resource type="AudioStream" uid="uid://d7m4ci7tqix5" path="res://audio/Music/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3" id="8_hxaoc"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_87y67")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect_start" type="TextureRect" parent="."]
 offset_right = 963.0
 offset_bottom = 509.0
 size_flags_horizontal = 4
@@ -15,7 +19,13 @@ size_flags_vertical = 4
 texture = ExtResource("2_jjj1s")
 script = ExtResource("3_hy5lo")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_start"]
+stream = ExtResource("4_ngj2h")
+autoplay = true
+parameters/looping = true
+
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 873.0
 offset_top = 13.0
 offset_right = 913.0
@@ -23,3 +33,44 @@ offset_bottom = 36.0
 text = "5 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect_0" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_dn7ii")
+
+[node name="Label" type="Label" parent="TextureRect_0"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureRect_1" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_o03d0")
+
+[node name="Label" type="Label" parent="TextureRect_1"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureRect_2" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_2"]
+stream = ExtResource("8_hxaoc")
+
+[node name="XP_Label" type="Label" parent="TextureRect_2"]
+visible = false
+layout_mode = 0
+offset_left = 893.0
+offset_top = 13.0
+offset_right = 933.0
+offset_bottom = 36.0
+text = "5 XP"

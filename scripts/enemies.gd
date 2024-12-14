@@ -2,8 +2,12 @@ extends Node3D
 
 class_name Enemy
 
+@export var step_sound: AudioStream
+@export var attack_sound: AudioStream
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.play_bg_music(step_sound)
 	pass # Replace with function body.
 
 
@@ -16,6 +20,7 @@ func take_turn():
 	var moveTo = get_movement()
 	# TODO change that to change the grid position actually
 	self.position += moveTo
+	# AudioManager.play_sfx(step_sound)
 	get_next_action()
 	pass
 
@@ -37,5 +42,6 @@ func get_next_action():
 	# self.weapon.attack()
 	# pass_turn()
 	
+	AudioManager.play_sfx(attack_sound)
 	print("Attack!")
 	pass

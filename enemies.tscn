@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyysjuf2pl57c"]
+[gd_scene load_steps=4 format=3 uid="uid://cyysjuf2pl57c"]
 
 [ext_resource type="Script" path="res://scripts/enemies.gd" id="1_1yk5q"]
+[ext_resource type="AudioStream" uid="uid://brk3tnwhlno0x" path="res://audio/Run.mp3" id="2_x3hl4"]
+[ext_resource type="AudioStream" uid="uid://3888qdr7wrwn" path="res://audio/Punch.mp3" id="3_1cv4b"]
 
 [node name="Enemy" type="Node3D" groups=["Enemy"]]
 script = ExtResource("1_1yk5q")
+step_sound = ExtResource("2_x3hl4")
+attack_sound = ExtResource("3_1cv4b")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]

@@ -10,6 +10,8 @@ class_name GameManager
 @export var textDisplay: Label
 @export var textDisplayDurationSeconds = 5.0
 
+@export var nextWaveAlarm: AudioStream
+
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
 var occupiedEnemies: Array[Enemy] = []
@@ -40,6 +42,7 @@ func load_next_scene():
 	if currentScene >= len(combatScenesToRun):
 		return
 	currentCombatScene = combatScenesToRun[currentScene]
+	AudioManager.play_bg_music(currentCombatScene.bgm)
 	currentScene += 1
 	currentWave = 0
 	load_next_wave()
@@ -51,6 +54,7 @@ func load_next_wave():
 	currentEnemyWave = currentCombatScene.enemyWaves[currentWave]
 	showText("Wave " + str(currentEnemyWave.waveNumber) + ": " + currentEnemyWave.waveName)
 	currentWave += 1
+	AudioManager.play_sfx(nextWaveAlarm)
 	load_in_enemies()
 	
 func spawn_all_waves():
@@ -124,3 +128,7 @@ func _input(event: InputEvent) -> void:
 		playerTurn = false
 	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and playerTurn:
 		clear_enemies()
+	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and playerTurn:
+		clear_enemies()
+		load_next_scene()
+	
