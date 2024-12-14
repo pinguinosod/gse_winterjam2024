@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://082rgmto1mon"]
+[gd_scene load_steps=4 format=3 uid="uid://082rgmto1mon"]
+
+[ext_resource type="Script" path="res://healing_objects.gd" id="1_p7qyu"]
+[ext_resource type="Script" path="res://lamp_objects.gd" id="2_u75bt"]
+[ext_resource type="Script" path="res://non_interactive_objects.gd" id="3_d03fh"]
 
 [node name="Objects" type="Node3D"]
+
+[node name="Healing Objects" type="Node3D" parent="."]
+script = ExtResource("1_p7qyu")
+
+[node name="Lamp Objects" type="Node3D" parent="."]
+script = ExtResource("2_u75bt")
+
+[node name="Non Interactive Objects" type="Node3D" parent="."]
+script = ExtResource("3_d03fh")
