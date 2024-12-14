@@ -1,13 +1,17 @@
-[gd_resource type="MeshLibrary" load_steps=9 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=13 format=3 uid="uid://cb68cd7vsqlkw"]
 
 [ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
 [ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
 [ext_resource type="ArrayMesh" uid="uid://cxixldg6f2dfw" path="res://models/tiles/berryBush.tres" id="3_8ar2b"]
+[ext_resource type="ArrayMesh" path="res://models/tiles/couchSmall.tres" id="3_oshuk"]
 [ext_resource type="ArrayMesh" uid="uid://csf50rydtxpla" path="res://models/tiles/fireplaceTile.tres" id="4_o266r"]
+[ext_resource type="ArrayMesh" path="res://models/tiles/carpetTile2.tres" id="4_paii1"]
+[ext_resource type="ArrayMesh" uid="uid://cjlkufj7uwk0l" path="res://models/tiles/doorTile.tres" id="5_4chby"]
 [ext_resource type="ArrayMesh" uid="uid://dc336q6l8vf4b" path="res://models/tiles/chairTile.tres" id="5_4k2wy"]
 [ext_resource type="ArrayMesh" uid="uid://7khv0ec7rh8l" path="res://models/tiles/tableTILE.tres" id="6_e7xrh"]
 [ext_resource type="ArrayMesh" uid="uid://d0uuxlympyxe" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
 [ext_resource type="ArrayMesh" uid="uid://hw24suopn03k" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
+[ext_resource type="ArrayMesh" path="res://models/tiles/sideTable.tres" id="8_5gu5p"]
 
 [resource]
 item/0/name = "floorBlack"
@@ -28,15 +32,15 @@ item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/2/shapes = []
 item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/navigation_layers = 1
-item/3/name = "MISSINGTHING INDEX 3"
+item/3/name = "Furnace"
 item/3/mesh = ExtResource("4_o266r")
 item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/3/shapes = []
 item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/3/navigation_layers = 1
-item/4/name = "MISSINGTHING INDEX 4"
-item/4/mesh = ExtResource("4_o266r")
-item/4/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+item/4/name = "SideTable"
+item/4/mesh = ExtResource("8_5gu5p")
+item/4/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/4/shapes = []
 item/4/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/4/navigation_layers = 1
@@ -48,7 +52,7 @@ item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 
 item/5/navigation_layers = 1
 item/6/name = "Chair"
 item/6/mesh = ExtResource("5_4k2wy")
-item/6/mesh_transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.2, 0)
+item/6/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
 item/6/shapes = []
 item/6/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/6/navigation_layers = 1
@@ -70,8 +74,21 @@ item/9/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/9/shapes = []
 item/9/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/9/navigation_layers = 1
-item/10/name = ""
-item/10/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/10/name = "Couch"
+item/10/mesh = ExtResource("3_oshuk")
+item/10/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/10/shapes = []
 item/10/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/10/navigation_layers = 1
+item/11/name = "Carpet"
+item/11/mesh = ExtResource("4_paii1")
+item/11/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/11/shapes = []
+item/11/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/11/navigation_layers = 1
+item/12/name = "Door"
+item/12/mesh = ExtResource("5_4chby")
+item/12/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
+item/12/shapes = []
+item/12/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/12/navigation_layers = 1
