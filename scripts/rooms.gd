@@ -9,6 +9,8 @@ var maxX = 26
 var maxZ = 14
 var AStar = AStar2D.new()
 
+var ignoreClicks = false
+
 func _ready():
 	currentRoom = $Room01
 	for x in maxX:
@@ -37,15 +39,13 @@ func get_cell_position(world_position: Vector3):
 	return Vector3(cell.x + 0.5, 1, cell.z + 0.5)
 	
 func get_random_cell_position(min_x = 1, max_x = 26, min_z = 1, max_z = 14):
-	return Vector3(randi_range(min_x, max_x) + 0.5, 1, randi_range(min_z, max_z) + 0.5)
+	return Vector3(3 + 0.5, 1, 1 + 0.5)
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if !ignoreClicks and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		var clickPosition = get_cursor_world_position()
-		print("click Position: ", clickPosition)
 		var cellClicked = currentRoom.local_to_map(clickPosition)
-		print("cell clicked: ", cellClicked)
-		var targetPosition = Vector3(cellClicked.x + 0.5, 1, cellClicked.z + 0.5)
+		var targetPosition = Vector3(cellClicked.x, 1, cellClicked.z)
 		if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:
 			if internalGrid[targetPosition.x][targetPosition.z] == GridMap.INVALID_CELL_ITEM:
 				var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
@@ -78,3 +78,6 @@ func _getPath(x1,y1,x2,y2) -> PackedVector2Array: #Godot's built-in aStar script
 	var path = AStar.get_point_path(_generateID(x1, y1), _generateID(x2,y2))
 	#path.remove(0) #we remove first step of path, since it's our starting point
 	return path
+	
+func toggleClickIgnore(toggle) -> void:
+	ignoreClicks = toggle;

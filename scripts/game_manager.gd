@@ -34,7 +34,7 @@ var playerStart: Vector3
 func get_player_start_position():
 	if not currentRoom:
 		currentRoom = $"../Rooms"
-	playerStart = currentRoom.get_random_cell_position(1, 5, 1, 5)
+	playerStart = Vector3(1.5, 1, 6.5)
 	return playerStart
 
 # Called when the node enters the scene tree for the first time.
