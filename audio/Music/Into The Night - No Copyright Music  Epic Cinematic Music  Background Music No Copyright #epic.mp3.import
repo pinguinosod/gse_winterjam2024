@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xyfmr7mfs6jr"
+path="res://.godot/imported/Into The Night - No Copyright Music  Epic Cinematic Music  Background Music No Copyright #epic.mp3-91b8a460549ec9673dba183783a5763e.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Into The Night - No Copyright Music  Epic Cinematic Music  Background Music No Copyright #epic.mp3"
+dest_files=["res://.godot/imported/Into The Night - No Copyright Music  Epic Cinematic Music  Background Music No Copyright #epic.mp3-91b8a460549ec9673dba183783a5763e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

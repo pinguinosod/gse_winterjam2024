@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1sfbqbcru48"
+path="res://.godot/imported/Action Cinematic Trailer NoCopyright Background Music  Predator by ArcticFoxMusic.mp3-177b2294025103743ee251ef3d7322ec.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Action Cinematic Trailer NoCopyright Background Music  Predator by ArcticFoxMusic.mp3"
+dest_files=["res://.godot/imported/Action Cinematic Trailer NoCopyright Background Music  Predator by ArcticFoxMusic.mp3-177b2294025103743ee251ef3d7322ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

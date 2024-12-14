@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bj4tqt4b1yag3"
+path="res://.godot/imported/Cinematic Action Music No Copyright Free Energetic & Cool Electro House Background Music.mp3-423df9844bf31e6876a50a78a29cfb77.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Cinematic Action Music No Copyright Free Energetic & Cool Electro House Background Music.mp3"
+dest_files=["res://.godot/imported/Cinematic Action Music No Copyright Free Energetic & Cool Electro House Background Music.mp3-423df9844bf31e6876a50a78a29cfb77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

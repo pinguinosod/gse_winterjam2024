@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6wpxt0x44ea"
+path="res://.godot/imported/[EPIC MUSIC NO COPYRIGHT]EPIC BACKGROUND MUSIC NO COPYRIGHT - ACTION MUSIC NO COPYRIGHT.mp3-a3f520a325796991a087db63684f4bcf.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/[EPIC MUSIC NO COPYRIGHT]EPIC BACKGROUND MUSIC NO COPYRIGHT - ACTION MUSIC NO COPYRIGHT.mp3"
+dest_files=["res://.godot/imported/[EPIC MUSIC NO COPYRIGHT]EPIC BACKGROUND MUSIC NO COPYRIGHT - ACTION MUSIC NO COPYRIGHT.mp3-a3f520a325796991a087db63684f4bcf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

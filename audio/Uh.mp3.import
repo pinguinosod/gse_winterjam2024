@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Uh.mp3-7702d8424079eb46a81882d06778e032.mp3st
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
