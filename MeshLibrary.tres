@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=15 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=17 format=3 uid="uid://cb68cd7vsqlkw"]
 
 [ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
 [ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
@@ -12,8 +12,10 @@
 [ext_resource type="ArrayMesh" uid="uid://d0uuxlympyxe" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
 [ext_resource type="ArrayMesh" uid="uid://chatwg3r7efs" path="res://models/tiles/billiardTable2.tres" id="6_hgada"]
 [ext_resource type="ArrayMesh" uid="uid://hw24suopn03k" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
+[ext_resource type="ArrayMesh" uid="uid://offqaq388nip" path="res://models/tiles/lameChairTile.tres" id="7_6i6wq"]
 [ext_resource type="ArrayMesh" uid="uid://bmf4y5xark53c" path="res://models/tiles/sideTable.tres" id="8_5gu5p"]
 [ext_resource type="ArrayMesh" uid="uid://dq38wy47f31yg" path="res://models/tiles/gridUnenterableTile.tres" id="8_8ncgt"]
+[ext_resource type="ArrayMesh" uid="uid://dq50pm1nd8fvs" path="res://models/tiles/chessTableTile.tres" id="9_ns2rk"]
 
 [resource]
 item/0/name = "floorBlack"
@@ -101,7 +103,8 @@ item/13/shapes = []
 item/13/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/13/navigation_layers = 1
 item/14/name = "BoringChair"
-item/14/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/14/mesh = ExtResource("7_6i6wq")
+item/14/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/14/shapes = []
 item/14/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/14/navigation_layers = 1
@@ -112,7 +115,8 @@ item/15/shapes = []
 item/15/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/15/navigation_layers = 1
 item/16/name = "Chess Table"
-item/16/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/16/mesh = ExtResource("9_ns2rk")
+item/16/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/16/shapes = []
 item/16/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/16/navigation_layers = 1
