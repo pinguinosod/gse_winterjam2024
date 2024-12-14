@@ -10,3 +10,5 @@ script = ExtResource("1_xsb8n")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 material_override = SubResource("StandardMaterial3D_dnlpf")
+
+[node name="Weapon" type="Node3D" parent="."]

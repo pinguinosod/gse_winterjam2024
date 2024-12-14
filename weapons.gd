@@ -1,20 +1,16 @@
 extends Node3D
 
 # Common properties for all weapons
-const MAX_USES: int = 10
-const DURABILITY: int = 25
-
-var uses: int = 0
-var durability: int = DURABILITY
+const maxDurability: int = 25
+var currentDurability: int = maxDurability
 
 # Perform an attack
 func attack() -> void:
-	if uses < MAX_USES and durability > 0:
+	if currentDurability > 0:
 		perform_melee_attack()
-		uses += 1
-		durability -= 1
-		print("Attack performed. Remaining uses: %d, Durability: %d" % [MAX_USES - uses, durability])
-		if durability <= 0:
+		currentDurability -= 1
+		print("Attack performed. Remaining durability: %d" % [currentDurability])
+		if currentDurability <= 0:
 			queue_free()  # Remove the weapon node
 			print("The weapon has broken.")
 	else:

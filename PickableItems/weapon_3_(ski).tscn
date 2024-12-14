@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cik5veric2ysk"]
+
+[ext_resource type="Script" path="res://weapons.gd" id="1_i73o7"]
+
+[node name="weapon 3 (Ski)" type="Node3D"]
+transform = Transform3D(1, -1.49012e-08, 0, 0, 1, 0, 1.49012e-08, 5.96046e-08, 1, 0, 0, 0)
+script = ExtResource("1_i73o7")

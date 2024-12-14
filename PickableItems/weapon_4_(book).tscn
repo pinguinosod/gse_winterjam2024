@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c68jlq0my3nvd"]
+
+[ext_resource type="Script" path="res://weapons.gd" id="1_uxnvy"]
+[ext_resource type="PackedScene" uid="uid://blcplh2bjao71" path="res://models/book_thrown_weapon.tscn" id="2_bio3c"]
+
+[node name="Weapon 4 (Book)" type="Node3D"]
+script = ExtResource("1_uxnvy")
+
+[node name="bookThrownWeapon" parent="." instance=ExtResource("2_bio3c")]
