@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_tjp8u"]
+[ext_resource type="PackedScene" uid="uid://buuc6fpud4fcd" path="res://player.tscn" id="2_tjp8u"]
 [ext_resource type="Script" path="res://weapons.gd" id="3_7r03o"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
@@ -34,6 +34,7 @@ step_sound = ExtResource("5_8yy2t")
 script = ExtResource("6_jj2ed")
 
 [node name="UI" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_3od5a")]
+visible = false
 game_manager = NodePath("../GameManager")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

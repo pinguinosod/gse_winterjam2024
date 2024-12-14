@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cutnlcgw1jb6a"
-valid=false
+path="res://.godot/imported/hourglass_shattered.fbx-a4d89dcda0a36c0b33e08d13ea5717d3.scn"
 
 [deps]
 
 source_file="res://models/hourglass_shattered.fbx"
+dest_files=["res://.godot/imported/hourglass_shattered.fbx-a4d89dcda0a36c0b33e08d13ea5717d3.scn"]
 
 [params]
 

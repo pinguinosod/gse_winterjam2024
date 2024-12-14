@@ -31,7 +31,6 @@ func _ready():
 					AStar.connect_points(_generateID(x,z), _generateID(x,z-1))
 				if internalGrid[x][z+1] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x,z+1))
-	print(_getPath(1, 1, 3, 1))
 
 func get_cell_position(world_position: Vector3):
 	var cell = currentRoom.local_to_map(world_position)
@@ -48,7 +47,10 @@ func _unhandled_input(event):
 		print("cell clicked: ", cellClicked)
 		var targetPosition = Vector3(cellClicked.x + 0.5, 1, cellClicked.z + 0.5)
 		if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:
-			get_node("/root/main/Player").target_position = targetPosition
+			if internalGrid[targetPosition.x][targetPosition.z] == GridMap.INVALID_CELL_ITEM:
+				var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
+				var playerPath = _getPath(playerPosition.x, playerPosition.z, targetPosition.x, targetPosition.z)
+				get_node("/root/main/Player").setPathToFollow(playerPath)
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 128
