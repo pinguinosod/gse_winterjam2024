@@ -24,6 +24,9 @@ var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
 var currentRoom: Room
 
+var currentEnemy: Enemy
+var enemyTurnQueue: Array[Enemy] = []
+
 var timeElapsed = 0.0
 var secondsPassed = 0
 
@@ -141,13 +144,18 @@ func _process(delta: float) -> void:
 	if secondsPassed >= textDisplayDurationSeconds:
 		secondsPassed = 0
 		textDisplay.hide()
+	if enemyTurnQueue.size() > 0 and not currentEnemy.inTurn:
+		currentEnemy = enemyTurnQueue.pop_front()
+		currentEnemy.take_turn(currentRoom, player)
 	if not enemyTurn():
-		if not playerTurn:
+		if not playerTurn and enemyTurnQueue.size() == 0:
 			#if not is_wave_active():
 			#	load_next_wave()
 			showText("Enemy Turn", 1.5)
 			for enemy in occupiedEnemies:
-				enemy.take_turn(currentRoom)
+				enemyTurnQueue.append(enemy)
+			currentEnemy = enemyTurnQueue.pop_front()
+			currentEnemy.take_turn(currentRoom, player)
 		playerTurn = true
 	check_win()
 	
@@ -164,6 +172,10 @@ func check_win():
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
 		playerTurn = false
+	if Input.is_action_just_pressed("end_turn") and enemyTurn():
+		currentEnemy.speed *= 300
+		for enemy in enemyTurnQueue:
+			enemy.speed *= 300
 	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and not enemyTurn():
 		clear_enemies()
 	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and not enemyTurn():

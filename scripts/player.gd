@@ -1,5 +1,4 @@
 extends Node3D
-
 class_name Player
 
 var game_manager
