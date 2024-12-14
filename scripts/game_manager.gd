@@ -111,7 +111,6 @@ func enemyTurn():
 	for enemy in occupiedEnemies:
 		if enemy.inTurn:
 			return true
-	playerTurn = true
 	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -122,6 +121,7 @@ func _process(delta: float) -> void:
 			#	load_next_wave()
 			for enemy in occupiedEnemies:
 				enemy.take_turn()
+		playerTurn = true
 	timeElapsed += delta
 	if timeElapsed > 1:
 		secondsPassed += 1
@@ -131,11 +131,11 @@ func _process(delta: float) -> void:
 		textDisplay.hide()
 	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("end_turn") and playerTurn:
+	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
 		playerTurn = false
-	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and playerTurn:
+	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and not enemyTurn():
 		clear_enemies()
-	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and playerTurn:
+	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and not enemyTurn():
 		clear_enemies()
 		load_next_scene()
 	
