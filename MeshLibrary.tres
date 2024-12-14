@@ -1,7 +1,9 @@
-[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://btdpvdv0uvrnf"]
+[gd_resource type="MeshLibrary" load_steps=5 format=3 uid="uid://cb68cd7vsqlkw"]
 
-[ext_resource type="ArrayMesh" uid="uid://c6n5f4djelpxa" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
-[ext_resource type="ArrayMesh" uid="uid://ynvuqh7woqqi" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
+[ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
+[ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
+[ext_resource type="ArrayMesh" uid="uid://cxixldg6f2dfw" path="res://models/tiles/berryBush.tres" id="3_8ar2b"]
+[ext_resource type="ArrayMesh" uid="uid://csf50rydtxpla" path="res://models/tiles/fireplaceTile.tres" id="4_o266r"]
 
 [resource]
 item/0/name = "floorBlack"
@@ -16,3 +18,15 @@ item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/shapes = []
 item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/navigation_layers = 1
+item/2/name = "Plant"
+item/2/mesh = ExtResource("3_8ar2b")
+item/2/mesh_transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.5, 0)
+item/2/shapes = []
+item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/navigation_layers = 1
+item/5/name = ""
+item/5/mesh = ExtResource("4_o266r")
+item/5/mesh_transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+item/5/shapes = []
+item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/5/navigation_layers = 1
