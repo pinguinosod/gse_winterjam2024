@@ -34,7 +34,6 @@ step_sound = ExtResource("5_8yy2t")
 script = ExtResource("6_jj2ed")
 
 [node name="UI" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_3od5a")]
-visible = false
 game_manager = NodePath("../GameManager")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
