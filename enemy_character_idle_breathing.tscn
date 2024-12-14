@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyy1ruki3p417"]
+
+[ext_resource type="PackedScene" uid="uid://jjwumybpmrqd" path="res://models/CharactersAnimations/enemyCharacterIdleBreathing.glb" id="1_dwmxr"]
+
+[node name="enemyCharacterIdleBreathing" instance=ExtResource("1_dwmxr")]

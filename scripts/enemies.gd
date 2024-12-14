@@ -48,7 +48,7 @@ func get_movement(room: Room):
 	# if grid.isFree(field):
 	# return field
 	
-	return room.get_cell_position(Vector3(randf(), 0, randf()) * speed + position)
+	return room.get_random_cell_position(1, 24, 1, 12)
 	pass
 
 # returns the action of the enemy for this turn
