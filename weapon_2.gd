@@ -1,11 +1,6 @@
-extends Node3D
+extends "res://Weapons.gd"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Custom logic for an axe
+func perform_melee_attack() -> void:
+	print("Chopping with the axe!")
+	# Add custom axe behavior here

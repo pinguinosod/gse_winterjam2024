@@ -1,7 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://1ytg8klhkx4x"]
+[gd_scene load_steps=8 format=3 uid="uid://1ytg8klhkx4x"]
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_yenjf"]
+[ext_resource type="Script" path="res://weapon_1.gd" id="2_owbgx"]
+[ext_resource type="Script" path="res://weapon_2.gd" id="3_im5vi"]
+[ext_resource type="Script" path="res://weapon_5.gd" id="4_ncnkk"]
+[ext_resource type="Script" path="res://weapon_3.gd" id="5_fwqo1"]
+[ext_resource type="Script" path="res://weapon_4.gd" id="6_jmahl"]
+[ext_resource type="Script" path="res://weapon_6_(umbrella).gd" id="7_erbbp"]
 
 [node name="Weapons" type="Node3D"]
 transform = Transform3D(-0.134226, -0.94861, 0.286572, 0.959992, -0.0527567, 0.275012, -0.24576, 0.31202, 0.917739, 0, 0, 0)
 script = ExtResource("1_yenjf")
+
+[node name="Weapon 1 (Lamp)" type="Node3D" parent="."]
+script = ExtResource("2_owbgx")
+
+[node name="Weapon 2 (Ski Stick)" type="Node3D" parent="."]
+script = ExtResource("3_im5vi")
+
+[node name="weapon 3 (Ski)" type="Node3D" parent="."]
+transform = Transform3D(1, -1.49012e-08, 0, 0, 1, 0, 1.49012e-08, 5.96046e-08, 1, 0, 0, 0)
+script = ExtResource("4_ncnkk")
+
+[node name="Weapon 4 (Book)" type="Node3D" parent="."]
+script = ExtResource("5_fwqo1")
+
+[node name="Weapon 5 (Fire Book)" type="Node3D" parent="."]
+script = ExtResource("6_jmahl")
+
+[node name="Weapon 6 (Umbrella)" type="Node3D" parent="."]
+script = ExtResource("7_erbbp")
