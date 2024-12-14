@@ -1,10 +1,12 @@
-[gd_resource type="MeshLibrary" load_steps=6 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=8 format=3 uid="uid://cb68cd7vsqlkw"]
 
 [ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
 [ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
 [ext_resource type="ArrayMesh" uid="uid://cxixldg6f2dfw" path="res://models/tiles/berryBush.tres" id="3_8ar2b"]
 [ext_resource type="ArrayMesh" uid="uid://csf50rydtxpla" path="res://models/tiles/fireplaceTile.tres" id="4_o266r"]
 [ext_resource type="ArrayMesh" uid="uid://dc336q6l8vf4b" path="res://models/tiles/chairTile.tres" id="5_4k2wy"]
+[ext_resource type="ArrayMesh" uid="uid://d0uuxlympyxe" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
+[ext_resource type="ArrayMesh" uid="uid://hw24suopn03k" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
 
 [resource]
 item/0/name = "floorBlack"
@@ -25,15 +27,37 @@ item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/2/shapes = []
 item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/navigation_layers = 1
-item/5/name = ""
+item/5/name = "Furnace"
 item/5/mesh = ExtResource("4_o266r")
 item/5/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/5/shapes = []
 item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/5/navigation_layers = 1
-item/6/name = ""
+item/6/name = "Chair"
 item/6/mesh = ExtResource("5_4k2wy")
 item/6/mesh_transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.2, 0)
 item/6/shapes = []
 item/6/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/6/navigation_layers = 1
+item/7/name = "Table"
+item/7/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/7/shapes = []
+item/7/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/7/navigation_layers = 1
+item/8/name = "Bookshelf1"
+item/8/mesh = ExtResource("6_fgc6v")
+item/8/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/8/shapes = []
+item/8/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/8/navigation_layers = 1
+item/9/name = "Bookshelf2"
+item/9/mesh = ExtResource("7_3huwu")
+item/9/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/9/shapes = []
+item/9/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/9/navigation_layers = 1
+item/10/name = ""
+item/10/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/10/shapes = []
+item/10/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/10/navigation_layers = 1
