@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=14 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=15 format=3 uid="uid://cb68cd7vsqlkw"]
 
 [ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
 [ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
@@ -10,9 +10,10 @@
 [ext_resource type="ArrayMesh" uid="uid://dc336q6l8vf4b" path="res://models/tiles/chairTile.tres" id="5_4k2wy"]
 [ext_resource type="ArrayMesh" uid="uid://7khv0ec7rh8l" path="res://models/tiles/tableTILE.tres" id="6_e7xrh"]
 [ext_resource type="ArrayMesh" uid="uid://d0uuxlympyxe" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
-[ext_resource type="ArrayMesh" uid="uid://q4p3p363nrhb" path="res://models/tiles/billiardTable.tres" id="6_nxubt"]
+[ext_resource type="ArrayMesh" uid="uid://chatwg3r7efs" path="res://models/tiles/billiardTable2.tres" id="6_hgada"]
 [ext_resource type="ArrayMesh" uid="uid://hw24suopn03k" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
 [ext_resource type="ArrayMesh" uid="uid://bmf4y5xark53c" path="res://models/tiles/sideTable.tres" id="8_5gu5p"]
+[ext_resource type="ArrayMesh" uid="uid://dq38wy47f31yg" path="res://models/tiles/gridUnenterableTile.tres" id="8_8ncgt"]
 
 [resource]
 item/0/name = "floorBlack"
@@ -41,13 +42,13 @@ item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 
 item/3/navigation_layers = 1
 item/4/name = "SideTable"
 item/4/mesh = ExtResource("8_5gu5p")
-item/4/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/4/mesh_transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.215, 0)
 item/4/shapes = []
 item/4/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/4/navigation_layers = 1
 item/5/name = "Furnace"
 item/5/mesh = ExtResource("4_o266r")
-item/5/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+item/5/mesh_transform = Transform3D(1.3, 0, 0, 0, 1.6, 0, 0, 0, 1.3, 0, -0.5, 0.12)
 item/5/shapes = []
 item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/5/navigation_layers = 1
@@ -83,7 +84,7 @@ item/10/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
 item/10/navigation_layers = 1
 item/11/name = "Carpet"
 item/11/mesh = ExtResource("4_paii1")
-item/11/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/11/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
 item/11/shapes = []
 item/11/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/11/navigation_layers = 1
@@ -94,8 +95,24 @@ item/12/shapes = []
 item/12/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/12/navigation_layers = 1
 item/13/name = "Billiard Table"
-item/13/mesh = ExtResource("6_nxubt")
-item/13/mesh_transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0.245, 0)
+item/13/mesh = ExtResource("6_hgada")
+item/13/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.52, 0.5)
 item/13/shapes = []
 item/13/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/13/navigation_layers = 1
+item/14/name = "BoringChair"
+item/14/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/14/shapes = []
+item/14/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/14/navigation_layers = 1
+item/15/name = "#UnenterablePlaceholder"
+item/15/mesh = ExtResource("8_8ncgt")
+item/15/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/15/shapes = []
+item/15/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/15/navigation_layers = 1
+item/16/name = "Chess Table"
+item/16/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/16/shapes = []
+item/16/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/16/navigation_layers = 1
