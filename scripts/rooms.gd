@@ -24,13 +24,13 @@ func _ready():
 	for x in maxX:
 		for z in maxZ:
 			if internalGrid[x][z] == GridMap.INVALID_CELL_ITEM:
-				if x-1 >= 0 and internalGrid[x-1][z] == GridMap.INVALID_CELL_ITEM:
+				if internalGrid[x-1][z] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x-1,z))
-				if x+1 < maxX and internalGrid[x+1][z] == GridMap.INVALID_CELL_ITEM:
+				if internalGrid[x+1][z] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x+1,z))
-				if z-1 >= 0 and internalGrid[x][z-1] == GridMap.INVALID_CELL_ITEM:
+				if internalGrid[x][z-1] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x,z-1))
-				if z+1 < maxZ and internalGrid[x][z+1] == GridMap.INVALID_CELL_ITEM:
+				if internalGrid[x][z+1] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x,z+1))
 
 func get_cell_position(world_position: Vector3):
