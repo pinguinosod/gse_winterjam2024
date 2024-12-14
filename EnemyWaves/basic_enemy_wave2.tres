@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_eodbx")
-basicEnemyCount = 100
+basicEnemyCount = 30
 eliteEnemyCount = 0
 waveName = "Oh no, there's more!"
 waveNumber = 2
