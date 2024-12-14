@@ -1,10 +1,11 @@
-[gd_resource type="MeshLibrary" load_steps=8 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=9 format=3 uid="uid://cb68cd7vsqlkw"]
 
-[ext_resource type="ArrayMesh" uid="uid://c6n5f4djelpxa" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
-[ext_resource type="ArrayMesh" uid="uid://ynvuqh7woqqi" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
-[ext_resource type="ArrayMesh" uid="uid://cj0edtpfyj86y" path="res://models/tiles/berryBush.tres" id="3_8ar2b"]
-[ext_resource type="ArrayMesh" uid="uid://p6nr3ra7pl6y" path="res://models/tiles/fireplaceTile.tres" id="4_o266r"]
+[ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
+[ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
+[ext_resource type="ArrayMesh" uid="uid://cxixldg6f2dfw" path="res://models/tiles/berryBush.tres" id="3_8ar2b"]
+[ext_resource type="ArrayMesh" uid="uid://csf50rydtxpla" path="res://models/tiles/fireplaceTile.tres" id="4_o266r"]
 [ext_resource type="ArrayMesh" uid="uid://dc336q6l8vf4b" path="res://models/tiles/chairTile.tres" id="5_4k2wy"]
+[ext_resource type="ArrayMesh" uid="uid://7khv0ec7rh8l" path="res://models/tiles/tableTILE.tres" id="6_e7xrh"]
 [ext_resource type="ArrayMesh" uid="uid://d0uuxlympyxe" path="res://models/tiles/bookshelfTile.tres" id="6_fgc6v"]
 [ext_resource type="ArrayMesh" uid="uid://hw24suopn03k" path="res://models/tiles/bookshelfTileRotated.tres" id="7_3huwu"]
 
@@ -52,9 +53,10 @@ item/6/shapes = []
 item/6/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/6/navigation_layers = 1
 item/7/name = "Table"
-item/7/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/7/mesh = ExtResource("6_e7xrh")
+item/7/mesh_transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, -0.58, 0)
 item/7/shapes = []
-item/7/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/7/navigation_mesh_transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, 0, 0)
 item/7/navigation_layers = 1
 item/8/name = "Bookshelf1"
 item/8/mesh = ExtResource("6_fgc6v")
