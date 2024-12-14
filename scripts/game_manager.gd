@@ -13,6 +13,9 @@ class_name GameManager
 @export var nextWaveAlarm: AudioStream
 @export var alwaysOn: AudioStream
 
+@export var loseSound: AudioStream
+@export var winSound: AudioStream
+
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
 var occupiedEnemies: Array[Enemy] = []
@@ -128,6 +131,7 @@ func _process(delta: float) -> void:
 			for enemy in occupiedEnemies:
 				enemy.take_turn(currentRoom)
 		playerTurn = true
+	check_win()
 	timeElapsed += delta
 	if timeElapsed > 1:
 		secondsPassed += 1
@@ -135,7 +139,16 @@ func _process(delta: float) -> void:
 	if secondsPassed >= textDisplayDurationSeconds:
 		secondsPassed = 0
 		textDisplay.hide()
-	
+
+func check_win():
+	for enemy in occupiedEnemies:
+		if enemy.position.distance_to($"../Player".position) <= 0.1:
+			showText("You lose!")
+			AudioManager.stop_bg_music()
+			AudioManager.play_sfx(loseSound)
+			currentScene = 0
+			clear_enemies()
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
 		playerTurn = false
