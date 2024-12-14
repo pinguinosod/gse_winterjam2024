@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://crj37bo36phwd"]
 
-[ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
+[ext_resource type="MeshLibrary" uid="uid://btdpvdv0uvrnf" path="res://MeshLibrary.tres" id="1_aqf6v"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmtjr"]

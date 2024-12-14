@@ -2,13 +2,25 @@
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_brgg7"]
 [ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_0ajky"]
-[ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="2_4iq3d"]
 [ext_resource type="Resource" uid="uid://cvvg7vxnelgmm" path="res://CombatScenes/scene1.tres" id="3_rlxk1"]
+
+[sub_resource type="PackedScene" id="PackedScene_li17l"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Enemy", "script", "Node3D", "CSGCylinder3D"),
+"node_count": 0,
+"node_paths": [],
+"nodes": PackedInt32Array(),
+"variants": [],
+"version": 3
+}
 
 [node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder", "textDisplay")]
 script = ExtResource("1_brgg7")
 combatScenesToRun = Array[ExtResource("2_0ajky")]([ExtResource("3_rlxk1")])
-enemyScene = ExtResource("2_4iq3d")
+enemyScene = SubResource("PackedScene_li17l")
 enemyPoolHolder = NodePath("EnemyPoolHolder")
 textDisplay = NodePath("Label")
 
@@ -21,6 +33,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 text = "Hello world"
 horizontal_alignment = 1

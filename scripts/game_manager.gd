@@ -8,7 +8,7 @@ class_name GameManager
 @export var enemyScene: PackedScene
 @export var enemyPoolHolder: Node3D
 @export var textDisplay: Label
-@export var textDisplayDurationSeconds = 2.0
+@export var textDisplayDurationSeconds = 5.0
 
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
@@ -49,6 +49,7 @@ func load_next_wave():
 		spawn_all_waves()
 		return
 	currentEnemyWave = currentCombatScene.enemyWaves[currentWave]
+	showText("Wave " + str(currentEnemyWave.waveNumber) + ": " + currentEnemyWave.waveName)
 	currentWave += 1
 	load_in_enemies()
 	
@@ -96,8 +97,11 @@ func free_enemy(enemy: Enemy):
 		enemy.hide()
 		enemy.set_process(false)
 
-func showText(text: String, clearAfterSeconds: float):
+func showText(text: String):
+	textDisplay.show()
 	textDisplay.text = text
+	secondsPassed = 0
+	timeElapsed = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -107,6 +111,13 @@ func _process(delta: float) -> void:
 		for enemy in occupiedEnemies:
 			enemy.take_turn()
 		playerTurn = true
+	timeElapsed += delta
+	if timeElapsed > 1:
+		secondsPassed += 1
+		timeElapsed = 0.0
+	if secondsPassed >= textDisplayDurationSeconds:
+		secondsPassed = 0
+		textDisplay.hide()
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and playerTurn:
