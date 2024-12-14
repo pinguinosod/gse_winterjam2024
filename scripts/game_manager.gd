@@ -96,8 +96,7 @@ func _process(delta: float) -> void:
 		if not is_wave_active():
 			load_next_wave()
 		for enemy in occupiedEnemies:
-			print("Hello I am the enemy.")
-			# enemy do stuff
+			enemy.take_turn()
 		playerTurn = true
 	
 func _input(event: InputEvent) -> void:

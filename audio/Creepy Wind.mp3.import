@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr8oj3feglwbh"
+path="res://.godot/imported/Creepy Wind.mp3-8265be1de25ae97e1746d3abe2dff980.mp3str"
+
+[deps]
+
+source_file="res://audio/Creepy Wind.mp3"
+dest_files=["res://.godot/imported/Creepy Wind.mp3-8265be1de25ae97e1746d3abe2dff980.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

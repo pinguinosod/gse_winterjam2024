@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3jeuirv6gkby"
+path="res://.godot/imported/Sad Violin.mp3-df1d401ebb5d7de9c909ecfe6e694753.mp3str"
+
+[deps]
+
+source_file="res://audio/Sad Violin.mp3"
+dest_files=["res://.godot/imported/Sad Violin.mp3-df1d401ebb5d7de9c909ecfe6e694753.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

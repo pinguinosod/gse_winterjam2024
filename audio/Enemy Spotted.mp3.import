@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkelx65j7x1jn"
+path="res://.godot/imported/Enemy Spotted.mp3-25157c6e57ee0134a6b99aaaac3b62ea.mp3str"
+
+[deps]
+
+source_file="res://audio/Enemy Spotted.mp3"
+dest_files=["res://.godot/imported/Enemy Spotted.mp3-25157c6e57ee0134a6b99aaaac3b62ea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

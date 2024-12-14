@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://v6w77fs3obuw"
+path="res://.godot/imported/Clock Tick.mp3-edac8c3a881f19148c0906a133f575a2.mp3str"
+
+[deps]
+
+source_file="res://audio/Clock Tick.mp3"
+dest_files=["res://.godot/imported/Clock Tick.mp3-edac8c3a881f19148c0906a133f575a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
