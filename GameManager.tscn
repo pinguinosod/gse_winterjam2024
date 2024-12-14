@@ -2,27 +2,15 @@
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_brgg7"]
 [ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_0ajky"]
+[ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="2_4iq3d"]
 [ext_resource type="Resource" uid="uid://cvvg7vxnelgmm" path="res://CombatScenes/scene1.tres" id="3_rlxk1"]
 [ext_resource type="Resource" uid="uid://bpke3qdqn6e81" path="res://CombatScenes/scene2.tres" id="4_6pw4v"]
 [ext_resource type="AudioStream" uid="uid://dna4obyxtkqus" path="res://audio/Air Horn.mp3" id="5_1qbuk"]
 
-[sub_resource type="PackedScene" id="PackedScene_li17l"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Enemy", "script", "Node3D", "CSGCylinder3D"),
-"node_count": 0,
-"node_paths": [],
-"nodes": PackedInt32Array(),
-"variants": [],
-"version": 3
-}
-
 [node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder", "textDisplay")]
 script = ExtResource("1_brgg7")
 combatScenesToRun = Array[ExtResource("2_0ajky")]([ExtResource("3_rlxk1"), ExtResource("4_6pw4v")])
-enemyScene = SubResource("PackedScene_li17l")
+enemyScene = ExtResource("2_4iq3d")
 enemyPoolHolder = NodePath("EnemyPoolHolder")
 textDisplay = NodePath("Label")
 nextWaveAlarm = ExtResource("5_1qbuk")

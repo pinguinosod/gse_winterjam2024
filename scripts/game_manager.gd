@@ -128,7 +128,7 @@ func _input(event: InputEvent) -> void:
 		playerTurn = false
 	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and playerTurn:
 		clear_enemies()
-	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and playerTurn:
+	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and playerTurn:
 		clear_enemies()
 		load_next_scene()
 	

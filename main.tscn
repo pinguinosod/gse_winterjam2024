@@ -1,20 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3n3e4vjd3syp"]
+[gd_scene load_steps=12 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
-[ext_resource type="PackedScene" uid="uid://buuc6fpud4fcd" path="res://player.tscn" id="2_tjp8u"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_tjp8u"]
 [ext_resource type="Script" path="res://weapons.gd" id="3_7r03o"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
+[ext_resource type="PackedScene" uid="uid://ch7lfvfup1r3d" path="res://UI.tscn" id="5_3od5a"]
+[ext_resource type="AudioStream" uid="uid://04nk0eep1mpy" path="res://audio/Clapping.mp3" id="5_8yy2t"]
 [ext_resource type="Script" path="res://objects.gd" id="6_jj2ed"]
 [ext_resource type="PackedScene" uid="uid://dhml57ffwa4iu" path="res://GameManager.tscn" id="8_130yo"]
-[ext_resource type="PackedScene" uid="uid://ch7lfvfup1r3d" path="res://UI.tscn" id="8_vqe3p"]
+[ext_resource type="PackedScene" uid="uid://da5e5spud2jvw" path="res://camera_3d.tscn" id="8_eh1c4"]
 
 [sub_resource type="Environment" id="Environment_6gimq"]
 
 [node name="main" type="Node3D"]
 
 [node name="Rooms" parent="." instance=ExtResource("1_iektr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.05838, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_tjp8u")]
 transform = Transform3D(-0.0131768, 0.999913, 0, -0.999913, -0.0131768, 0, 0, 0, 1, 0, 0.691039, 0)
@@ -25,20 +27,20 @@ script = ExtResource("3_7r03o")
 
 [node name="Enemies" parent="." instance=ExtResource("3_fuddb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06125, -3.36286)
+step_sound = ExtResource("5_8yy2t")
 
 [node name="Objects" parent="." instance=ExtResource("4_vypmj")]
 script = ExtResource("6_jj2ed")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.114868, -0.961491, 0.249679, 0, 0.251343, 0.967898, -0.993381, -0.11118, 0.0288712, 2.10425, 4.95702, -1.4287)
+[node name="UI" parent="." instance=ExtResource("5_3od5a")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6gimq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.892704, -0.129429, -0.431657, 0.442805, 0.429811, 0.786884, 0.0836851, -0.893594, 0.441006, 0, 6.88193, 5.50531)
+transform = Transform3D(-0.573577, 0.79124, -0.212012, 0, 0.258819, 0.965926, 0.819152, 0.554032, -0.148453, 0, 20, 0)
 shadow_enabled = true
 
 [node name="GameManager" parent="." instance=ExtResource("8_130yo")]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("8_vqe3p")]
+[node name="Camera" parent="." instance=ExtResource("8_eh1c4")]

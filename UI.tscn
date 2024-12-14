@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://25bco1hvrhi0" path="res://ui_music/Die Entführung aus dem Serail, Act 3_ Ha! Wie will ich triumphiren!.mp3" id="4_ngj2h"]
 [ext_resource type="Texture2D" uid="uid://bphsny4uxy2yb" path="res://ui_images/story_1.png" id="5_dn7ii"]
 [ext_resource type="Texture2D" uid="uid://d0kecrpcli6kg" path="res://ui_images/story_2.png" id="7_o03d0"]
-[ext_resource type="AudioStream" uid="uid://b6pog1a38h1e6" path="res://ui_music/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3" id="8_hxaoc"]
+[ext_resource type="AudioStream" uid="uid://d7m4ci7tqix5" path="res://audio/Music/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3" id="8_hxaoc"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_87y67")
