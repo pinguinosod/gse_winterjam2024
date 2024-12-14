@@ -5,4 +5,4 @@ class_name CombatScene
 @export var doorOpensAfterTurns = 3
 
 func _init():
-	print("Combat Scene")
+	print("Initialized Combat Scene")
