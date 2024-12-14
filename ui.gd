@@ -61,6 +61,7 @@ func _change_slide():
 			label.visible = true
 		_go_into_game()
 		
+		
 	texture_rect.visible = true
 
 func _go_into_game():

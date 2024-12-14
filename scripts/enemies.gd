@@ -18,24 +18,22 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if position.distance_to(target_position) > 0.1:
+	if position != target_position:
 		position = position.move_toward(target_position, delta)
-	if not idle and position.distance_to(target_position) <= 0.1:
+	if not idle and position == target_position:
 		idle = true
 		$countFallingDying.travel("Idle")
-	if inTurn and position.distance_to(target_position) <= 0.1:
+	if inTurn and position == target_position:
 		get_next_action()
 	pass
-
-func reached_target():
-	return target_position.x - 0.1 < position.x and position.x < target_position.x + 0.1 and target_position.z - 0.1 < position.z and position.z < target_position.z
 
 # calls and processes the results of get_movement and get_next_action
 func take_turn(room: Room):
 	inTurn = true
 	var moveTo = get_movement(room)
 	# TODO change that to change the grid position actually
-	if moveTo.distance_to(position) > 0.1:
+	
+	if moveTo != position:
 		$countFallingDying.travel("Walk")
 	target_position = moveTo
 	idle = false
@@ -50,7 +48,7 @@ func get_movement(room: Room):
 	# if grid.isFree(field):
 	# return field
 	
-	return room.get_cell_position(position + Vector3(randf(), 0, randf()))
+	return room.get_cell_position(Vector3(randf(), 0, randf()) * speed + position)
 	pass
 
 # returns the action of the enemy for this turn
