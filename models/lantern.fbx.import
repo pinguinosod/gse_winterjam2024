@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dc8sv5o8xchjd"
-valid=false
+path="res://.godot/imported/lantern.fbx-fd1e171eb0bd7e96d803ab9f87dd2b31.scn"
 
 [deps]
 
 source_file="res://models/lantern.fbx"
+dest_files=["res://.godot/imported/lantern.fbx-fd1e171eb0bd7e96d803ab9f87dd2b31.scn"]
 
 [params]
 

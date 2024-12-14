@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_tjp8u"]
+[ext_resource type="PackedScene" uid="uid://buuc6fpud4fcd" path="res://player.tscn" id="2_tjp8u"]
 [ext_resource type="Script" path="res://weapons.gd" id="3_7r03o"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
@@ -44,5 +44,6 @@ transform = Transform3D(-0.573577, 0.79124, -0.212012, 0, 0.258819, 0.965926, 0.
 shadow_enabled = true
 
 [node name="GameManager" parent="." instance=ExtResource("8_130yo")]
+alwaysOn = null
 
 [node name="Camera" parent="." instance=ExtResource("8_eh1c4")]
