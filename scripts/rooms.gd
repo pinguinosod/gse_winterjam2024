@@ -37,8 +37,8 @@ func get_cell_position(world_position: Vector3):
 	var cell = currentRoom.local_to_map(world_position)
 	return Vector3(cell.x + 0.5, 1, cell.z + 0.5)
 	
-func get_random_cell_position(min_x = 1, max_x = 26, min_z = 1, max_z = 14):
-	return Vector3(3 + 0.5, 1, 1 + 0.5)
+func get_random_cell_position(min_x = 1, max_x = 24, min_z = 1, max_z = 12):
+	return Vector3(randi_range(min_x, max_x) + 0.5, 1, randi_range(min_z, max_z) + 0.5)
 
 func _unhandled_input(event):
 	if !ignoreClicks and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

@@ -3,7 +3,7 @@ extends Node3D
 class_name Enemy
 
 var target_position: Vector3 = Vector3.ZERO
-var speed: float = 10.0
+@export var base_speed: float = 5.0
 var idle = true
 var inTurn = false
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if position != target_position:
-		position = position.move_toward(target_position, delta)
+		position = position.move_toward(target_position, delta * base_speed)
 	if not idle and position == target_position:
 		idle = true
 		$countFallingDying.travel("Idle")

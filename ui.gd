@@ -50,13 +50,14 @@ func _change_slide():
 			
 		texture_rect = $TextureRect_3
 		_play_audio_new_slide()
+		_go_into_game()
 		
 	texture_rect.visible = true
 	
 
 func _go_into_game():
 	#going into game
-		game_manager.load_next_scene()
+	game_manager.load_next_scene()
 	
 func _on_start_game_button_pressed() -> void:
 	print("START Button pressed!!")
