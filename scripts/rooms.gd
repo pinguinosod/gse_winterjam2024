@@ -14,7 +14,7 @@ func _unhandled_input(event):
 		#print("cell clicked: ", cellClicked)
 
 func get_cursor_world_position() -> Vector3:
-	const RAY_DISTANCE = 1
+	const RAY_DISTANCE = 128
 	
 	var camera: Camera3D = get_viewport().get_camera_3d()
 	if not is_instance_valid(camera): return Vector3.ZERO
@@ -24,6 +24,10 @@ func get_cursor_world_position() -> Vector3:
 	var to: Vector3 = from + camera.project_ray_normal(mouse_pos) * RAY_DISTANCE
 	
 	var ray_params := PhysicsRayQueryParameters3D.create(from, to)
+	
+	# Example: Set layers and mask
+	ray_params.collision_mask = 1 << 0 # Only detect objects in layer 1 (bitmask)
+
 	var ray_result: Dictionary = get_world_3d().direct_space_state.intersect_ray(ray_params)
 	
 	return ray_result.get("position", to) # return Vector3.ZERO if needed
