@@ -57,8 +57,9 @@ func _change_slide():
 			
 		texture_rect = $TextureRect_3
 		_play_audio_new_slide()
-		label.visible = true
-		
+		if label:
+			label.visible = true
+		_go_into_game()
 		
 	texture_rect.visible = true
 
