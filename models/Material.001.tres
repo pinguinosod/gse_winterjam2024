@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bp2qfmjfblxj1"]
 
-[ext_resource type="Texture2D" uid="uid://btleqo7qj21w4" path="res://models/palette/ImphenziaPalette01-256.png" id="1_qmjne"]
+[ext_resource type="Texture2D" uid="uid://ddwvgphaqiyqh" path="res://models/palette/ImphenziaPalette01-256.png" id="1_qmjne"]
 
 [resource]
 resource_name = "Material.001"

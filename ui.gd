@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var start_menu_texture: Texture2D  # Texture for the start menu background
+@export var game_manager: GameManager
 
 var current_story_index: int = 0  # Track the number of times "start" is pressed
 
@@ -11,32 +12,32 @@ var label: Label
 func _ready():
 	# Print the node tree for debugging
 	print_tree()
-    
-    # Cache references to child nodes
+	
+	# Cache references to child nodes
 	texture_rect = $TextureRect_start
 	label = $Label
-    
-    # Error handling for missing nodes
+	
+	# Error handling for missing nodes
 	if texture_rect == null:
 		print("Error: TextureRect node not found!")
 		if label == null:
 			print("Error: Label node not found!")
 	
-    
-    # Initialize the scene:  hide the Label
+	
+	# Initialize the scene:  hide the Label
 	if label:
 		label.visible = false  # Ensure Label starts hidden
-    
-    # Print the initial texture name for debugging
+	
+	# Print the initial texture name for debugging
 	_print_texture_name()
 
 func _print_texture_name():
 	if texture_rect and texture_rect.texture:
-        # Get the file path of the texture
+		# Get the file path of the texture
 		var texture_path = texture_rect.texture.resource_path
-        # Extract just the file name
+		# Extract just the file name
 		var texture_name = texture_path.get_file()
-        # Print the texture name to the console
+		# Print the texture name to the console
 		print("Current texture file: ", texture_name)
 	else:
 		print("No texture assigned to TextureRect.")
@@ -70,6 +71,7 @@ func _change_slide():
 		texture_rect = $TextureRect_3
 		_play_audio_new_slide()
 		label.visible = true
+		game_manager.load_next_scene()
 		
 	texture_rect.visible = true
 	
