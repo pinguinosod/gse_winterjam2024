@@ -1,6 +1,7 @@
 extends Node
 
 var _item_images: Array = []
+var _index_image: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +28,6 @@ func load_item_images() -> void:
 	var file_names = dir.get_files()
 	
 	
-	
 	for fn in file_names:
 		if ".import" not in fn:
 			add_file_to_list(fn, path)
@@ -36,3 +36,7 @@ func load_item_images() -> void:
 	
 func get_random_item_image() -> Dictionary:
 	return _item_images.pick_random()
+
+func get_next_slide() -> Dictionary:
+	_index_image += 1
+	return _item_images[_index_image]
