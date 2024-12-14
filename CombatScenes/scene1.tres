@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CombatScene" load_steps=5 format=3 uid="uid://cvvg7vxnelgmm"]
 
 [ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_habvi"]
-[ext_resource type="Resource" uid="uid://lqxshiqtid3p" path="res://EnemyWaves/basic_enemy_wave2.tres" id="2_2mtqw"]
+[ext_resource type="Resource" path="res://EnemyWaves/basic_enemy_wave2.tres" id="2_2mtqw"]
 [ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_ga4hk"]
 
 [sub_resource type="Resource" id="Resource_dutp3"]
