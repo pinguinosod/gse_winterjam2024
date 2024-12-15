@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=25 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="10_en5uf"]
 [ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
 [ext_resource type="Script" path="res://label_action_points.gd" id="14_jo06l"]
+[ext_resource type="Script" path="res://label_hp.gd" id="14_p3dr6"]
 [ext_resource type="Script" path="res://attack_button.gd" id="14_qrf13"]
 [ext_resource type="Script" path="res://label_movement_cost.gd" id="15_08ekw"]
 [ext_resource type="Texture2D" uid="uid://di4lp07rgm8gq" path="res://ui_images/endslide.png" id="15_gh4em"]
@@ -158,6 +159,25 @@ offset_right = 400.0
 offset_bottom = -16.0
 grow_vertical = 0
 mouse_filter = 2
+
+[node name="HP" type="HBoxContainer" parent="HUDPanel/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDPanel/GridContainer/HP"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
+text = "HP:"
+
+[node name="LabelHP" type="Label" parent="HUDPanel/GridContainer/HP"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("14_p3dr6")
 
 [node name="ActionPoints" type="HBoxContainer" parent="HUDPanel/GridContainer"]
 layout_mode = 2
