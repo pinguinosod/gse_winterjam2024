@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://crj37bo36phwd"]
 
-[ext_resource type="PackedScene" uid="uid://byd2vdcufqbmk" path="res://room_01.tscn" id="2_okacr"]
+[ext_resource type="PackedScene" path="res://room_01.tscn" id="2_okacr"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
 [ext_resource type="PackedScene" uid="uid://3or1thien0hc" path="res://models/CharactersAnimations/countessLockpickingDress.glb" id="3_omxne"]
 [ext_resource type="PackedScene" uid="uid://cj3okrb81usp2" path="res://room_02.tscn" id="5_ayp5o"]

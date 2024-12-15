@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhml57ffwa4iu"]
+[gd_scene load_steps=11 format=3 uid="uid://dhml57ffwa4iu"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_brgg7"]
 [ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_0ajky"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bsvcey8kgqkuo" path="res://audio/Music/alien-xenomorph-hissing-and-growling-with-and-without-fx-22773.mp3" id="7_d3jkn"]
 [ext_resource type="AudioStream" uid="uid://cjy0qimvkpn3w" path="res://audio/Lena5.mp3" id="8_3k0v6"]
 [ext_resource type="AudioStream" uid="uid://dt3cii1fkhwh5" path="res://audio/aww_you_lose.mp3" id="8_abxix"]
+[ext_resource type="FontFile" uid="uid://7atymjsxtg21" path="res://ui_fonts/CaveatBrush-Regular.ttf" id="10_ocwak"]
 
 [node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder", "textDisplay")]
 script = ExtResource("1_brgg7")
@@ -30,9 +31,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.941176, 0.784314, 0.960784, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("10_ocwak")
 theme_override_font_sizes/font_size = 30
 text = "The Count must be protected at all costs!"
 horizontal_alignment = 1

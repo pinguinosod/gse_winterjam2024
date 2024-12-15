@@ -243,7 +243,7 @@ func endPlayerTurn():
 	if player.current_path_index < player.pathToFollow.size():
 		return
 	playerTurn = false
-	showText("Enemy Turn", 1.5)
+	showText("Enemy Turn (Press ENTER to skip)", 3.5)
 	for enemy in occupiedEnemies:
 		enemyTurnQueue.append(enemy)
 		print("Enemy inTurn" + str(enemy.inTurn))
