@@ -37,6 +37,8 @@ var playerTurn = true
 var playerStart: Vector3
 var player: Player
 
+var freeEnemyQueue: Array[Enemy] = []
+
 var showingWaveText = false
 
 func get_player_start_position():
@@ -157,10 +159,7 @@ func clear_enemies():
 
 func free_enemy(enemy: Enemy):
 	if enemy in occupiedEnemies:
-		occupiedEnemies.remove_at(occupiedEnemies.find(enemy))
-		freeEnemies.append(enemy)
-		enemy.hide()
-		enemy.set_process(false)
+		freeEnemyQueue.append(enemy)
 
 func showText(text: String, duration: float):
 	if showingWaveText:
@@ -180,6 +179,13 @@ func enemyTurn():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timeElapsed += delta
+	if timeElapsed > 0.5:
+		if freeEnemyQueue.size() > 0:
+			var enemy = freeEnemyQueue.pop_front()
+			occupiedEnemies.remove_at(occupiedEnemies.find(enemy))
+			freeEnemies.append(enemy)
+			enemy.hide()
+			enemy.set_process(false)
 	if timeElapsed > 1:
 		secondsPassed += 1
 		timeElapsed = 0.0
@@ -249,7 +255,7 @@ func _input(event: InputEvent) -> void:
 
 func attack_enemy_on_position(position: Vector3):
 	var mapPos = currentRoom.get_cell_position(position)
-	var enemyToFree = null
+	var enemyToFree: Enemy = null
 	for enemy in occupiedEnemies:
 		var enemyPos = currentRoom.get_cell_position(enemy.position)
 		if mapPos == enemyPos:
@@ -258,6 +264,7 @@ func attack_enemy_on_position(position: Vector3):
 	print(player.currentWeapon)
 	if player.currentWeapon and enemyToFree:
 		player.currentWeapon.attack()
+		enemyToFree.die()
 		free_enemy(enemyToFree)
 
 func attack_player():

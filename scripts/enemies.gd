@@ -128,3 +128,6 @@ func get_next_action():
 
 func turn_start():
 	currentAP = perTurnAP
+	
+func die():
+	$"CPUParticles3D".restart()
