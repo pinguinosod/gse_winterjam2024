@@ -9,7 +9,7 @@ var maxHP = 5
 var currentHP = 5
 var perTurnAP = 15
 var currentAP = perTurnAP
-var currentWeapon:EquippedWeapon = null
+var currentWeapon: EquippedWeapon = null
 
 var idle = true
 

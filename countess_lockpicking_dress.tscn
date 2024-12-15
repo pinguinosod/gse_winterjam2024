@@ -116,16 +116,16 @@ script = ExtResource("2_xi4cp")
 randomSounds = Array[AudioStream]([ExtResource("3_5grte"), ExtResource("4_034we"), ExtResource("5_uta5i"), ExtResource("6_traco"), ExtResource("7_12syv")])
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/4/rotation = Quaternion(0.00723245, -0.0659021, -0.0251247, 0.997484)
+bones/4/rotation = Quaternion(0.149947, -0.0430836, -0.038368, 0.98701)
 bones/8/position = Vector3(-4.41932e-07, 11.7456, 1.05729e-05)
 bones/8/rotation = Quaternion(-0.0995384, 0.125796, 0.634926, 0.755736)
-bones/9/rotation = Quaternion(0.20449, -0.359248, 0.298953, 0.860088)
-bones/12/position = Vector3(1.69765e-06, 11.7456, -8.25386e-06)
+bones/9/rotation = Quaternion(0.0785148, 0.0336059, 0.250357, 0.964379)
+bones/12/position = Vector3(1.69765e-06, 11.7456, -8.25387e-06)
 bones/12/rotation = Quaternion(-0.113802, -0.129297, -0.561349, 0.809456)
-bones/13/rotation = Quaternion(0.0871732, -0.0703342, -0.359083, 0.92656)
+bones/13/rotation = Quaternion(0.126869, -0.0972992, -0.217024, 0.962984)
 bones/15/rotation = Quaternion(0.0168901, -0.0191034, 0.74713, -0.664189)
 bones/16/rotation = Quaternion(0.0203197, 0.0154733, -0.525248, 0.850566)
-bones/20/rotation = Quaternion(-0.000202153, 0.0254983, 0.999667, -0.00404315)
+bones/20/rotation = Quaternion(-0.000202153, 0.0254983, 0.999667, -0.00404316)
 bones/21/rotation = Quaternion(-0.013822, -0.0238055, -0.829724, 0.557494)
 
 [node name="AnimationPlayer" parent="." index="2"]
