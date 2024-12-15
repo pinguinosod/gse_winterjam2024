@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://room_01.tscn" id="2_okacr"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
 [ext_resource type="PackedScene" uid="uid://3or1thien0hc" path="res://models/CharactersAnimations/countessLockpickingDress.glb" id="3_omxne"]
-[ext_resource type="PackedScene" path="res://room_02.tscn" id="5_ayp5o"]
+[ext_resource type="PackedScene" uid="uid://cj3okrb81usp2" path="res://room_02.tscn" id="5_ayp5o"]
 [ext_resource type="PackedScene" uid="uid://csvlcitpy4gls" path="res://models/gardenScene.glb" id="5_niewk"]
 [ext_resource type="PackedScene" uid="uid://ew76xgg6uiu" path="res://countess_lockpicking_dress.tscn" id="6_wgigk"]
 
@@ -40,3 +40,4 @@ shape = SubResource("BoxShape3D_hmtjr")
 transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 12.0743, -0.55761, 3.18153)
 
 [editable path="Room02"]
+[editable path="Room02/countFallingDying"]

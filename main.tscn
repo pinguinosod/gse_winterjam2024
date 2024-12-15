@@ -49,3 +49,5 @@ parentRoom = NodePath("../Rooms")
 transform = Transform3D(0.00557518, -0.131199, 0.99134, 0.141385, 0.981501, 0.129102, -0.989939, 0.139441, 0.0240216, 0, -1.08626, 13.9348)
 
 [editable path="Rooms"]
+[editable path="Rooms/Room02"]
+[editable path="Rooms/Room02/countFallingDying"]

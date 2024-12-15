@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://daonxlqvpw5wy"]
+[gd_scene load_steps=9 format=3 uid="uid://cj3okrb81usp2"]
 
-[ext_resource type="PackedScene" uid="uid://byd2vdcufqbmk" path="res://room_01.tscn" id="1_bg7x1"]
+[ext_resource type="PackedScene" path="res://room_01.tscn" id="1_bg7x1"]
 [ext_resource type="Script" path="res://cutsceneScript.gd" id="2_7mae6"]
 [ext_resource type="PackedScene" uid="uid://bu0k2ewbki4no" path="res://models/CharactersAnimations/countFallingDying.glb" id="2_86c02"]
-[ext_resource type="PackedScene" uid="uid://cpnlwlvvnqwy5" path="res://player_cutscene_strike.tscn" id="3_a22u7"]
+[ext_resource type="PackedScene" uid="uid://d0qme01cav0e5" path="res://player_cutscene_strike.tscn" id="3_a22u7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e137n"]
+animation = &"Armature|mixamo_com|Layer0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0xnqe"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cxcep"]
+reset = false
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kslor"]
+states/Death/node = SubResource("AnimationNodeAnimation_e137n")
+states/Death/position = Vector2(404.667, 84.6667)
+transitions = ["Start", "Death", SubResource("AnimationNodeStateMachineTransition_0xnqe"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_cxcep")]
 
 [node name="Room02" instance=ExtResource("1_bg7x1")]
 data = {
@@ -21,5 +35,29 @@ visible = false
 [node name="countFallingDying" parent="." index="2" instance=ExtResource("2_86c02")]
 transform = Transform3D(-0.127117, 0, -0.991888, 0, 1, 0, 0.991888, 0, -0.127117, 7.28765, 1.09885, 3.82021)
 
+[node name="Skeleton3D" parent="countFallingDying/Armature" index="0"]
+bones/1/rotation = Quaternion(-1.77723e-15, -1.11077e-16, -0.0312457, 0.999512)
+bones/4/rotation = Quaternion(1.77723e-15, 2.10438e-17, 0.0312457, 0.999512)
+bones/6/rotation = Quaternion(-1.72715e-16, 0.707107, -5.42762e-15, 0.707107)
+bones/7/rotation = Quaternion(-0.00337343, -0.631962, 0.774988, -0.0024029)
+bones/8/rotation = Quaternion(-0.0693744, 0.000444774, -0.00639646, 0.99757)
+bones/9/rotation = Quaternion(-0.0327508, -7.21805e-05, 0.00220262, 0.999461)
+bones/11/rotation = Quaternion(0.774778, 0.00527609, -0.00710901, 0.632172)
+bones/12/rotation = Quaternion(-0.068748, -0.00107806, 0.0156424, 0.997511)
+bones/13/rotation = Quaternion(-0.0330674, 0.000218469, -0.0066028, 0.999431)
+bones/15/rotation = Quaternion(-6.66342e-05, -0.0178693, 0.999833, -0.00373691)
+bones/16/rotation = Quaternion(0.0191336, 0.000467153, 0.0244414, 0.999518)
+bones/17/rotation = Quaternion(0.255206, -0.668436, 0.263685, 0.646942)
+bones/20/rotation = Quaternion(-1.96056e-05, 0.0178694, 0.99984, 0.00109379)
+bones/21/rotation = Quaternion(-0.0191298, -0.000569266, 0.029739, 0.999374)
+bones/22/rotation = Quaternion(0.26237, -0.647365, 0.253865, 0.669054)
+bones/23/rotation = Quaternion(0.37502, 0.00288944, -0.00116896, 0.927011)
+
+[node name="AnimationTree" type="AnimationTree" parent="countFallingDying" index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_kslor")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="PlayerCutsceneStrike" parent="." index="3" instance=ExtResource("3_a22u7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.28262, 1.24467, 4.66787)
+
+[editable path="countFallingDying"]
