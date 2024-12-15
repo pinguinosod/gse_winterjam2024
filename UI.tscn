@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=19 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://hwest7fcmslk" path="res://ui_images/Settings_menu.png" id="8_vb24i"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
 [ext_resource type="AudioStream" uid="uid://dwbueww2l6obw" path="res://ui_music/countess_scream.mp3" id="10_sypnm"]
+[ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
 [ext_resource type="Script" path="res://attack_button.gd" id="14_qrf13"]
 [ext_resource type="Texture2D" uid="uid://di4lp07rgm8gq" path="res://ui_images/endslide.png" id="15_gh4em"]
 [ext_resource type="Texture2D" uid="uid://vduivwe6iciu" path="res://ui_images/failslide.png" id="16_c0i48"]
@@ -139,9 +140,11 @@ offset_top = -31.0
 offset_right = 98.0
 grow_vertical = 0
 
-[node name="Button" type="Button" parent="GridContainer"]
+[node name="PickupItemButton" type="Button" parent="GridContainer"]
 layout_mode = 2
+disabled = true
 text = "Pick up"
+script = ExtResource("14_eouhr")
 
 [node name="CheckButton" type="CheckButton" parent="GridContainer"]
 layout_mode = 2
