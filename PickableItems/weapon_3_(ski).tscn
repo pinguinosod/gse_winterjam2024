@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cik5veric2ysk"]
+[gd_scene load_steps=8 format=3 uid="uid://cik5veric2ysk"]
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_i73o7"]
+[ext_resource type="PackedScene" uid="uid://dfj6m8o54dsdg" path="res://models/skiWeapon.glb" id="2_eb3j6"]
 [ext_resource type="PackedScene" uid="uid://cim23vtrc7lxn" path="res://models/skiWeapon.fbx" id="2_lcuxp"]
-[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_h2i2p"]
+[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_h2i2p"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
 length = 0.001
@@ -72,7 +73,10 @@ script = ExtResource("1_i73o7")
 
 [node name="WeaponSpinner" type="Node3D" parent="."]
 
+[node name="skiWeapon2" parent="WeaponSpinner" instance=ExtResource("2_eb3j6")]
+
 [node name="skiWeapon" parent="WeaponSpinner" instance=ExtResource("2_lcuxp")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

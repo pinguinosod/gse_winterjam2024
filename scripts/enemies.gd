@@ -41,7 +41,7 @@ func rotateTowardsDirection(direction: Vector2i):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if currentAP > 0 and currentPathIndex < pathToFollow.size():
+	if currentPathIndex < pathToFollow.size():
 		currentAP -= 1
 		AudioManager.play_sfx(step_sound)
 		var target_position: Vector2i = pathToFollow[currentPathIndex]# + Vector2(1,1)
@@ -53,10 +53,10 @@ func _process(delta: float) -> void:
 		else:
 			# Move to the next point in the path when the current one is reached
 			currentPathIndex += 1
-	if not idle and (currentPathIndex >= pathToFollow.size() or currentAP <= 0):
+	if not idle and currentPathIndex >= pathToFollow.size():
 		idle = true
 		$countFallingDying.travel("Idle")
-	if inTurn and (currentPathIndex >= pathToFollow.size() or currentAP <= 0):
+	if inTurn and currentPathIndex >= pathToFollow.size():
 		speed = base_speed
 		get_next_action()
 	pass
@@ -74,8 +74,19 @@ func take_turn(room: Room, player: Player):
 		$countFallingDying.travel("Walk")
 	idle = false
 	pathToFollow = room._getPath(mapPos.x, mapPos.y, moveTo.x, moveTo.y)
+	setPathToFollow(pathToFollow)
 	# target_position = moveTo
 	pass
+
+func setPathToFollow(_pathToFollow: PackedVector2Array) -> void:
+	#print(currentAP)
+	var totalMovementCostPerTile = 1
+	var longestPossiblePathSize = roundi(currentAP / totalMovementCostPerTile)
+	pathToFollow = _pathToFollow.slice(0, longestPossiblePathSize + 1)
+	# currentPathIndex = 0
+	# Expend the players action points accordingly
+	currentAP -= (pathToFollow.size() - 1) * totalMovementCostPerTile
+	#print(currentAP)
 
 # checks if valid and returns the grid field the enemy wants to move to
 func get_movement(room: Room, player: Player):
