@@ -11,3 +11,7 @@ script = ExtResource("2_tcg2n")
 enemyWaves = Array[ExtResource("1_o1s8w")]([ExtResource("2_04cpd"), ExtResource("3_f3o5w")])
 doorOpensAfterTurns = 5
 bgm = ExtResource("1_cuc0k")
+doorLocations = PackedVector2Array()
+escapeRoute = PackedVector2Array(24, 6, 24, 7)
+playerStart = Vector2i(1, 6)
+roomToActivate = 1
