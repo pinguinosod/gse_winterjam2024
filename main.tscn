@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3n3e4vjd3syp"]
+[gd_scene load_steps=12 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
 [ext_resource type="PackedScene" uid="uid://be1nsbcipwe44" path="res://player.tscn" id="2_tjp8u"]
+[ext_resource type="AudioStream" uid="uid://3888qdr7wrwn" path="res://audio/Punch.mp3" id="2_vtln1"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
 [ext_resource type="PackedScene" uid="uid://ch7lfvfup1r3d" path="res://UI.tscn" id="5_3od5a"]
@@ -16,6 +17,9 @@
 
 [node name="Rooms" parent="." instance=ExtResource("1_iektr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00271797, -0.00320196, -0.000750542)
+
+[node name="Room02" parent="Rooms" index="1"]
+attack_sound = ExtResource("2_vtln1")
 
 [node name="Skeleton3D" parent="Rooms/Room02/countFallingDying/Armature" index="0"]
 bones/1/rotation = Quaternion(-1.77723e-15, -1.11077e-16, -0.0312457, 0.999512)

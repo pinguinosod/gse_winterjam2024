@@ -12,6 +12,8 @@ var animator: AnimationNodeStateMachinePlayback
 var enemy: AnimationTree
 var enemyAnimator: AnimationNodeStateMachinePlayback
 
+@export var attack_sound: AudioStream
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = $"./PlayerCutsceneStrike/AnimationTree"
@@ -37,6 +39,7 @@ func _process(delta: float) -> void:
 	if started:
 		timeElapsed += delta
 		if timeElapsed > 2.5:
+			AudioManager.play_sfx_override(attack_sound, 80)
 			enemyAnimator.travel("Death")
 			started = false
 			done = true
