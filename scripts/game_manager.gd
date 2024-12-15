@@ -86,7 +86,10 @@ func load_next_scene():
 			currentRoom.show()
 	
 	if currentCombatScene.roomToActivate == 1:
-		currentRoom.play_animation()
+		currentRoom.mark_to_play()
+		parentRoom.countess.hide()
+		parentRoom.countess.set_process(false)
+		player.hide()
 	
 	parentRoom.setWinCon(PackedVector2Array())
 	

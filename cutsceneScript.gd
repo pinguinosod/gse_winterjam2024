@@ -2,6 +2,9 @@ extends GridMap
 class_name CutsceneScript
 
 var started = false
+var shouldPlay = false
+var done = false
+var timeElapsed = 0
 
 var player: AnimationTree;
 var animator: AnimationNodeStateMachinePlayback
@@ -16,13 +19,28 @@ func _ready() -> void:
 	enemy = $"./countFallingDying/AnimationTree"
 	enemyAnimator = enemy["parameters/playback"]
 
+func mark_to_play():
+	$"../../Camera/Camera3D".position = Vector3(3, 8, 3)
+	shouldPlay = true
+
 func play_animation():
-	$"../../Camera".position = Vector3(0, -1.086, 13.935)
-	animator.travel("Strike")
 	started = true
 	animator.travel("Strike")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if started and not animator.is_playing():
-		enemyAnimator.travel("Death")
+	if shouldPlay:
+		timeElapsed += delta
+		if timeElapsed > 1:
+			play_animation()
+			shouldPlay = false
+	if started:
+		timeElapsed += delta
+		if timeElapsed > 2.5:
+			enemyAnimator.travel("Death")
+			started = false
+			done = true
+	if done:
+		timeElapsed += delta
+		if timeElapsed > 5:
+			$"../../GameManager".load_next_scene()
