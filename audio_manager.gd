@@ -1,12 +1,12 @@
-extends AudioStreamPlayer3D
+extends AudioStreamPlayer
 
-var sfx_player: AudioStreamPlayer3D
+var sfx_player: AudioStreamPlayer
 var sfx_playing = false
 
 
 func _ready() -> void:
 	self.play()
-	sfx_player = AudioStreamPlayer3D.new()
+	sfx_player = AudioStreamPlayer.new()
 	sfx_player.volume_db = 80
 	self.add_child(sfx_player)
 
@@ -28,3 +28,4 @@ func play_sfx_override(sfx, volume=0):
 	sfx_player.stream = sfx
 	sfx_player.volume_db = volume
 	sfx_player.play()
+	

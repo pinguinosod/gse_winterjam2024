@@ -65,7 +65,8 @@ func load_next_scene():
 	if currentScene >= len(combatScenesToRun):
 		$"../UI".show_win()
 		AudioManager.stop_bg_music()
-		AudioManager.play_sfx_override(winSound, 80)
+		AudioManager.play_sfx(winSound, 0)
+		print("Playing sound")
 		currentScene = 0
 		clear_enemies()
 		return

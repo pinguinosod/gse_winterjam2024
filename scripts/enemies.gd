@@ -42,7 +42,7 @@ func rotateTowardsDirection(direction: Vector2i):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if currentPathIndex < pathToFollow.size():
-		AudioManager.play_sfx(step_sound, 80)
+		AudioManager.play_sfx(step_sound, 0)
 		var target_position: Vector2i = pathToFollow[currentPathIndex]# + Vector2(1,1)
 		var direction = target_position - currentRoom.get_cell_position(position)
 		rotateTowardsDirection(direction)
@@ -119,7 +119,7 @@ func get_next_action():
 	if player.position.distance_to(position) <= 1:
 		print("Attack player, I am currently inTurn: " + str(inTurn))
 		$countFallingDying.travel("Strike")
-		AudioManager.play_sfx_override(attack_sound, 40)
+		AudioManager.play_sfx_override(attack_sound, 0)
 		if not game_manager:
 			game_manager = $"../../../GameManager"
 		game_manager.attack_player()
