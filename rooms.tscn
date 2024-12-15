@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crj37bo36phwd"]
+[gd_scene load_steps=14 format=3 uid="uid://crj37bo36phwd"]
 
 [ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3or1thien0hc" path="res://models/CharactersAnimations/countessLockpickingDress.glb" id="3_omxne"]
 [ext_resource type="PackedScene" uid="uid://bni2edah137j8" path="res://models/Deco/evilDoor.glb" id="4_om6u3"]
 [ext_resource type="PackedScene" uid="uid://b2yw7qh31m1jr" path="res://PickableItems/weapon_1_(lamp).tscn" id="6_o5c1p"]
+[ext_resource type="PackedScene" uid="uid://ew76xgg6uiu" path="res://countess_lockpicking_dress.tscn" id="6_wgigk"]
 [ext_resource type="PackedScene" uid="uid://ccvb6q28khbj2" path="res://PickableItems/weapon_2_(ski_stick).tscn" id="7_wa2e1"]
 [ext_resource type="PackedScene" uid="uid://cik5veric2ysk" path="res://PickableItems/weapon_3_(ski).tscn" id="8_fe4lj"]
 [ext_resource type="PackedScene" uid="uid://c68jlq0my3nvd" path="res://PickableItems/weapon_4_(book).tscn" id="9_erj83"]
@@ -57,6 +58,10 @@ shape = SubResource("BoxShape3D_hmtjr")
 
 [node name="countessLockpickingDress" parent="." instance=ExtResource("3_omxne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
+visible = false
+
+[node name="countessLockpickingDress2" parent="." instance=ExtResource("6_wgigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9032, 1.16972, 6.99159)
 
 [node name="Weapon 1 (Lamp)" parent="." instance=ExtResource("6_o5c1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.547, 1, 10.4931)

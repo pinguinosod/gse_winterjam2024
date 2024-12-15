@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
 [ext_resource type="Script" path="res://ui_image.gd" id="3_hy5lo"]
-[ext_resource type="AudioStream" uid="uid://25bco1hvrhi0" path="res://ui_music/Die Entführung aus dem Serail, Act 3_ Ha! Wie will ich triumphiren!.mp3" id="4_ngj2h"]
+[ext_resource type="AudioStream" uid="uid://c25pvaxicxsd8" path="res://audio/IMSLP449569-PMLP15322-O,_wie_will_ich_triumphieren_KARAOKE_PIANO_ACCOMPANIMENT_-_Entführung_aus_dem_Serail_-_Mozart.mp3" id="4_ivtb0"]
 [ext_resource type="Texture2D" uid="uid://cwcidpyvum70d" path="res://ui_images/start_button_normal.png" id="5_77ufg"]
 [ext_resource type="Texture2D" uid="uid://bphsny4uxy2yb" path="res://ui_images/story_1.png" id="5_dn7ii"]
 [ext_resource type="Texture2D" uid="uid://c3u7kcrksab32" path="res://ui_images/start_button_hover.png" id="6_1s1j4"]
@@ -34,7 +34,7 @@ texture = ExtResource("2_jjj1s")
 script = ExtResource("3_hy5lo")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_start"]
-stream = ExtResource("4_ngj2h")
+stream = ExtResource("4_ivtb0")
 autoplay = true
 parameters/looping = true
 
