@@ -76,6 +76,7 @@ visible = false
 
 [node name="countessLockpickingDress2" parent="." instance=ExtResource("6_wgigk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
+visible = false
 
 [node name="Pickups" type="Node3D" parent="."]
 transform = Transform3D(0.998926, 0, 0, 0, 0.998926, 0, 0, 0, 0.998926, 17.547, 1, 10.4931)

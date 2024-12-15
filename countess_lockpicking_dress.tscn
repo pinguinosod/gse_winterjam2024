@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ew76xgg6uiu"]
+[gd_scene load_steps=12 format=3 uid="uid://ew76xgg6uiu"]
 
 [ext_resource type="PackedScene" uid="uid://3or1thien0hc" path="res://models/CharactersAnimations/countessLockpickingDress.glb" id="1_kfh7b"]
 [ext_resource type="Script" path="res://countess.gd" id="2_xi4cp"]
 [ext_resource type="AudioStream" uid="uid://djj1t4hpvnp0s" path="res://audio/Lena3.mp3" id="3_5grte"]
 [ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="4_034we"]
-[ext_resource type="AudioStream" uid="uid://cjy0qimvkpn3w" path="res://audio/Lena5.mp3" id="5_uta5i"]
 [ext_resource type="AudioStream" uid="uid://curk0pxlopgn3" path="res://audio/LenaAudio2.mp3" id="6_traco"]
 [ext_resource type="AudioStream" uid="uid://h1ahsm64hiih" path="res://audio/LenaAudio.mp3.mp3" id="7_12syv"]
 
@@ -113,16 +112,16 @@ graph_offset = Vector2(28, 22)
 
 [node name="countessLockpickingDress" instance=ExtResource("1_kfh7b")]
 script = ExtResource("2_xi4cp")
-randomSounds = Array[AudioStream]([ExtResource("3_5grte"), ExtResource("4_034we"), ExtResource("5_uta5i"), ExtResource("6_traco"), ExtResource("7_12syv")])
+randomSounds = Array[AudioStream]([ExtResource("3_5grte"), ExtResource("4_034we"), ExtResource("6_traco"), ExtResource("7_12syv")])
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/4/rotation = Quaternion(0.102819, -0.0508345, -0.0340929, 0.992815)
+bones/4/rotation = Quaternion(0.179622, -0.038073, -0.0409962, 0.982143)
 bones/8/position = Vector3(-4.41932e-07, 11.7456, 1.05729e-05)
 bones/8/rotation = Quaternion(-0.0995384, 0.125796, 0.634926, 0.755736)
-bones/9/rotation = Quaternion(0.0654388, 0.072172, 0.24359, 0.964973)
+bones/9/rotation = Quaternion(0.137311, -0.14323, 0.278192, 0.939809)
 bones/12/position = Vector3(1.69765e-06, 11.7456, -8.25387e-06)
 bones/12/rotation = Quaternion(-0.113802, -0.129297, -0.561349, 0.809456)
-bones/13/rotation = Quaternion(0.126316, -0.071008, -0.241711, 0.959468)
+bones/13/rotation = Quaternion(0.113179, -0.0880304, -0.267847, 0.952733)
 bones/15/rotation = Quaternion(0.0168901, -0.0191034, 0.74713, -0.664189)
 bones/16/rotation = Quaternion(0.0203197, 0.0154733, -0.525248, 0.850566)
 bones/20/rotation = Quaternion(-0.000202153, 0.0254983, 0.999667, -0.00404316)
