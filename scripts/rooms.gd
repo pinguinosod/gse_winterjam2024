@@ -58,6 +58,7 @@ func _unhandled_input(event):
 	if !ignoreClicks and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		var clickPosition = get_cursor_world_position()
 		var cellClicked = currentRoom.local_to_map(clickPosition)
+		print("Clicked " + str(cellClicked))
 		if GlobalStates.PLAYER_SELECTION_MODE ==GlobalStates.PlayerSelectionMode.WALK:
 			var targetPosition = Vector3(cellClicked.x, 1, cellClicked.z)
 			if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:

@@ -20,6 +20,7 @@ var freeEnemies: Array[Enemy] = []
 var occupiedEnemies: Array[Enemy] = []
 var currentScene = 0
 var currentWave = 0
+var currentTurn = 0
 var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
 var currentRoom: Room
@@ -34,6 +35,8 @@ var playerTurn = true
 
 var playerStart: Vector3
 var player: Player
+
+var showingWaveText = false
 
 func get_player_start_position():
 	if not currentRoom:
@@ -62,7 +65,7 @@ func load_next_scene():
 	# AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
-	load_next_wave()
+	# load_next_wave()
 
 func load_next_wave():
 	if currentWave >= len(currentCombatScene.enemyWaves):
@@ -70,9 +73,11 @@ func load_next_wave():
 		return
 	currentEnemyWave = currentCombatScene.enemyWaves[currentWave]
 	showText("Wave " + str(currentEnemyWave.waveNumber) + ": " + currentEnemyWave.waveName, 3)
+	showingWaveText = true
 	currentWave += 1
+	currentTurn = 0
 	AudioManager.play_sfx(nextWaveAlarm)
-	load_in_enemies()
+	spawn_enemies()
 	
 func spawn_all_waves():
 	for currentEnemyWave in currentCombatScene.enemyWaves:
@@ -84,12 +89,23 @@ func load_in_enemies():
 	spawn_enemies()
 		
 func spawn_enemies():
+	var currentDoorIndex = 0
 	# TODO Figure out enemy positions
 	for i in range(currentEnemyWave.basicEnemyCount):
-		var enemy = spawn_next_free_enemy()
+		if currentDoorIndex >= currentCombatScene.doorLocations.size():
+			return
+		var enemy = spawn_next_free_enemy_at_cell(
+			currentCombatScene.doorLocations[currentDoorIndex]
+		)
+		currentDoorIndex += 1
 		# set hp to 1
 	for i in range(currentEnemyWave.eliteEnemyCount):
-		var enemy = spawn_next_free_enemy()
+		if currentDoorIndex >= currentCombatScene.doorLocations.size():
+			return
+		var enemy = spawn_next_free_enemy_at_cell(
+			currentCombatScene.doorLocations[currentDoorIndex]
+		)
+		currentDoorIndex += 1
 		# set hp to 2
 
 func is_wave_active():
@@ -104,6 +120,19 @@ func spawn_next_free_enemy():
 		enemy.show()
 		enemy.set_process(true)
 		enemy.position = enemyPos
+		occupiedEnemies.append(enemy)
+		return enemy
+	print("No free enemy found? Try increasing the pool size.")
+
+func spawn_next_free_enemy_at_cell(cell: Vector2):
+	if currentRoom.cell_blocked(cell):
+		return null
+	if len(freeEnemies) > 0:
+		var enemy = freeEnemies.pop_front()
+		var enemyPos = cell
+		enemy.show()
+		enemy.set_process(true)
+		enemy.position = Vector3(enemyPos.x + 0.5, 1, enemyPos.y + 0.5)
 		occupiedEnemies.append(enemy)
 		return enemy
 	print("No free enemy found? Try increasing the pool size.")
@@ -123,6 +152,8 @@ func free_enemy(enemy: Enemy):
 		enemy.set_process(false)
 
 func showText(text: String, duration: float):
+	if showingWaveText:
+		return
 	textDisplay.show()
 	textDisplay.text = text
 	textDisplayDurationSeconds = duration
@@ -144,6 +175,8 @@ func _process(delta: float) -> void:
 	if secondsPassed >= textDisplayDurationSeconds:
 		secondsPassed = 0
 		textDisplay.hide()
+		if showingWaveText:
+			showingWaveText = false
 	if enemyTurnQueue.size() > 0 and not currentEnemy.inTurn:
 		currentEnemy = enemyTurnQueue.pop_front()
 		currentEnemy.take_turn(currentRoom, player)
@@ -155,7 +188,8 @@ func _process(delta: float) -> void:
 			for enemy in occupiedEnemies:
 				enemyTurnQueue.append(enemy)
 			currentEnemy = enemyTurnQueue.pop_front()
-			currentEnemy.take_turn(currentRoom, player)
+			if currentEnemy:
+				currentEnemy.take_turn(currentRoom, player)
 		playerTurn = true
 	
 
@@ -174,6 +208,9 @@ func check_win():
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
 		playerTurn = false
+		currentTurn += 1
+		if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
+			load_next_wave()
 	if Input.is_action_just_pressed("end_turn") and enemyTurn():
 		currentEnemy.speed *= 300
 		for enemy in enemyTurnQueue:

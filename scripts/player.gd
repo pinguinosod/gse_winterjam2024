@@ -16,7 +16,7 @@ var idle = true
 
 func rotateTowardsDirection(direction: Vector2i):
 	var rotation_deg = rotation_degrees
-	print(direction)
+	#print(direction)
 	if direction.y > 0:
 		rotation_deg.y = 0.0
 	elif direction.y < 0:
@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 		
 
 func setPathToFollow(_pathToFollow: PackedVector2Array) -> void:
-	print(currentAP)
+	#print(currentAP)
 	var totalMovementCostPerTile = 1
 	if currentWeapon != null:
 		totalMovementCostPerTile += currentWeapon.movementCost
@@ -67,7 +67,7 @@ func setPathToFollow(_pathToFollow: PackedVector2Array) -> void:
 	current_path_index = 0
 	# Expend the players action points accordingly
 	currentAP -= (pathToFollow.size() - 1) * totalMovementCostPerTile
-	print(currentAP)
+	#print(currentAP)
 	
 func take_damage(damage: int = 1):
 	currentHP -= damage
