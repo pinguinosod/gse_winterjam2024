@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://hwest7fcmslk" path="res://ui_images/Settings_menu.png" id="8_vb24i"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
 [ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="10_en5uf"]
+[ext_resource type="LabelSettings" uid="uid://cgrp1dvquoavn" path="res://ui_fonts/font_labels.tres" id="12_ldonh"]
 [ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
 [ext_resource type="Script" path="res://label_action_points.gd" id="14_jo06l"]
 [ext_resource type="Script" path="res://label_hp.gd" id="14_p3dr6"]
@@ -22,13 +23,6 @@
 [ext_resource type="Script" path="res://end_turn_button.gd" id="16_0e42g"]
 [ext_resource type="Texture2D" uid="uid://vduivwe6iciu" path="res://ui_images/failslide.png" id="16_c0i48"]
 [ext_resource type="Script" path="res://label_weapon_durability.gd" id="16_c4so3"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kxiuq"]
-font = ExtResource("8_d6jhs")
-outline_size = 2
-outline_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
-shadow_size = 0
-shadow_color = Color(0.0588235, 0.0705882, 0.0313726, 0.658824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w12ow"]
 bg_color = Color(0, 0, 0, 0)
@@ -114,7 +108,7 @@ MAX: It is my duty to serve you, and I am prepared to sacrifice my own life fend
 OTTO: Thank you. You are my most trusted servant. I don’t deserve you.
 MAX: Nonsense. My Lord, now you are the only count, and if we lose You, a thousand years of tradition will be forever lost.
 "
-label_settings = SubResource("LabelSettings_kxiuq")
+label_settings = ExtResource("12_ldonh")
 
 [node name="TextureRect_1" type="TextureRect" parent="."]
 visible = false
@@ -125,8 +119,15 @@ texture = ExtResource("7_o03d0")
 [node name="Label" type="Label" parent="TextureRect_1"]
 visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 54.0
+offset_top = 374.0
+offset_right = 925.0
+offset_bottom = 491.0
+text = "DOLORES: How terrible, my dearest Otto! The Democrats will strike at noon and take your life!
+OTTO: When did this letter arrive? How did I not know about this? Noon is only in an hour!
+MAX: We all must stay vigilant. My Lord, hide in your secret room until the situation clears up. My Lady, stay somewhere else to confuse them!
+OTTO: Very well. "
+label_settings = ExtResource("12_ldonh")
 
 [node name="TextureRect_3" type="TextureRect" parent="."]
 visible = false
