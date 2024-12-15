@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=26 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -25,6 +25,20 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w12ow"]
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4nl4"]
+font = ExtResource("8_d6jhs")
+font_size = 22
+font_color = Color(0.741385, 0.741385, 0.741385, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6q3m"]
+font = ExtResource("8_d6jhs")
+font_size = 30
+font_color = Color(0.82606, 0.82606, 0.82606, 1)
+outline_size = 3
+outline_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_87y67")
@@ -300,17 +314,46 @@ theme_override_font_sizes/font_size = 22
 text = "End Turn"
 script = ExtResource("16_0e42g")
 
-[node name="Win" type="TextureRect" parent="."]
+[node name="Win" type="TextureButton" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("15_gh4em")
+offset_right = 960.0
+offset_bottom = 512.0
+texture_normal = ExtResource("15_gh4em")
+texture_pressed = ExtResource("15_gh4em")
+texture_hover = ExtResource("15_gh4em")
+texture_disabled = ExtResource("15_gh4em")
+texture_focused = ExtResource("15_gh4em")
 
-[node name="Lose" type="TextureRect" parent="."]
+[node name="Label" type="Label" parent="Win"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 387.0
+offset_right = 722.0
+offset_bottom = 462.0
+text = "MAX: I have missed my last shot, but It has been an honor to serve this country well.
+DOLORES: It seems the Final Count is down. What a beautiful estate I am left with! 
+					DEMOCRACY!
+"
+label_settings = SubResource("LabelSettings_i4nl4")
+
+[node name="Lose" type="TextureButton" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("16_c0i48")
+offset_right = 960.0
+offset_bottom = 512.0
+texture_normal = ExtResource("16_c0i48")
+texture_pressed = ExtResource("16_c0i48")
+texture_hover = ExtResource("16_c0i48")
+texture_disabled = ExtResource("16_c0i48")
+texture_focused = ExtResource("16_c0i48")
+
+[node name="Label" type="Label" parent="Lose"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 404.0
+offset_right = 874.0
+offset_bottom = 463.0
+text = "The final Count took YOU down afterall. "
+label_settings = SubResource("LabelSettings_g6q3m")
 
 [connection signal="pressed" from="TextureRect_start/StartGame_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/Button" to="." method="_on_button_pressed"]
@@ -319,3 +362,5 @@ texture = ExtResource("16_c0i48")
 [connection signal="pressed" from="TextureRect_1" to="." method="_on_texture_rect_1_pressed"]
 [connection signal="pressed" from="HUDPanel/GridContainer/PickupItemButton" to="HUDPanel/GridContainer/PickupItemButton" method="_on_pressed"]
 [connection signal="pressed" from="HUDPanel/GridContainer/EndTurnButton" to="HUDPanel/GridContainer/EndTurnButton" method="_on_pressed"]
+[connection signal="pressed" from="Win" to="." method="_on_win_pressed"]
+[connection signal="pressed" from="Lose" to="." method="_on_lose_pressed"]

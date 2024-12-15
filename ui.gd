@@ -5,6 +5,7 @@ extends CanvasLayer
 
 var current_story_index: int = 0  # Track the number of times "start" is pressed
 var texture_rect: Control
+var main_scene: PackedScene = preload("res://main.tscn")
 
 
 func _ready():
@@ -93,3 +94,10 @@ func _on_texture_rect_0_pressed() -> void:
 
 func _on_texture_rect_1_pressed() -> void:
 	_change_slide()
+
+
+func _on_win_pressed() -> void:
+	get_tree().change_scene_to_packed(main_scene)
+
+func _on_lose_pressed() -> void:
+	get_tree().change_scene_to_packed(main_scene)
