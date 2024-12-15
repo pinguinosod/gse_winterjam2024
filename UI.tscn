@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=24 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -24,6 +24,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_kxiuq"]
 font = ExtResource("8_d6jhs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w12ow"]
+bg_color = Color(0, 0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_87y67")
@@ -141,6 +144,8 @@ visible = false
 offset_top = 276.0
 offset_right = 372.0
 offset_bottom = 512.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w12ow")
 
 [node name="GridContainer" type="GridContainer" parent="HUDPanel"]
 layout_mode = 1
@@ -152,16 +157,25 @@ offset_top = -225.0
 offset_right = 400.0
 offset_bottom = -16.0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="ActionPoints" type="HBoxContainer" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HUDPanel/GridContainer/ActionPoints"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 text = "Action Points: "
 
 [node name="LabelActionPoints" type="Label" parent="HUDPanel/GridContainer/ActionPoints"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 script = ExtResource("14_jo06l")
 
 [node name="MovementCost" type="HBoxContainer" parent="HUDPanel/GridContainer"]
@@ -169,10 +183,18 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HUDPanel/GridContainer/MovementCost"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 text = "Movement Cost:"
 
 [node name="LabelMovementCost" type="Label" parent="HUDPanel/GridContainer/MovementCost"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 script = ExtResource("15_08ekw")
 
 [node name="Equipment" type="HBoxContainer" parent="HUDPanel/GridContainer"]
@@ -180,10 +202,18 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HUDPanel/GridContainer/Equipment"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 text = "Equipped Weapon: "
 
 [node name="LabelWeaponName" type="Label" parent="HUDPanel/GridContainer/Equipment"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 text = "-"
 
 [node name="WeaponDurability" type="HBoxContainer" parent="HUDPanel/GridContainer"]
@@ -191,25 +221,42 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HUDPanel/GridContainer/WeaponDurability"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 text = "Weapon Durability"
 
 [node name="LabelWeaponDurability" type="Label" parent="HUDPanel/GridContainer/WeaponDurability"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 24
 script = ExtResource("16_c4so3")
 
 [node name="PickupItemButton" type="Button" parent="HUDPanel/GridContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 22
 disabled = true
 text = "Pick up"
 script = ExtResource("14_eouhr")
 
 [node name="CheckButton" type="CheckButton" parent="HUDPanel/GridContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 22
 text = "Attack"
 script = ExtResource("14_qrf13")
 
 [node name="EndTurnButton" type="Button" parent="HUDPanel/GridContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_d6jhs")
+theme_override_font_sizes/font_size = 22
 text = "End Turn"
 script = ExtResource("16_0e42g")
 
