@@ -9,13 +9,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmtjr"]
 size = Vector3(34.6621, 1, 20.757)
 
-[node name="Rooms" type="Node3D"]
+[node name="Rooms" type="Node3D" node_paths=PackedStringArray("countess")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -6.75782, 0)
 script = ExtResource("2_xim5h")
 offSet = Vector3(85, 0, 0)
+countess = NodePath("Room01/countessLockpickingDress2")
 
 [node name="Room01" parent="." instance=ExtResource("2_okacr")]
-visible = false
 
 [node name="countessLockpickingDress" parent="Room01" instance=ExtResource("3_omxne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
@@ -25,6 +25,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
 
 [node name="Room02" parent="." instance=ExtResource("2_okacr")]
+visible = false
 
 [node name="countessLockpickingDress" parent="Room02" instance=ExtResource("3_omxne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
