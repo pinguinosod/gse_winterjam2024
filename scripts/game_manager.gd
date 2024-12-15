@@ -201,7 +201,7 @@ func check_win():
 		#showText("You lose!", 3.5)
 		$"../UI".show_lose()
 		AudioManager.stop_bg_music()
-		AudioManager.play_sfx(loseSound)
+		AudioManager.play_sfx(loseSound, 80)
 		currentScene = 0
 		clear_enemies()
 			
