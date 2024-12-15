@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2yw7qh31m1jr"]
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_8k0jk"]
-[ext_resource type="PackedScene" path="res://models/lantern.tscn" id="2_steun"]
+[ext_resource type="PackedScene" uid="uid://cwt7n3p46bll1" path="res://models/lantern.tscn" id="2_steun"]
 [ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_gu0ro"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
@@ -81,3 +81,4 @@ libraries = {
 autoplay = "rotation"
 
 [node name="PickUpArea" parent="." instance=ExtResource("3_gu0ro")]
+weaponName = "Lantern"

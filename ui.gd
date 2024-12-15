@@ -4,7 +4,7 @@ extends CanvasLayer
 @export var game_manager: GameManager
 
 var current_story_index: int = 0  # Track the number of times "start" is pressed
-var texture_rect: TextureRect
+var texture_rect: Control
 
 
 func _ready():
@@ -18,6 +18,11 @@ func _input(event):
 	# Detect "ui_accept" action (spacebar by default)
 	if event.is_action_pressed("ui_accept"):
 		_handle_space_pressed()
+	if event.is_action_pressed("previous_slide"):
+		print( "current_story_index (prev) = ", current_story_index)
+		if (current_story_index == 2):
+			current_story_index = 0
+			_change_slide()
 	
 func _play_audio_new_slide():
 	var	playingAudio: AudioStreamPlayer = texture_rect.find_child("AudioStreamPlayer")
@@ -25,12 +30,11 @@ func _play_audio_new_slide():
 		playingAudio.play()
 		
 func _handle_space_pressed():
-	print( "current_story_index = ", current_story_index)
 	_change_slide()
-	current_story_index += 1
 		
 func _change_slide():
 	texture_rect.visible = false
+	print( "current_story_index = ", current_story_index)
 	
 	if current_story_index == 0: 
 		print("----- first page ----")
@@ -46,7 +50,7 @@ func _change_slide():
 		if(label_4):
 			label_4.visible = true
 
-	if current_story_index == 3: 
+	if current_story_index == 2: 
 		print("----- GAME ----")
 		var	playingAudio: AudioStreamPlayer = $TextureRect_start.find_child("AudioStreamPlayer")
 		if (playingAudio):
@@ -57,6 +61,7 @@ func _change_slide():
 		_go_into_game()
 		
 	texture_rect.visible = true
+	current_story_index += 1
 	
 
 func _go_into_game():
@@ -68,7 +73,6 @@ func _on_start_game_button_pressed() -> void:
 	print("START Button pressed!!")
 	print( "current_story_index = ", current_story_index)
 	_change_slide()
-	current_story_index += 1
 	pass # Replace with function body.
 
 
@@ -81,3 +85,11 @@ func show_win():
 	
 func show_lose():
 	$"Lose".show()
+
+
+func _on_texture_rect_0_pressed() -> void:
+	_change_slide()
+
+
+func _on_texture_rect_1_pressed() -> void:
+	_change_slide()
