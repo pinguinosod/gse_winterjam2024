@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpnlwlvvnqwy5"]
+[gd_scene load_steps=7 format=3 uid="uid://d0qme01cav0e5"]
 
 [ext_resource type="PackedScene" uid="uid://cahonli0q608n" path="res://models/CharactersAnimations/playerStrikeAnim.glb" id="1_k27d1"]
 [ext_resource type="PackedScene" uid="uid://b4tj50ahsiq3o" path="res://models/firehookWeapon.glb" id="2_axxvr"]
@@ -7,15 +7,15 @@
 animation = &"Armature|mixamo_com|Layer0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45ft1"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jrlsa"]
-advance_mode = 2
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fcfc8"]
-states/Armature|mixamo_com|Layer0/node = SubResource("AnimationNodeAnimation_bct3o")
-states/Armature|mixamo_com|Layer0/position = Vector2(486.667, 44.6667)
-transitions = ["Start", "Armature|mixamo_com|Layer0", SubResource("AnimationNodeStateMachineTransition_45ft1"), "Armature|mixamo_com|Layer0", "End", SubResource("AnimationNodeStateMachineTransition_jrlsa")]
+states/End/position = Vector2(860.667, 99.3333)
+states/Strike/node = SubResource("AnimationNodeAnimation_bct3o")
+states/Strike/position = Vector2(397.334, 42.6667)
+transitions = ["Start", "Strike", SubResource("AnimationNodeStateMachineTransition_45ft1"), "Strike", "End", SubResource("AnimationNodeStateMachineTransition_jrlsa")]
 graph_offset = Vector2(69, -7)
 
 [node name="PlayerCutsceneStrike" instance=ExtResource("1_k27d1")]

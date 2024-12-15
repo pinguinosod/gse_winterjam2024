@@ -84,6 +84,9 @@ func load_next_scene():
 			currentRoom = parentRoom.get_child(i)
 			currentRoom.show()
 	
+	if currentCombatScene.roomToActivate == 1:
+		currentRoom.play_animation()
+	
 	parentRoom.setWinCon(PackedVector2Array())
 	
 	# AudioManager.play_bg_music(alwaysOn)
