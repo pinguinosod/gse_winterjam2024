@@ -1,8 +1,10 @@
-extends Node3D
+class_name EquippedWeapon
 
 # Common properties for all weapons
-const maxDurability: int = 25
+var maxDurability: int = 25
 var currentDurability: int = maxDurability
+var movementCost: int = 1
+
 
 # Perform an attack
 func attack() -> void:
@@ -11,7 +13,6 @@ func attack() -> void:
 		currentDurability -= 1
 		print("Attack performed. Remaining durability: %d" % [currentDurability])
 		if currentDurability <= 0:
-			queue_free()  # Remove the weapon node
 			print("The weapon has broken.")
 	else:
 		print("The weapon can no longer be used.")
