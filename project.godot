@@ -25,7 +25,7 @@ GlobalStates="*res://global_states.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=512
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [input]
 

@@ -25,6 +25,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_kxiuq"]
 font = ExtResource("8_d6jhs")
+outline_size = 2
+outline_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+shadow_size = 0
+shadow_color = Color(0.0588235, 0.0705882, 0.0313726, 0.658824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w12ow"]
 bg_color = Color(0, 0, 0, 0)
@@ -105,10 +109,11 @@ offset_left = 50.0
 offset_top = 373.0
 offset_right = 907.0
 offset_bottom = 483.0
-text = "Bla bla bla bla bla
-Bla bla bla bla bla
-Bla bla bla bla bla
-Bla bla bla bla bla"
+text = "OTTO: I’ve heard that with the tragic passing of Count Bartholomew, I might be the only one left in the country, my dear Maximilian.
+MAX: It is my duty to serve you, and I am prepared to sacrifice my own life fending off those wretched democrat scum, as long as it saves Your life, my Lord.
+OTTO: Thank you. You are my most trusted servant. I don’t deserve you.
+MAX: Nonsense. My Lord, now you are the only count, and if we lose You, a thousand years of tradition will be forever lost.
+"
 label_settings = SubResource("LabelSettings_kxiuq")
 
 [node name="TextureRect_1" type="TextureRect" parent="."]
