@@ -42,3 +42,5 @@ shadow_enabled = true
 alwaysOn = null
 
 [node name="Camera" parent="." instance=ExtResource("8_eh1c4")]
+
+[editable path="Rooms"]

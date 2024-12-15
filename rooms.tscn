@@ -22,6 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
 visible = false
 
 [node name="countessLockpickingDress2" parent="Room01" instance=ExtResource("6_wgigk")]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
 visible = false
 
@@ -33,6 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
 visible = false
 
 [node name="countessLockpickingDress2" parent="Room02" instance=ExtResource("6_wgigk")]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
 visible = false
 

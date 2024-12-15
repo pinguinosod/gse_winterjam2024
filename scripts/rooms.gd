@@ -16,6 +16,7 @@ var game_manager: GameManager
 var escapeRoute: PackedVector2Array = PackedVector2Array()
 
 func _ready():
+	countess.set_process(false)
 	game_manager = $"../GameManager"
 	currentRoom = $Room01
 	for x in maxX:
