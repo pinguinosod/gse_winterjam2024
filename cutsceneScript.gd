@@ -17,6 +17,8 @@ func _ready() -> void:
 	enemyAnimator = enemy["parameters/playback"]
 
 func play_animation():
+	$"../../Camera".position = Vector3(0, -1.086, 13.935)
+	animator.travel("Strike")
 	started = true
 	animator.travel("Strike")
 
