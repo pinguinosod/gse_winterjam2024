@@ -48,10 +48,15 @@ bones/21/rotation = Quaternion(-0.0172397, 0.0358323, -0.445349, 0.894473)
 bones/22/rotation = Quaternion(0.332266, -0.534455, 0.450754, 0.63307)
 bones/23/rotation = Quaternion(0.373775, -0.0256388, 0.0103366, 0.927107)
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.509228, -0.771058, 0.382302, 0.558535, 0.634042, 0.534818, -0.654771, -0.058815, 0.753535, -31.6669, -16.8599, -102.429)
+bone_name = "mixamorig_RightHand"
+bone_idx = 14
+
+[node name="firehookWeapon" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_axxvr")]
+transform = Transform3D(53.3271, 84.0578, 9.51365, 83.9933, -53.9506, 5.87022, 10.067, 4.86041, -99.3732, 14.1134, 9.53675, 1.85179)
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_fcfc8")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="firehookWeapon" parent="." index="3" instance=ExtResource("2_axxvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170337, -1.19209e-07, 0.549625)
