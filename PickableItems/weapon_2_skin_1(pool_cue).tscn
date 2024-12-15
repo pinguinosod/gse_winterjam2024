@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5egnh2di4l"]
+
+[ext_resource type="PackedScene" uid="uid://ccvb6q28khbj2" path="res://PickableItems/weapon_2_(ski_stick).tscn" id="1_7ftvb"]
+[ext_resource type="PackedScene" uid="uid://citgad6a4g4qv" path="res://models/poolCueWeapon.glb" id="2_ni706"]
+
+[node name="Weapon 2 (Pool Cue)" instance=ExtResource("1_7ftvb")]
+
+[node name="poolCueWeapon" parent="WeaponSpinner" index="0" instance=ExtResource("2_ni706")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 1.4377, 0)
+
+[node name="skiStickWeapon2" parent="WeaponSpinner" index="2"]
+visible = false

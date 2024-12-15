@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://paubtbw46a52"]
+
+[ext_resource type="Script" path="res://weapons.gd" id="1_vm6q6"]
+[ext_resource type="PackedScene" uid="uid://cwt7n3p46bll1" path="res://models/lantern.tscn" id="2_qrkg1"]
+[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_nboya"]
+[ext_resource type="PackedScene" uid="uid://c8avsdp6mt6c4" path="res://models/iceSkateWeaponThrown.glb" id="3_p1i3t"]
+
+[sub_resource type="Animation" id="Animation_kphvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSpinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponSpinner:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_o7hyd"]
+resource_name = "rotation"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSpinner:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponSpinner:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khg7p"]
+_data = {
+"RESET": SubResource("Animation_kphvj"),
+"rotation": SubResource("Animation_o7hyd")
+}
+
+[node name="Weapon 1 (Lamp)" type="Node3D"]
+script = ExtResource("1_vm6q6")
+
+[node name="WeaponSpinner" type="Node3D" parent="."]
+
+[node name="Lantern" parent="WeaponSpinner" instance=ExtResource("2_qrkg1")]
+transform = Transform3D(15, 0, 0, 0, -6.55671e-07, 15, 0, -15, -6.55671e-07, 0, 0.5, 0)
+visible = false
+
+[node name="iceSkateWeaponThrown" parent="WeaponSpinner" instance=ExtResource("3_p1i3t")]
+transform = Transform3D(0.4, 0, 0, 0, 0.38637, -0.103528, 0, 0.103528, 0.38637, 0, 0.382397, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_khg7p")
+}
+autoplay = "rotation"
+
+[node name="PickUpArea" parent="." instance=ExtResource("3_nboya")]

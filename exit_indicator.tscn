@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b25fq8hpn4cf7"]
+
+[node name="ExitIndicator" type="MeshInstance3D"]
