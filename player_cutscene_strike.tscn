@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpnlwlvvnqwy5"]
+
+[ext_resource type="PackedScene" uid="uid://cahonli0q608n" path="res://models/CharactersAnimations/playerStrikeAnim.glb" id="1_k27d1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bct3o"]
+animation = &"Armature|mixamo_com|Layer0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45ft1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jrlsa"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fcfc8"]
+states/Armature|mixamo_com|Layer0/node = SubResource("AnimationNodeAnimation_bct3o")
+states/Armature|mixamo_com|Layer0/position = Vector2(486.667, 44.6667)
+transitions = ["Start", "Armature|mixamo_com|Layer0", SubResource("AnimationNodeStateMachineTransition_45ft1"), "Armature|mixamo_com|Layer0", "End", SubResource("AnimationNodeStateMachineTransition_jrlsa")]
+graph_offset = Vector2(69, -7)
+
+[node name="PlayerCutsceneStrike" instance=ExtResource("1_k27d1")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(1.77688e-15, -5.55276e-17, -0.0243251, 0.999704)
+bones/4/rotation = Quaternion(1.03428e-25, 1.22551e-17, 0.0243252, 0.999704)
+bones/7/rotation = Quaternion(-0.00550656, -0.600951, 0.799257, -0.0040558)
+bones/8/rotation = Quaternion(-0.13248, 0.000883398, -0.00660832, 0.991163)
+bones/9/rotation = Quaternion(-0.00750064, 4.21628e-06, -0.000564652, 0.999972)
+bones/11/rotation = Quaternion(0.799242, 0.00431702, -0.00585605, 0.600966)
+bones/15/rotation = Quaternion(-6.95939e-05, -0.0300272, 0.999546, -0.00232319)
+bones/16/rotation = Quaternion(0.0402374, 0.00101723, 0.0252051, 0.998872)
+bones/17/rotation = Quaternion(0.248096, -0.678821, 0.263609, 0.638874)
+bones/18/rotation = Quaternion(0.37482, 0.0256554, -0.0103769, 0.926685)
+bones/20/rotation = Quaternion(0.00025966, 0.0300262, 0.999512, -0.00866049)
+bones/21/rotation = Quaternion(-0.0402368, -0.000809093, 0.0200336, 0.998989)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_fcfc8")
+anim_player = NodePath("../AnimationPlayer")

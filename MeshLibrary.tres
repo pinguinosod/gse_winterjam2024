@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=20 format=3 uid="uid://cb68cd7vsqlkw"]
+[gd_resource type="MeshLibrary" load_steps=21 format=3 uid="uid://cb68cd7vsqlkw"]
 
 [ext_resource type="ArrayMesh" uid="uid://bler6xhwxtjw5" path="res://models/tiles/blackFloorTile.tres" id="1_2w8vd"]
 [ext_resource type="ArrayMesh" uid="uid://dasdhgvn7h5n0" path="res://models/tiles/whiteFloorTile.tres" id="2_tj8s8"]
@@ -19,6 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://v2o4hjme7nqy" path="res://models/tiles/wallTilePink.tres" id="10_4lao4"]
 [ext_resource type="ArrayMesh" uid="uid://dtj437drtqgog" path="res://models/tiles/wallTileWood.tres" id="11_oiiuk"]
 [ext_resource type="ArrayMesh" uid="uid://c12b36r6ym00p" path="res://models/tiles/closetTile.tres" id="12_vdg0m"]
+[ext_resource type="ArrayMesh" uid="uid://c3rle2otob7u3" path="res://models/tiles/tileableWallCube.tres" id="14_i72u0"]
 
 [resource]
 item/0/name = "floorBlack"
@@ -65,7 +66,7 @@ item/6/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 
 item/6/navigation_layers = 1
 item/7/name = "Table"
 item/7/mesh = ExtResource("6_e7xrh")
-item/7/mesh_transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, -0.58, 0)
+item/7/mesh_transform = Transform3D(1.1, 0, 0, 0, 1.485, 0, 0, 0, 1.1, 0, -0.58, 0)
 item/7/shapes = []
 item/7/navigation_mesh_transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, 0, 0)
 item/7/navigation_layers = 1
@@ -141,3 +142,9 @@ item/19/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065, -0.49, 0.
 item/19/shapes = []
 item/19/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/19/navigation_layers = 1
+item/20/name = "WallCubeBrick"
+item/20/mesh = ExtResource("14_i72u0")
+item/20/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/20/shapes = []
+item/20/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/20/navigation_layers = 1
