@@ -32,7 +32,7 @@ func rotateTowardsDirection(direction: Vector2i):
 func _ready() -> void:
 	game_manager = $"../GameManager"
 	game_manager.player = self
-	position = game_manager.get_player_start_position()
+	# position = game_manager.get_player_start_position()
 	current_path_index = 0  # Start from the beginning of the path
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

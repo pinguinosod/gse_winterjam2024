@@ -24,7 +24,8 @@ var currentTurn = 0
 var currentTurnForDoor = 0
 var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
-var currentRoom: Room
+@export var parentRoom: Room
+var currentRoom: GridMap
 
 var currentEnemy: Enemy
 var enemyTurnQueue: Array[Enemy] = []
@@ -42,9 +43,10 @@ var freeEnemyQueue: Array[Enemy] = []
 var showingWaveText = false
 
 func get_player_start_position():
-	if not currentRoom:
-		currentRoom = $"../Rooms"
-	playerStart = Vector3(1.5, 1, 6.5)
+	if not parentRoom:
+		parentRoom = $"../Rooms"
+	playerStart = Vector3(currentCombatScene.playerStart.x + 0.5, 1, currentCombatScene.playerStart.y + 0.5)
+	# playerStart = Vector3(1.5, 1, 6.5)
 	return playerStart
 
 # Called when the node enters the scene tree for the first time.
@@ -67,11 +69,22 @@ func load_next_scene():
 		currentScene = 0
 		clear_enemies()
 		return
+	
 	currentCombatScene = combatScenesToRun[currentScene]
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
-	currentRoom.countess.show()
-	currentRoom.countess.set_process(true)
+	parentRoom.countess.show()
+	parentRoom.countess.set_process(true)
+	player.position = get_player_start_position()
+	
+	for i in range(parentRoom.get_child_count()):
+		parentRoom.get_child(i).hide()
+		if i == currentCombatScene.roomToActivate:
+			currentRoom = parentRoom.get_child(i)
+			currentRoom.show()
+	
+	parentRoom.setWinCon(PackedVector2Array())
+	
 	# AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
@@ -126,9 +139,9 @@ func is_wave_active():
 func spawn_next_free_enemy():
 	if len(freeEnemies) > 0:
 		var enemy = freeEnemies.pop_front()
-		var enemyPos = currentRoom.get_random_cell_position()
+		var enemyPos = parentRoom.get_random_cell_position()
 		while (enemyPos == playerStart):
-			enemyPos = currentRoom.get_random_cell_position()
+			enemyPos = parentRoom.get_random_cell_position()
 		enemy.show()
 		enemy.set_process(true)
 		enemy.position = enemyPos
@@ -137,7 +150,7 @@ func spawn_next_free_enemy():
 	print("No free enemy found? Try increasing the pool size.")
 
 func spawn_next_free_enemy_at_cell(cell: Vector2):
-	if currentRoom.cell_blocked(cell):
+	if parentRoom.cell_blocked(cell):
 		return null
 	if len(freeEnemies) > 0:
 		var enemy = freeEnemies.pop_front()
@@ -180,12 +193,13 @@ func enemyTurn():
 func _process(delta: float) -> void:
 	timeElapsed += delta
 	if timeElapsed > 0.5:
-		if freeEnemyQueue.size() > 0:
-			var enemy = freeEnemyQueue.pop_front()
+		for enemy in freeEnemyQueue:
+			enemy = freeEnemyQueue.pop_front()
 			occupiedEnemies.remove_at(occupiedEnemies.find(enemy))
 			freeEnemies.append(enemy)
 			enemy.hide()
 			enemy.set_process(false)
+		freeEnemyQueue.clear()
 	if timeElapsed > 1:
 		secondsPassed += 1
 		timeElapsed = 0.0
@@ -197,7 +211,7 @@ func _process(delta: float) -> void:
 	if enemyTurnQueue.size() > 0 and not currentEnemy.inTurn:
 		print("Taking next enemy Turn " + str(enemyTurnQueue.size()) + " " + str(occupiedEnemies.size()))
 		currentEnemy = enemyTurnQueue.pop_front()
-		currentEnemy.take_turn(currentRoom, player)
+		currentEnemy.take_turn(parentRoom, player)
 	if not enemyTurn() and not playerTurn:
 		showText("Player Turn", 1.5)
 		playerTurn = true
@@ -224,7 +238,7 @@ func endPlayerTurn():
 		print("Enemy inTurn" + str(enemy.inTurn))
 	currentEnemy = enemyTurnQueue.pop_front()
 	if currentEnemy:
-		currentEnemy.take_turn(currentRoom, player)
+		currentEnemy.take_turn(parentRoom, player)
 	currentTurn += 1
 	currentTurnForDoor += 1
 	if not currentCombatScene:
@@ -233,9 +247,9 @@ func endPlayerTurn():
 	if currentTurnForDoor >= currentCombatScene.doorOpensAfterTurns:
 		showText("Cracked it open! Get to the exit!", 3.5)
 		showingWaveText = true
-		currentRoom.setWinCon(currentCombatScene.escapeRoute)
-		currentRoom.countess.hide()
-		currentRoom.countess.set_process(false)
+		parentRoom.setWinCon(currentCombatScene.escapeRoute)
+		parentRoom.countess.hide()
+		parentRoom.countess.set_process(false)
 	if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
 		load_next_wave()
 	return
@@ -254,10 +268,10 @@ func _input(event: InputEvent) -> void:
 		load_next_scene()
 
 func attack_enemy_on_position(position: Vector3):
-	var mapPos = currentRoom.get_cell_position(position)
+	var mapPos = parentRoom.get_cell_position(position)
 	var enemyToFree: Enemy = null
 	for enemy in occupiedEnemies:
-		var enemyPos = currentRoom.get_cell_position(enemy.position)
+		var enemyPos = parentRoom.get_cell_position(enemy.position)
 		if mapPos == enemyPos:
 			enemyToFree = enemy
 			break
@@ -275,7 +289,7 @@ func attack_player():
 func get_actor_positions() -> PackedVector2Array:
 	var result = PackedVector2Array()
 	for enemy in occupiedEnemies:
-		result.append(currentRoom.get_cell_position(enemy.position))
-	result.append(currentRoom.get_cell_position(player.position))
+		result.append(parentRoom.get_cell_position(enemy.position))
+	result.append(parentRoom.get_cell_position(player.position))
 	return result
 	

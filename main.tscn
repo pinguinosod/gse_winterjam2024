@@ -38,8 +38,9 @@ environment = SubResource("Environment_6gimq")
 transform = Transform3D(-0.573577, 0.79124, -0.212012, 0, 0.258819, 0.965926, 0.819152, 0.554032, -0.148453, 0, 20, 0)
 shadow_enabled = true
 
-[node name="GameManager" parent="." instance=ExtResource("8_130yo")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("parentRoom") instance=ExtResource("8_130yo")]
 alwaysOn = null
+parentRoom = NodePath("../Rooms")
 
 [node name="Camera" parent="." instance=ExtResource("8_eh1c4")]
 transform = Transform3D(0.00557518, -0.131199, 0.99134, 0.141385, 0.981501, 0.129102, -0.989939, 0.139441, 0.0240216, 0, -1.08626, 13.9348)
