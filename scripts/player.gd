@@ -7,7 +7,7 @@ var current_path_index: int = 0
 
 var maxHP = 5
 var currentHP = 5
-var perTurnAP = 15
+var perTurnAP = 8
 var currentAP = perTurnAP
 var currentWeapon: EquippedWeapon = null
 

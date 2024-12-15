@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://weapons.gd" id="1_i73o7"]
 [ext_resource type="PackedScene" uid="uid://dfj6m8o54dsdg" path="res://models/skiWeapon.glb" id="2_eb3j6"]
 [ext_resource type="PackedScene" uid="uid://cim23vtrc7lxn" path="res://models/skiWeapon.fbx" id="2_lcuxp"]
-[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_h2i2p"]
+[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_h2i2p"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
 length = 0.001
@@ -86,3 +86,4 @@ libraries = {
 autoplay = "rotation"
 
 [node name="PickUpArea" parent="." instance=ExtResource("3_h2i2p")]
+weaponName = "Ski"

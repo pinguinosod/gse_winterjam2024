@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://weapons.gd" id="1_vwhut"]
 [ext_resource type="PackedScene" uid="uid://trrb8d4u6mb4" path="res://models/firehookWeapon.fbx" id="2_idcts"]
 [ext_resource type="PackedScene" uid="uid://b4tj50ahsiq3o" path="res://models/firehookWeapon.glb" id="2_xtmsk"]
-[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_gboue"]
+[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_gboue"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
 length = 0.001
@@ -86,3 +86,5 @@ libraries = {
 autoplay = "rotation"
 
 [node name="PickUpArea" parent="." instance=ExtResource("3_gboue")]
+durabilty = 5
+movementCost = 3

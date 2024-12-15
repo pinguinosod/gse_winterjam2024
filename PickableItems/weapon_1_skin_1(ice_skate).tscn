@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_vm6q6"]
 [ext_resource type="PackedScene" uid="uid://cwt7n3p46bll1" path="res://models/lantern.tscn" id="2_qrkg1"]
-[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_nboya"]
+[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_nboya"]
 [ext_resource type="PackedScene" uid="uid://c8avsdp6mt6c4" path="res://models/iceSkateWeaponThrown.glb" id="3_p1i3t"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
@@ -86,3 +86,5 @@ libraries = {
 autoplay = "rotation"
 
 [node name="PickUpArea" parent="." instance=ExtResource("3_nboya")]
+durabilty = 2
+weaponName = "Ice Skate"

@@ -10,3 +10,6 @@ transform = Transform3D(1.5, 0, 0, 0, 1.44889, -0.388228, 0, 0.388228, 1.44889, 
 
 [node name="skiStickWeapon2" parent="WeaponSpinner" index="2"]
 visible = false
+
+[node name="PickUpArea" parent="." index="2"]
+weaponName = "Pool Cue"
