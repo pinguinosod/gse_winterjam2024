@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyysjuf2pl57c"]
+[gd_scene load_steps=7 format=3 uid="uid://cyysjuf2pl57c"]
 
 [ext_resource type="Script" path="res://scripts/enemies.gd" id="1_1yk5q"]
 [ext_resource type="AudioStream" uid="uid://dmst6ds0yifac" path="res://audio/Footsteps Sound Effect  NO COPYRIGHT.mp3" id="2_2l50l"]
 [ext_resource type="AudioStream" uid="uid://3888qdr7wrwn" path="res://audio/Punch.mp3" id="3_1cv4b"]
 [ext_resource type="PackedScene" uid="uid://cl158bgei8482" path="res://models/count_falling_dying.tscn" id="4_gpatt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sop14"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.815686, 0, 0.168627, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jkl7b"]
+material = SubResource("StandardMaterial3D_sop14")
 
 [node name="Enemy" type="Node3D" groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -15,3 +22,17 @@ attack_sound = ExtResource("3_1cv4b")
 visible = false
 
 [node name="countFallingDying" parent="." instance=ExtResource("4_gpatt")]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.3
+one_shot = true
+mesh = SubResource("SphereMesh_jkl7b")
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 3.0
+radial_accel_max = 10.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4

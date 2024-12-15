@@ -12,9 +12,9 @@ func attack() -> void:
 		print("Attack performed. Remaining durability: %d" % [currentDurability])
 		if currentDurability <= 0:
 			print("The weapon has broken.")
-			Engine.get_main_loop().current_scene.get_node("/root/main/UI/GridContainer/Equipment/LabelWeaponName").text = ""
+			Engine.get_main_loop().current_scene.get_node("/root/main/UI/HUDPanel/GridContainer/Equipment/LabelWeaponName").text = "-"
 			if Engine.get_main_loop().current_scene.get_node("/root/main/Player").itemColliding != null:
-				Engine.get_main_loop().current_scene.get_node("/root/main/UI/GridContainer/PickupItemButton").disabled = false
+				Engine.get_main_loop().current_scene.get_node("/root/main/UI/HUDPanel/GridContainer/PickupItemButton").disabled = false
 			Engine.get_main_loop().current_scene.get_node("/root/main/Player").currentWeapon = null
 			queue_free()
 	else:

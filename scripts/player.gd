@@ -81,14 +81,14 @@ func turn_start():
 func _on_picking_up_items_area_area_entered(area: Area3D) -> void:
 	itemColliding = area
 	print("colliding with pickable item")
-	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
+	var pickupButton: Button = get_node("/root/main/UI/HUDPanel/GridContainer/PickupItemButton")
 	if currentWeapon == null:
 		pickupButton.disabled = false
 
 func _on_picking_up_items_area_area_exited(area: Area3D) -> void:
 	itemColliding = null
 	print("finished colliding")
-	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
+	var pickupButton: Button = get_node("/root/main/UI/HUDPanel/GridContainer/PickupItemButton")
 	pickupButton.disabled = true
 
 func equipWeapon() -> void:
@@ -97,7 +97,7 @@ func equipWeapon() -> void:
 	newEquippedWeapon.currentDurability = itemColliding.durabilty
 	newEquippedWeapon.movementCost = itemColliding.movementCost
 	currentWeapon = newEquippedWeapon
-	get_node("/root/main/UI/GridContainer/Equipment/LabelWeaponName").text = itemColliding.weaponName
+	get_node("/root/main/UI/HUDPanel/GridContainer/Equipment/LabelWeaponName").text = itemColliding.weaponName
 	itemColliding.get_parent().queue_free()
 	
 func canReach(_pathToFollow) -> bool:
@@ -108,5 +108,6 @@ func canReach(_pathToFollow) -> bool:
 	# Expend the players action points accordingly
 	var AP = currentAP
 	AP -= (_pathToFollow.size()) * totalMovementCostPerTile
+	print("Can reach: " + str(AP))
 	return AP >= 0
 	

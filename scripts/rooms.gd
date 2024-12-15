@@ -16,6 +16,7 @@ var game_manager: GameManager
 var escapeRoute: PackedVector2Array = PackedVector2Array()
 
 func _ready():
+	countess.set_process(false)
 	game_manager = $"../GameManager"
 	currentRoom = $Room01
 	for x in maxX:
@@ -69,7 +70,7 @@ func _unhandled_input(event):
 				var playerPath = _getPath(playerPosition.x, playerPosition.z, targetPosition.x, targetPosition.z)
 				if get_node("/root/main/Player").canReach(playerPath):
 					game_manager.load_next_scene()
-			if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:
+			if targetPosition.x < maxX and targetPosition.x >= 1 and targetPosition.z < maxZ and targetPosition.z >= 1:
 				if internalGrid[targetPosition.x][targetPosition.z] == GridMap.INVALID_CELL_ITEM:
 					var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
 					var playerPath = _getPath(playerPosition.x, playerPosition.z, targetPosition.x, targetPosition.z)

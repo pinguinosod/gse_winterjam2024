@@ -67,6 +67,9 @@ func take_turn(room: Room, player: Player):
 	currentRoom = room
 	self.player = player
 	var moveTo = get_movement(room, player)
+	if currentRoom.cell_blocked(moveTo):
+		inTurn = false
+		return
 	var mapPos = room.get_cell_position(position)
 	AudioManager.play_sfx_override(step_sound)
 	print("Take Turn, my AP: " + str(currentAP))
@@ -125,3 +128,6 @@ func get_next_action():
 
 func turn_start():
 	currentAP = perTurnAP
+	
+func die():
+	$"CPUParticles3D".restart()
