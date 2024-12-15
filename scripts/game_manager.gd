@@ -191,6 +191,7 @@ func _process(delta: float) -> void:
 			if currentEnemy:
 				currentEnemy.take_turn(currentRoom, player)
 		playerTurn = true
+		player.turn_start()
 	
 
 func check_win():

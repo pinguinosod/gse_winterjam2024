@@ -132,13 +132,16 @@ offset_bottom = 36.0
 text = "5 XP"
 
 [node name="GridContainer" type="GridContainer" parent="."]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -31.0
 offset_right = 98.0
 grow_vertical = 0
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Pick up"
 
 [node name="CheckButton" type="CheckButton" parent="GridContainer"]
 layout_mode = 2

@@ -8,7 +8,7 @@ var current_path_index: int = 0
 
 var maxHP = 5
 var currentHP = 5
-var perTurnAP = 150
+var perTurnAP = 15
 var currentAP = perTurnAP
 var currentWeapon = null
 
@@ -72,3 +72,6 @@ func setPathToFollow(_pathToFollow: PackedVector2Array) -> void:
 func take_damage(damage: int = 1):
 	currentHP -= damage
 	$"CPUParticles3D".restart()
+
+func turn_start():
+	currentAP = perTurnAP
