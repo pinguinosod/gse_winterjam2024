@@ -225,24 +225,24 @@ func endPlayerTurn():
 	currentEnemy = enemyTurnQueue.pop_front()
 	if currentEnemy:
 		currentEnemy.take_turn(currentRoom, player)
+	currentTurn += 1
+	currentTurnForDoor += 1
+	if not currentCombatScene:
+		print("Combat scene not loaded yet!")
+		return
+	if currentTurnForDoor >= currentCombatScene.doorOpensAfterTurns:
+		showText("Cracked it open! Get to the exit!", 3.5)
+		showingWaveText = true
+		currentRoom.setWinCon(currentCombatScene.escapeRoute)
+		currentRoom.countess.hide()
+		currentRoom.countess.set_process(false)
+	if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
+		load_next_wave()
+	return
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
-		endPlayerTurn()
-		currentTurn += 1
-		currentTurnForDoor += 1
-		if not currentCombatScene:
-			print("Combat scene not loaded yet!")
-			return
-		if currentTurnForDoor >= currentCombatScene.doorOpensAfterTurns:
-			showText("Cracked it open! Get to the exit!", 3.5)
-			showingWaveText = true
-			currentRoom.setWinCon(currentCombatScene.escapeRoute)
-			currentRoom.countess.hide()
-			currentRoom.countess.set_process(false)
-		if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
-			load_next_wave()
-		return
+		return endPlayerTurn()
 	if Input.is_action_just_pressed("end_turn") and enemyTurn():
 		currentEnemy.speed *= 300
 		for enemy in enemyTurnQueue:
