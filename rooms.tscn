@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crj37bo36phwd"]
+[gd_scene load_steps=22 format=3 uid="uid://crj37bo36phwd"]
 
 [ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
@@ -11,9 +11,22 @@
 [ext_resource type="PackedScene" uid="uid://c68jlq0my3nvd" path="res://PickableItems/weapon_4_(book).tscn" id="9_erj83"]
 [ext_resource type="PackedScene" uid="uid://vny4gefdyuvv" path="res://PickableItems/weapon_5_(fire_book).tscn" id="10_eq80y"]
 [ext_resource type="PackedScene" uid="uid://rxo778xmvo8y" path="res://PickableItems/weapon_6_(umbrella).tscn" id="11_bn1it"]
+[ext_resource type="PackedScene" uid="uid://cqu53fo1s818p" path="res://models/plateWeapon.glb" id="12_06p30"]
+[ext_resource type="PackedScene" uid="uid://b4tj50ahsiq3o" path="res://models/firehookWeapon.glb" id="13_yrebo"]
+[ext_resource type="PackedScene" uid="uid://cgm8r4v2nx21g" path="res://models/skiStickWeapon.glb" id="14_a3gp6"]
+[ext_resource type="PackedScene" uid="uid://c8avsdp6mt6c4" path="res://models/iceSkateWeaponThrown.glb" id="15_658ao"]
+[ext_resource type="PackedScene" uid="uid://dfj6m8o54dsdg" path="res://models/skiWeapon.glb" id="16_6l5iq"]
+[ext_resource type="PackedScene" uid="uid://cwcnocv1pfxie" path="res://models/umbrellaWeapon.glb" id="17_4875v"]
+[ext_resource type="PackedScene" uid="uid://cwt7n3p46bll1" path="res://models/lantern.tscn" id="18_r026w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmtjr"]
 size = Vector3(34.6621, 1, 20.757)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vd8q"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_atp7n"]
+material = SubResource("StandardMaterial3D_7vd8q")
 
 [node name="Rooms" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14441e-05, 0)
@@ -58,47 +71,82 @@ shape = SubResource("BoxShape3D_hmtjr")
 [node name="countessLockpickingDress" parent="." instance=ExtResource("3_omxne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
 
-[node name="Weapon 1 (Lamp)" parent="." instance=ExtResource("6_o5c1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.547, 1, 10.4931)
+[node name="Pickups" type="Node3D" parent="."]
+transform = Transform3D(0.998926, 0, 0, 0, 0.998926, 0, 0, 0, 0.998926, 17.547, 1, 10.4931)
 
-[node name="Weapon 2 (Ski Stick)" parent="." instance=ExtResource("7_wa2e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4999, 1, 11.6419)
+[node name="Weapon 1 (Lamp)" parent="Pickups" instance=ExtResource("6_o5c1p")]
 
-[node name="weapon 3 (Ski)" parent="." instance=ExtResource("8_fe4lj")]
-transform = Transform3D(1, -1.49012e-08, 0, 0, 1, 0, 1.49012e-08, 5.96046e-08, 1, 20.2537, 1, 12.4272)
+[node name="Weapon 2 (Ski Stick)" parent="Pickups" instance=ExtResource("7_wa2e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95283, 0, 1.14884)
 
-[node name="Weapon 4 (Book)" parent="." instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4487, 1, 7.48355)
+[node name="weapon 3 (Ski)" parent="Pickups" instance=ExtResource("8_fe4lj")]
+transform = Transform3D(1, -1.49012e-08, 0, 0, 1, 0, 1.49012e-08, 5.96046e-08, 1, 2.70662, 0, 1.93419)
 
-[node name="Weapon 4 (Book)2" parent="." instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4657, 1, 4.49609)
+[node name="Weapon 4 (Book)" parent="Pickups" instance=ExtResource("9_erj83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09837, 0, -3.0095)
 
-[node name="Weapon 4 (Book)3" parent="." instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3887, 1, 5.59826)
+[node name="Weapon 4 (Book)2" parent="Pickups" instance=ExtResource("9_erj83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08132, 0, -5.99696)
 
-[node name="Weapon 5 (Fire Book)" parent="." instance=ExtResource("10_eq80y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4043, 0.92686, 2.48748)
+[node name="Weapon 4 (Book)3" parent="Pickups" instance=ExtResource("9_erj83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84165, 0, -4.8948)
 
-[node name="Weapon 6 (Umbrella)" parent="." instance=ExtResource("11_bn1it")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4965, 0.92686, 5.56741)
+[node name="Weapon 5 (Fire Book)" parent="Pickups" instance=ExtResource("10_eq80y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1427, -0.0731399, -8.00557)
 
-[node name="Weapon 6 (Umbrella)2" parent="." instance=ExtResource("11_bn1it")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56175, 0.92686, 8.55696)
+[node name="Weapon 6 (Umbrella)" parent="Pickups" instance=ExtResource("11_bn1it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0505, -0.0731401, -4.92564)
 
-[node name="Weapon 1 (Lamp)2" parent="." instance=ExtResource("6_o5c1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48273, 0.92686, 4.52197)
+[node name="Weapon 6 (Umbrella)2" parent="Pickups" instance=ExtResource("11_bn1it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9853, -0.0731399, -1.93609)
 
-[node name="Weapon 1 (Lamp)3" parent="." instance=ExtResource("6_o5c1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48995, 0.92686, 8.46432)
+[node name="Weapon 1 (Lamp)2" parent="Pickups" instance=ExtResource("6_o5c1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06431, -0.0731399, -5.97109)
 
-[node name="Weapon 5 (Fire Book)2" parent="." instance=ExtResource("10_eq80y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4629, 0.92686, 2.44163)
+[node name="Weapon 1 (Lamp)3" parent="Pickups" instance=ExtResource("6_o5c1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0571, -0.0731399, -2.02873)
 
-[node name="Weapon 6 (Umbrella)3" parent="." instance=ExtResource("11_bn1it")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6042, 0.92686, 12.5331)
+[node name="Weapon 5 (Fire Book)2" parent="Pickups" instance=ExtResource("10_eq80y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08411, -0.0731399, -8.05143)
 
-[node name="Weapon 4 (Book)4" parent="." instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.537, 1, 3.481)
+[node name="Weapon 6 (Umbrella)3" parent="Pickups" instance=ExtResource("11_bn1it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94286, -0.0731399, 2.04007)
 
-[node name="Weapon 4 (Book)5" parent="." instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.431, 1, 5.524)
+[node name="Weapon 4 (Book)4" parent="Pickups" instance=ExtResource("9_erj83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98995, 0, -7.01205)
+
+[node name="Weapon 4 (Book)5" parent="Pickups" instance=ExtResource("9_erj83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88395, 0, -4.96905)
+
+[node name="Weapon 1 (Lamp)4" parent="Pickups" instance=ExtResource("6_o5c1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03551, -0.0731399, -1.00897)
+
+[node name="Weapon 2 (Ski Stick)2" parent="Pickups" instance=ExtResource("7_wa2e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02752, -0.0731399, 2.12265)
+
+[node name="plateWeapon" parent="." instance=ExtResource("12_06p30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9355, 2.71019, 1.54151)
+
+[node name="firehookWeapon" parent="plateWeapon" instance=ExtResource("13_yrebo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61695, -0.354335, 0)
+
+[node name="skiStickWeapon" parent="plateWeapon" instance=ExtResource("14_a3gp6")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plateWeapon"]
+transform = Transform3D(12.6921, 0, 0, 0, 1, 0, 0, 0, 7.13157, -0.0446863, -0.338128, -0.0189676)
+mesh = SubResource("PlaneMesh_atp7n")
+
+[node name="plateWeapon" parent="plateWeapon" instance=ExtResource("12_06p30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92085, 0.64928, 2.81557)
+
+[node name="iceSkateWeaponThrown" parent="plateWeapon" instance=ExtResource("15_658ao")]
+transform = Transform3D(0.0331808, 0.0960969, 0.994819, -0.94524, 0.326377, 0, -0.324686, -0.940342, 0.101664, 3.0793, 0.484342, 0.237151)
+
+[node name="skiWeapon" parent="plateWeapon" instance=ExtResource("16_6l5iq")]
+transform = Transform3D(-0.786652, 1.68696, -4.64062, 4.92967, -2.15483e-07, -0.835651, -0.281941, -4.70682, -1.66323, -2.8465, -0.100075, -0.316618)
+
+[node name="umbrellaWeapon" parent="plateWeapon" instance=ExtResource("17_4875v")]
+transform = Transform3D(1, 0, 0, 0, -0.102914, 0.99469, 0, -0.99469, -0.102914, -2.75281, 1.96328, 3.69141)
+
+[node name="Lantern" parent="plateWeapon" instance=ExtResource("18_r026w")]
+transform = Transform3D(20, 0, 0, 0, -18.6661, 7.18169, 0, -7.18169, -18.6661, 0.988108, 0.429461, 2.82435)

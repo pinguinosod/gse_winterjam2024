@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vny4gefdyuvv"]
+[gd_scene load_steps=8 format=3 uid="uid://vny4gefdyuvv"]
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_vwhut"]
 [ext_resource type="PackedScene" uid="uid://trrb8d4u6mb4" path="res://models/firehookWeapon.fbx" id="2_idcts"]
-[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_gboue"]
+[ext_resource type="PackedScene" uid="uid://b4tj50ahsiq3o" path="res://models/firehookWeapon.glb" id="2_xtmsk"]
+[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_gboue"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
 length = 0.001
@@ -71,8 +72,12 @@ script = ExtResource("1_vwhut")
 
 [node name="WeaponSpinner" type="Node3D" parent="."]
 
+[node name="firehookWeapon2" parent="WeaponSpinner" instance=ExtResource("2_xtmsk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246828, 0)
+
 [node name="firehookWeapon" parent="WeaponSpinner" instance=ExtResource("2_idcts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
