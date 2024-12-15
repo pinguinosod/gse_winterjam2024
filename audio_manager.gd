@@ -1,6 +1,7 @@
 extends AudioStreamPlayer3D
 
-var sfx_player
+var sfx_player: AudioStreamPlayer3D
+var sfx_playing = false
 
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func stop_bg_music():
 
 func play_sfx(sfx, volume=0):
 	# print("Playing sound effect!")
-	sfx_player.stream = sfx
-	sfx_player.volume_db = volume
-	sfx_player.play()
+	if not sfx_player.playing:
+		sfx_player.stream = sfx
+		sfx_player.volume_db = volume
+		sfx_player.play()

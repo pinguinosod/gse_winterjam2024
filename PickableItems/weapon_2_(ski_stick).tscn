@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccvb6q28khbj2"]
+[gd_scene load_steps=8 format=3 uid="uid://ccvb6q28khbj2"]
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_to6w5"]
 [ext_resource type="PackedScene" uid="uid://dhywccdxikahd" path="res://models/skiStickWeapon.fbx" id="2_qelmo"]
-[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_bryx1"]
+[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_bryx1"]
+[ext_resource type="PackedScene" uid="uid://cgm8r4v2nx21g" path="res://models/skiStickWeapon.glb" id="3_t1gq5"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
 length = 0.001
@@ -73,6 +74,10 @@ script = ExtResource("1_to6w5")
 
 [node name="skiStickWeapon" parent="WeaponSpinner" instance=ExtResource("2_qelmo")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 1, 0)
+visible = false
+
+[node name="skiStickWeapon2" parent="WeaponSpinner" instance=ExtResource("3_t1gq5")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 1.01308, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

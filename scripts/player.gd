@@ -1,6 +1,5 @@
 extends Node3D
 class_name Player
-
 var game_manager
 var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 points
 var speed: float = 5.0
@@ -10,9 +9,11 @@ var maxHP = 5
 var currentHP = 5
 var perTurnAP = 15
 var currentAP = perTurnAP
-var currentWeapon = null
+var currentWeapon: EquippedWeapon = null
 
 var idle = true
+
+var itemColliding: PickupWeaponProperties = null
 
 func rotateTowardsDirection(direction: Vector2i):
 	var rotation_deg = rotation_degrees
@@ -78,11 +79,22 @@ func turn_start():
 
 
 func _on_picking_up_items_area_area_entered(area: Area3D) -> void:
+	itemColliding = area
 	print("colliding with pickable item")
 	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
 	pickupButton.disabled = false
 
 func _on_picking_up_items_area_area_exited(area: Area3D) -> void:
+	itemColliding = null
 	print("finished colliding")
 	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
 	pickupButton.disabled = true
+
+func equipWeapon() -> void:
+	var newEquippedWeapon = EquippedWeapon.new()
+	newEquippedWeapon.maxDurability = itemColliding.durabilty
+	newEquippedWeapon.currentDurability = itemColliding.durabilty
+	newEquippedWeapon.movementCost = itemColliding.movementCost
+	currentWeapon = newEquippedWeapon
+	get_node("/root/main/UI/GridContainer/Equipment/LabelWeaponName").text = itemColliding.weaponName
+	itemColliding.get_parent().queue_free()
