@@ -6,6 +6,7 @@ extends CanvasLayer
 var current_story_index: int = 0  # Track the number of times "start" is pressed
 var texture_rect: TextureRect
 
+
 func _ready():
 	texture_rect = $TextureRect_start
 	texture_rect.visible = true

@@ -253,7 +253,9 @@ func attack_enemy_on_position(position: Vector3):
 		if mapPos == enemyPos:
 			enemyToFree = enemy
 			break
-	if enemyToFree:
+	print(player.currentWeapon)
+	if player.currentWeapon and enemyToFree:
+		player.currentWeapon.attack()
 		free_enemy(enemyToFree)
 
 func attack_player():

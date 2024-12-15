@@ -7,7 +7,7 @@ var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 p
 var currentPathIndex = 0
 @export var base_speed: float = 5.0
 var speed
-var perTurnAP = 5
+var perTurnAP = 4
 var currentAP = perTurnAP
 @export var max_range: float = 3.0
 var idle = true
