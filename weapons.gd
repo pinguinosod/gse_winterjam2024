@@ -1,7 +1,5 @@
 extends Node
 class_name EquippedWeapon
-
-# Common properties for all weapons
 var maxDurability: int = 25
 var currentDurability: int = maxDurability
 var movementCost: int = 1

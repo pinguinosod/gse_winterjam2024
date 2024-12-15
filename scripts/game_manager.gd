@@ -212,8 +212,11 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
 		playerTurn = false
 		currentTurn += 1
-		if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
-			load_next_wave()
+	if not currentCombatScene:
+		print("Combat scene not loaded yet!")
+		return
+	if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
+		load_next_wave()
 	if Input.is_action_just_pressed("end_turn") and enemyTurn():
 		currentEnemy.speed *= 300
 		for enemy in enemyTurnQueue:

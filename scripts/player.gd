@@ -1,6 +1,5 @@
 extends Node3D
 class_name Player
-
 var game_manager
 var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 points
 var speed: float = 5.0
