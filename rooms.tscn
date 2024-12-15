@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://crj37bo36phwd"]
 
-[ext_resource type="PackedScene" uid="uid://byd2vdcufqbmk" path="res://room_01.tscn" id="2_okacr"]
+[ext_resource type="PackedScene" path="res://room_01.tscn" id="2_okacr"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
 [ext_resource type="PackedScene" uid="uid://3or1thien0hc" path="res://models/CharactersAnimations/countessLockpickingDress.glb" id="3_omxne"]
 [ext_resource type="PackedScene" uid="uid://csvlcitpy4gls" path="res://models/gardenScene.glb" id="5_niewk"]
@@ -22,7 +22,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
 visible = false
 
 [node name="countessLockpickingDress2" parent="Room01" instance=ExtResource("6_wgigk")]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
+visible = false
 
 [node name="Room02" parent="." instance=ExtResource("2_okacr")]
 visible = false
@@ -32,7 +34,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
 visible = false
 
 [node name="countessLockpickingDress2" parent="Room02" instance=ExtResource("6_wgigk")]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6982, 0)

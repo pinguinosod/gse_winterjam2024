@@ -108,5 +108,6 @@ func canReach(_pathToFollow) -> bool:
 	# Expend the players action points accordingly
 	var AP = currentAP
 	AP -= (_pathToFollow.size()) * totalMovementCostPerTile
+	print("Can reach: " + str(AP))
 	return AP >= 0
 	

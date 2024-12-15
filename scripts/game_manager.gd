@@ -69,6 +69,7 @@ func load_next_scene():
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
 	currentRoom.countess.show()
+	currentRoom.countess.set_process(true)
 	# AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
@@ -232,6 +233,7 @@ func _input(event: InputEvent) -> void:
 			showingWaveText = true
 			currentRoom.setWinCon(currentCombatScene.escapeRoute)
 			currentRoom.countess.hide()
+			currentRoom.countess.set_process(false)
 		if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
 			load_next_wave()
 		return
