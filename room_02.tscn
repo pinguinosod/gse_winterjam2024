@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cj3okrb81usp2"]
 
-[ext_resource type="PackedScene" uid="uid://byd2vdcufqbmk" path="res://room_01.tscn" id="1_bg7x1"]
+[ext_resource type="PackedScene" path="res://room_01.tscn" id="1_bg7x1"]
 [ext_resource type="Script" path="res://cutsceneScript.gd" id="2_7mae6"]
 [ext_resource type="PackedScene" uid="uid://bu0k2ewbki4no" path="res://models/CharactersAnimations/countFallingDying.glb" id="2_86c02"]
 [ext_resource type="PackedScene" uid="uid://d0qme01cav0e5" path="res://player_cutscene_strike.tscn" id="3_a22u7"]

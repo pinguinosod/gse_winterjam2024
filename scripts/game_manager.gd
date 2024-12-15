@@ -14,6 +14,7 @@ class_name GameManager
 @export var alwaysOn: AudioStream
 @export var loseSound: AudioStream
 @export var winSound: AudioStream
+@export var attack_sound: AudioStream
 
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
@@ -289,6 +290,7 @@ func attack_enemy_on_position(position: Vector3):
 	print(player.currentWeapon)
 	if player.currentWeapon and enemyToFree:
 		player.currentWeapon.attack()
+		AudioManager.play_sfx_override(attack_sound, -10)
 		enemyToFree.die()
 		free_enemy(enemyToFree)
 
