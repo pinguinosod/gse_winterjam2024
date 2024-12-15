@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=20 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -12,10 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://d7m4ci7tqix5" path="res://audio/Music/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3" id="8_hxaoc"]
 [ext_resource type="Texture2D" uid="uid://hwest7fcmslk" path="res://ui_images/Settings_menu.png" id="8_vb24i"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
-[ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="10_lb5wp"]
+[ext_resource type="AudioStream" uid="uid://j6nypq7x3nmv" path="res://ui_music/no_peeking_settings.mp3" id="10_en5uf"]
 [ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
 [ext_resource type="Script" path="res://attack_button.gd" id="14_qrf13"]
 [ext_resource type="Texture2D" uid="uid://di4lp07rgm8gq" path="res://ui_images/endslide.png" id="15_gh4em"]
+[ext_resource type="Script" path="res://end_turn_button.gd" id="16_0e42g"]
 [ext_resource type="Texture2D" uid="uid://vduivwe6iciu" path="res://ui_images/failslide.png" id="16_c0i48"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kxiuq"]
@@ -82,7 +83,7 @@ texture_focused = ExtResource("8_vb24i")
 script = ExtResource("9_2f8wj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_start/settings_menu"]
-stream = ExtResource("10_lb5wp")
+stream = ExtResource("10_en5uf")
 
 [node name="TextureRect_0" type="TextureRect" parent="."]
 visible = false
@@ -133,7 +134,6 @@ offset_bottom = 36.0
 text = "5 XP"
 
 [node name="GridContainer" type="GridContainer" parent="."]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -161,6 +161,11 @@ script = ExtResource("14_eouhr")
 layout_mode = 2
 text = "Attack"
 script = ExtResource("14_qrf13")
+
+[node name="EndTurnButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "End Turn"
+script = ExtResource("16_0e42g")
 
 [node name="Win" type="TextureRect" parent="."]
 visible = false
