@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://objects.gd" id="6_jj2ed"]
 [ext_resource type="PackedScene" uid="uid://dhml57ffwa4iu" path="res://GameManager.tscn" id="8_130yo"]
 [ext_resource type="PackedScene" uid="uid://da5e5spud2jvw" path="res://camera_3d.tscn" id="8_eh1c4"]
-[ext_resource type="AudioStream" uid="uid://dgss8cy25wjrj" path="res://audio/Gun Shot.mp3" id="10_kea6u"]
+[ext_resource type="AudioStream" uid="uid://c73kkv1fndqa7" path="res://audio/Kick.mp3" id="10_8qsej"]
 
 [sub_resource type="Environment" id="Environment_6gimq"]
 
@@ -56,7 +56,7 @@ shadow_enabled = true
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("parentRoom") instance=ExtResource("8_130yo")]
 alwaysOn = null
-attack_sound = ExtResource("10_kea6u")
+attack_sound = ExtResource("10_8qsej")
 parentRoom = NodePath("../Rooms")
 
 [node name="Camera" parent="." instance=ExtResource("8_eh1c4")]

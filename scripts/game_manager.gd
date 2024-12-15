@@ -290,7 +290,7 @@ func attack_enemy_on_position(position: Vector3):
 	print(player.currentWeapon)
 	if player.currentWeapon and enemyToFree:
 		player.currentWeapon.attack()
-		AudioManager.play_sfx_override(attack_sound, -10)
+		AudioManager.play_sfx_override(attack_sound, 0)
 		enemyToFree.die()
 		free_enemy(enemyToFree)
 
