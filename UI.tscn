@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://d7m4ci7tqix5" path="res://audio/Music/Action Fighting Background Music No CopyrightDrums Percussion Music Free - Epic Battle Chase Music.mp3" id="8_hxaoc"]
 [ext_resource type="Texture2D" uid="uid://hwest7fcmslk" path="res://ui_images/Settings_menu.png" id="8_vb24i"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
-[ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="10_lb5wp"]
+[ext_resource type="AudioStream" uid="uid://j6nypq7x3nmv" path="res://ui_music/no_peeking_settings.mp3" id="10_en5uf"]
 [ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
 [ext_resource type="Script" path="res://attack_button.gd" id="14_qrf13"]
 [ext_resource type="Texture2D" uid="uid://di4lp07rgm8gq" path="res://ui_images/endslide.png" id="15_gh4em"]
@@ -82,7 +82,7 @@ texture_focused = ExtResource("8_vb24i")
 script = ExtResource("9_2f8wj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_start/settings_menu"]
-stream = ExtResource("10_lb5wp")
+stream = ExtResource("10_en5uf")
 
 [node name="TextureRect_0" type="TextureRect" parent="."]
 visible = false
