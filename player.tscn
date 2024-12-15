@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buuc6fpud4fcd"]
+[gd_scene load_steps=8 format=3 uid="uid://buuc6fpud4fcd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsb8n"]
 [ext_resource type="PackedScene" uid="uid://hq421rsoj582" path="res://models/player_strike_anim.tscn" id="2_1oclv"]
@@ -14,6 +14,8 @@ albedo_color = Color(0.815686, 0, 0.168627, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_mt6nt"]
 material = SubResource("StandardMaterial3D_sop14")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghbsx"]
+
 [node name="Player" type="Node3D" groups=["Player"]]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 script = ExtResource("1_xsb8n")
@@ -21,6 +23,31 @@ script = ExtResource("1_xsb8n")
 [node name="playerStrikeAnim" parent="." node_paths=PackedStringArray("tree") instance=ExtResource("2_1oclv")]
 script = ExtResource("3_qhufq")
 tree = NodePath("AnimationTree")
+
+[node name="Skeleton3D" parent="playerStrikeAnim/Armature" index="0"]
+bones/0/position = Vector3(-0.34176, -0.779099, -56.643)
+bones/0/rotation = Quaternion(-0.509506, -0.497055, 0.502833, 0.490406)
+bones/1/rotation = Quaternion(-0.000139394, -0.0013083, -0.0385453, 0.999256)
+bones/3/rotation = Quaternion(0.00294651, -0.0216051, -0.00675282, 0.999739)
+bones/4/rotation = Quaternion(-0.0173038, 0.00759076, 0.0575408, 0.998164)
+bones/5/rotation = Quaternion(0.0231827, -0.0144907, -0.0464618, 0.998546)
+bones/6/rotation = Quaternion(0, 0.707107, -2.51215e-15, 0.707107)
+bones/7/rotation = Quaternion(0.0507583, -0.628459, 0.775297, 0.0371144)
+bones/8/rotation = Quaternion(0.478942, 0.152833, 0.172708, 0.847012)
+bones/9/position = Vector3(-5.10926e-07, 15.4197, -5.43416e-06)
+bones/9/rotation = Quaternion(-0.0165046, -6.97808e-05, 0.252388, 0.967485)
+bones/10/position = Vector3(3.73113e-06, 20.2529, 1.32814e-06)
+bones/11/rotation = Quaternion(0.748506, 0.0070007, -0.02037, 0.662778)
+bones/12/rotation = Quaternion(0.501575, -0.131891, -0.205696, 0.829889)
+bones/13/rotation = Quaternion(-0.015935, 0.000212592, -0.231458, 0.972714)
+bones/15/rotation = Quaternion(0.0381751, -0.0265357, 0.998079, -0.0409598)
+bones/16/rotation = Quaternion(-0.0115567, -0.0747755, -0.21045, 0.974672)
+bones/17/rotation = Quaternion(0.392421, -0.634626, 0.354266, 0.563695)
+bones/18/rotation = Quaternion(0.378107, -0.00335905, 0.00120743, 0.925755)
+bones/20/rotation = Quaternion(-0.120691, 0.0556621, 0.990652, -0.0307257)
+bones/21/rotation = Quaternion(-0.001112, 0.0293977, -0.158414, 0.986934)
+bones/22/rotation = Quaternion(0.313943, -0.564019, 0.366357, 0.670153)
+bones/23/rotation = Quaternion(0.375021, 0.00288953, -0.00116886, 0.927011)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 visible = false
@@ -41,5 +68,16 @@ radial_accel_min = 3.0
 radial_accel_max = 10.0
 scale_amount_min = 0.4
 scale_amount_max = 0.4
+
+[node name="PickingUpItemsArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickingUpItemsArea"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_ghbsx")
+
+[connection signal="area_entered" from="PickingUpItemsArea" to="." method="_on_picking_up_items_area_area_entered"]
+[connection signal="area_exited" from="PickingUpItemsArea" to="." method="_on_picking_up_items_area_area_exited"]
 
 [editable path="playerStrikeAnim"]
