@@ -42,6 +42,9 @@ func _change_slide():
 	if current_story_index == 1: 
 		print("----- second page ----")
 		texture_rect = $TextureRect_1
+		var	label_4: Label = $TextureRect_1.find_child("Label")
+		if(label_4):
+			label_4.visible = true
 
 	if current_story_index == 3: 
 		print("----- GAME ----")
