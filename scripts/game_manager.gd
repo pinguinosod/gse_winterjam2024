@@ -70,6 +70,7 @@ func load_next_scene():
 		clear_enemies()
 		return
 	
+	clear_enemies()
 	currentCombatScene = combatScenesToRun[currentScene]
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)

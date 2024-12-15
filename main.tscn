@@ -17,6 +17,9 @@
 [node name="Rooms" parent="." instance=ExtResource("1_iektr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00271797, -0.00320196, -0.000750542)
 
+[node name="gardenScene" parent="Rooms" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Player" parent="." instance=ExtResource("2_tjp8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691039, 0)
 
