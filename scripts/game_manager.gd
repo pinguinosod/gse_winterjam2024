@@ -21,6 +21,7 @@ var occupiedEnemies: Array[Enemy] = []
 var currentScene = 0
 var currentWave = 0
 var currentTurn = 0
+var currentTurnForDoor = 0
 var currentEnemyWave: EnemyWave
 var currentCombatScene: CombatScene
 var currentRoom: Room
@@ -58,13 +59,21 @@ func _ready() -> void:
 
 func load_next_scene():
 	if currentScene >= len(combatScenesToRun):
+		$"../UI".show_win()
+		AudioManager.stop_bg_music()
+		AudioManager.play_sfx(winSound, 80)
+		currentScene = 0
+		clear_enemies()
 		return
 	currentCombatScene = combatScenesToRun[currentScene]
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
+	currentRoom.countess.show()
 	# AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
+	currentTurn = 0
+	currentTurnForDoor = 0
 	# load_next_wave()
 
 func load_next_wave():
@@ -180,16 +189,6 @@ func _process(delta: float) -> void:
 	if enemyTurnQueue.size() > 0 and not currentEnemy.inTurn:
 		currentEnemy = enemyTurnQueue.pop_front()
 		currentEnemy.take_turn(currentRoom, player)
-	if not enemyTurn():
-		if not playerTurn and enemyTurnQueue.size() == 0:
-			#if not is_wave_active():
-			#	load_next_wave()
-			showText("Enemy Turn", 1.5)
-			for enemy in occupiedEnemies:
-				enemyTurnQueue.append(enemy)
-			currentEnemy = enemyTurnQueue.pop_front()
-			if currentEnemy:
-				currentEnemy.take_turn(currentRoom, player)
 	if not enemyTurn() and not playerTurn:
 		showText("Player Turn", 1.5)
 		playerTurn = true
@@ -208,15 +207,29 @@ func check_win():
 		clear_enemies()
 			
 
+func endPlayerTurn():
+	playerTurn = false
+	showText("Enemy Turn", 1.5)
+	for enemy in occupiedEnemies:
+		enemyTurnQueue.append(enemy)
+	currentEnemy = enemyTurnQueue.pop_front()
+	if currentEnemy:
+		currentEnemy.take_turn(currentRoom, player)
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
-		playerTurn = false
+		endPlayerTurn()
 		currentTurn += 1
-	if not currentCombatScene:
-		print("Combat scene not loaded yet!")
-		return
-	if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
-		load_next_wave()
+		currentTurnForDoor += 1
+		if not currentCombatScene:
+			print("Combat scene not loaded yet!")
+			return
+		if currentTurnForDoor >= currentCombatScene.doorOpensAfterTurns:
+			showText("Cracked it open! Get to the exit!", 3.5)
+			currentRoom.setWinCon(currentCombatScene.escapeRoute)
+			currentRoom.countess.hide()
+		if currentWave < currentCombatScene.enemyWaves.size() and currentTurn >= currentCombatScene.enemyWaves[currentWave].spawnsInTurns:
+			load_next_wave()
 	if Input.is_action_just_pressed("end_turn") and enemyTurn():
 		currentEnemy.speed *= 300
 		for enemy in enemyTurnQueue:

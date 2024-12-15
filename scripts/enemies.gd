@@ -108,13 +108,18 @@ func get_next_action():
 	# if player.position in self.weapon.range:
 	# self.weapon.attack()
 	# pass_turn()
+	if not inTurn:
+		return
 	inTurn = false
-	$countFallingDying.travel("Strike")
+	$countFallingDying.travel("Idle")
 	if player.position.distance_to(position) <= 1:
+		print("Attack player, I am currently inTurn: " + str(inTurn))
+		$countFallingDying.travel("Strike")
 		AudioManager.play_sfx_override(attack_sound, 40)
 		if not game_manager:
 			game_manager = $"../../../GameManager"
 		game_manager.attack_player()
+	
 	pass
 
 func turn_start():
