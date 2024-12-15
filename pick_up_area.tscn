@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://deq7m8qtvdguf"]
+[gd_scene load_steps=3 format=3 uid="uid://deq7m8qtvdguf"]
+
+[ext_resource type="Script" path="res://pick_up_weapon_properties.gd" id="1_uo21f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wm3rb"]
 
 [node name="PickUpArea" type="Area3D"]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_uo21f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.5, 0)

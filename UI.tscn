@@ -140,6 +140,16 @@ offset_top = -31.0
 offset_right = 98.0
 grow_vertical = 0
 
+[node name="Equipment" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer/Equipment"]
+layout_mode = 2
+text = "Equipped Weapon: "
+
+[node name="LabelWeaponName" type="Label" parent="GridContainer/Equipment"]
+layout_mode = 2
+
 [node name="PickupItemButton" type="Button" parent="GridContainer"]
 layout_mode = 2
 disabled = true
@@ -166,3 +176,4 @@ texture = ExtResource("16_c0i48")
 [connection signal="pressed" from="TextureRect_start/StartGame_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/settings_menu" to="TextureRect_start/settings_menu" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/PickupItemButton" to="GridContainer/PickupItemButton" method="_on_pressed"]
