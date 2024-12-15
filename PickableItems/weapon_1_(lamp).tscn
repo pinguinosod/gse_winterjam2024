@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_8k0jk"]
 [ext_resource type="PackedScene" path="res://models/lantern.tscn" id="2_steun"]
+[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_gu0ro"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
 length = 0.001
@@ -65,8 +66,6 @@ _data = {
 "rotation": SubResource("Animation_o7hyd")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wm3rb"]
-
 [node name="Weapon 1 (Lamp)" type="Node3D"]
 script = ExtResource("1_8k0jk")
 
@@ -81,10 +80,4 @@ libraries = {
 }
 autoplay = "rotation"
 
-[node name="PickUpArea" type="Area3D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickUpArea"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_wm3rb")
+[node name="PickUpArea" parent="." instance=ExtResource("3_gu0ro")]

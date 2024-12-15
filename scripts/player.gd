@@ -79,7 +79,10 @@ func turn_start():
 
 func _on_picking_up_items_area_area_entered(area: Area3D) -> void:
 	print("colliding with pickable item")
-
+	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
+	pickupButton.disabled = false
 
 func _on_picking_up_items_area_area_exited(area: Area3D) -> void:
 	print("finished colliding")
+	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
+	pickupButton.disabled = true
