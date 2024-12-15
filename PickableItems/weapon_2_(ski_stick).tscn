@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://weapons.gd" id="1_to6w5"]
 [ext_resource type="PackedScene" uid="uid://dhywccdxikahd" path="res://models/skiStickWeapon.fbx" id="2_qelmo"]
-[ext_resource type="PackedScene" path="res://pick_up_area.tscn" id="3_bryx1"]
+[ext_resource type="PackedScene" uid="uid://deq7m8qtvdguf" path="res://pick_up_area.tscn" id="3_bryx1"]
 [ext_resource type="PackedScene" uid="uid://cgm8r4v2nx21g" path="res://models/skiStickWeapon.glb" id="3_t1gq5"]
 
 [sub_resource type="Animation" id="Animation_kphvj"]
@@ -86,3 +86,5 @@ libraries = {
 autoplay = "rotation"
 
 [node name="PickUpArea" parent="." instance=ExtResource("3_bryx1")]
+movementCost = 2
+weaponName = "Ski Stick"

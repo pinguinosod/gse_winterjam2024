@@ -81,3 +81,5 @@ libraries = {
 autoplay = "rotation"
 
 [node name="PickUpArea" parent="." instance=ExtResource("3_yyfmi")]
+durabilty = 4
+movementCost = 2
