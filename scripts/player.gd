@@ -83,7 +83,8 @@ func _on_picking_up_items_area_area_entered(area: Area3D) -> void:
 	itemColliding = area
 	print("colliding with pickable item")
 	var pickupButton: Button = get_node("/root/main/UI/GridContainer/PickupItemButton")
-	pickupButton.disabled = false
+	if currentWeapon == null:
+		pickupButton.disabled = false
 
 func _on_picking_up_items_area_area_exited(area: Area3D) -> void:
 	itemColliding = null
