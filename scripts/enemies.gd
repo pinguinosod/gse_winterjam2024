@@ -7,6 +7,8 @@ var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 p
 var currentPathIndex = 0
 @export var base_speed: float = 5.0
 var speed
+var perTurnAP = 15
+var currentAP = perTurnAP
 @export var max_range: float = 3.0
 var idle = true
 var inTurn = false
@@ -39,7 +41,8 @@ func rotateTowardsDirection(direction: Vector2i):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if currentPathIndex < pathToFollow.size():
+	if currentAP > 0 and currentPathIndex < pathToFollow.size():
+		currentAP -= 1
 		AudioManager.play_sfx(step_sound)
 		var target_position: Vector2i = pathToFollow[currentPathIndex]# + Vector2(1,1)
 		var direction = target_position - currentRoom.get_cell_position(position)
@@ -50,16 +53,17 @@ func _process(delta: float) -> void:
 		else:
 			# Move to the next point in the path when the current one is reached
 			currentPathIndex += 1
-	if not idle and currentPathIndex >= pathToFollow.size():
+	if not idle and (currentPathIndex >= pathToFollow.size() or currentAP <= 0):
 		idle = true
 		$countFallingDying.travel("Idle")
-	if inTurn and currentPathIndex >= pathToFollow.size():
+	if inTurn and (currentPathIndex >= pathToFollow.size() or currentAP <= 0):
 		speed = base_speed
 		get_next_action()
 	pass
 
 # calls and processes the results of get_movement and get_next_action
 func take_turn(room: Room, player: Player):
+	turn_start()
 	inTurn = true
 	currentRoom = room
 	self.player = player
@@ -101,3 +105,6 @@ func get_next_action():
 			game_manager = $"../../../GameManager"
 		game_manager.attack_player()
 	pass
+
+func turn_start():
+	currentAP = perTurnAP

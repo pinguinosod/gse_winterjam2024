@@ -8,3 +8,4 @@ basicEnemyCount = 15
 eliteEnemyCount = 0
 waveName = "Oh no, there's more!"
 waveNumber = 2
+spawnsInTurns = 3
