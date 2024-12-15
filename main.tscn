@@ -17,6 +17,24 @@
 [node name="Rooms" parent="." instance=ExtResource("1_iektr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00271797, -0.00320196, -0.000750542)
 
+[node name="Skeleton3D" parent="Rooms/Room02/countFallingDying/Armature" index="0"]
+bones/1/rotation = Quaternion(-1.77723e-15, -1.11077e-16, -0.0312457, 0.999512)
+bones/4/rotation = Quaternion(1.77723e-15, 2.10438e-17, 0.0312457, 0.999512)
+bones/6/rotation = Quaternion(-1.72715e-16, 0.707107, -5.42762e-15, 0.707107)
+bones/7/rotation = Quaternion(-0.00337343, -0.631962, 0.774988, -0.0024029)
+bones/8/rotation = Quaternion(-0.0693744, 0.000444774, -0.00639646, 0.99757)
+bones/9/rotation = Quaternion(-0.0327508, -7.21805e-05, 0.00220262, 0.999461)
+bones/11/rotation = Quaternion(0.774778, 0.00527609, -0.00710901, 0.632172)
+bones/12/rotation = Quaternion(-0.068748, -0.00107806, 0.0156424, 0.997511)
+bones/13/rotation = Quaternion(-0.0330674, 0.000218469, -0.0066028, 0.999431)
+bones/15/rotation = Quaternion(-6.66342e-05, -0.0178693, 0.999833, -0.00373691)
+bones/16/rotation = Quaternion(0.0191336, 0.000467153, 0.0244414, 0.999518)
+bones/17/rotation = Quaternion(0.255206, -0.668436, 0.263685, 0.646942)
+bones/20/rotation = Quaternion(-1.96056e-05, 0.0178694, 0.99984, 0.00109379)
+bones/21/rotation = Quaternion(-0.0191298, -0.000569266, 0.029739, 0.999374)
+bones/22/rotation = Quaternion(0.26237, -0.647365, 0.253865, 0.669054)
+bones/23/rotation = Quaternion(0.37502, 0.00288944, -0.00116896, 0.927011)
+
 [node name="gardenScene" parent="Rooms" index="3"]
 transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 11.3925, -1.24064, 0)
 
