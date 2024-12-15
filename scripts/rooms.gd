@@ -24,18 +24,24 @@ func _ready():
 	for x in maxX:
 		for z in maxZ:
 			if internalGrid[x][z] == GridMap.INVALID_CELL_ITEM:
-				if internalGrid[x-1][z] == GridMap.INVALID_CELL_ITEM:
+				if x-1 >= 0 and internalGrid[x-1][z] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x-1,z))
-				if internalGrid[x+1][z] == GridMap.INVALID_CELL_ITEM:
+				if x+1 < maxX and internalGrid[x+1][z] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x+1,z))
-				if internalGrid[x][z-1] == GridMap.INVALID_CELL_ITEM:
+				if z-1 >= 0 and internalGrid[x][z-1] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x,z-1))
-				if internalGrid[x][z+1] == GridMap.INVALID_CELL_ITEM:
+				if z+1 < maxZ and internalGrid[x][z+1] == GridMap.INVALID_CELL_ITEM:
 					AStar.connect_points(_generateID(x,z), _generateID(x,z+1))
 
 func get_cell_position(world_position: Vector3):
 	var cell = currentRoom.local_to_map(world_position)
-	return Vector3(cell.x + 0.5, 1, cell.z + 0.5)
+	return Vector2i(cell.x, cell.z)
+	
+func get_adjacent_cells(map_pos: Vector2i):
+	return [Vector2i(map_pos.x - 1, map_pos.y), Vector2i(map_pos.x + 1, map_pos.y),
+			Vector2i(map_pos.x, map_pos.y + 1), Vector2i(map_pos.x, map_pos.y - 1),
+			Vector2i(map_pos.x - 1, map_pos.y + 1), Vector2i(map_pos.x + 1, map_pos.y - 1),
+			Vector2i(map_pos.x - 1, map_pos.y - 1), Vector2i(map_pos.x + 1, map_pos.y + 1)]
 	
 func get_random_cell_position(min_x = 1, max_x = 24, min_z = 1, max_z = 12):
 	return Vector3(randi_range(min_x, max_x) + 0.5, 1, randi_range(min_z, max_z) + 0.5)

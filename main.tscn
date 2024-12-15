@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_tjp8u"]
+[ext_resource type="PackedScene" uid="uid://buuc6fpud4fcd" path="res://player.tscn" id="2_tjp8u"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
 [ext_resource type="PackedScene" uid="uid://ch7lfvfup1r3d" path="res://UI.tscn" id="5_3od5a"]
 [ext_resource type="AudioStream" uid="uid://04nk0eep1mpy" path="res://audio/Clapping.mp3" id="5_8yy2t"]
 [ext_resource type="Script" path="res://objects.gd" id="6_jj2ed"]
 [ext_resource type="PackedScene" uid="uid://dhml57ffwa4iu" path="res://GameManager.tscn" id="8_130yo"]
-[ext_resource type="PackedScene" uid="uid://da5e5spud2jvw" path="res://camera_3d.tscn" id="8_eh1c4"]
+[ext_resource type="PackedScene" path="res://camera_3d.tscn" id="8_eh1c4"]
 
 [sub_resource type="Environment" id="Environment_6gimq"]
 
@@ -21,7 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(-0.0131768, 0.999913, 0, -0.999913, -0.0131768, 0, 0, 0, 1, 0, 0.691039, 0)
 
 [node name="Enemies" parent="." instance=ExtResource("3_fuddb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06125, -3.36286)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.62584, 1.11972, 3.59007)
 visible = false
 step_sound = ExtResource("5_8yy2t")
 

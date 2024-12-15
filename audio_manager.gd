@@ -16,6 +16,6 @@ func stop_bg_music():
 	self.stop()
 
 func play_sfx(sfx):
-	print("Playing sound effect!")
+	# print("Playing sound effect!")
 	sfx_player.stream = sfx
 	sfx_player.play()

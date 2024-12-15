@@ -3,52 +3,85 @@ extends Node3D
 class_name Enemy
 
 var target_position: Vector3 = Vector3.ZERO
-@export var base_speed: float = 5.0
+var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 points
+var currentPathIndex = 0
+@export var base_speed: float = 3.0
+var speed
+@export var max_range: float = 3.0
 var idle = true
 var inTurn = false
 
 @export var step_sound: AudioStream
 @export var attack_sound: AudioStream
 
+var currentRoom: Room
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# AudioManager.play_bg_music(step_sound)
+	speed = base_speed
 	pass # Replace with function body.
 
+func rotateTowardsDirection(direction: Vector2i):
+	var rotation_deg = rotation_degrees
+	if direction.y > 0:
+		rotation_deg.y = 45.0
+	elif direction.y < 0:
+		rotation_deg.y = -135.0
+	elif direction.x > 0:
+		rotation_deg.y = -225.0
+	elif direction.x < 0:
+		rotation_deg.y = -45.0
+	rotation_degrees = rotation_deg
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if position != target_position:
-		position = position.move_toward(target_position, delta * base_speed)
-	if not idle and position == target_position:
+	if currentPathIndex < pathToFollow.size():
+		AudioManager.play_sfx(step_sound)
+		var target_position: Vector2i = pathToFollow[currentPathIndex]# + Vector2(1,1)
+		var direction = target_position - currentRoom.get_cell_position(position)
+		rotateTowardsDirection(direction)
+		var vec3TargetPosition = Vector3(target_position.x + 0.5, 1, target_position.y + 0.5)
+		if position != vec3TargetPosition:
+			position = position.move_toward(vec3TargetPosition, delta * speed)
+		else:
+			# Move to the next point in the path when the current one is reached
+			currentPathIndex += 1
+	if not idle and currentPathIndex >= pathToFollow.size():
 		idle = true
 		$countFallingDying.travel("Idle")
-	if inTurn and position == target_position:
+	if inTurn and currentPathIndex >= pathToFollow.size():
+		speed = base_speed
 		get_next_action()
 	pass
 
 # calls and processes the results of get_movement and get_next_action
-func take_turn(room: Room):
+func take_turn(room: Room, player: Player):
 	inTurn = true
-	var moveTo = get_movement(room)
+	currentRoom = room
+	var moveTo = get_movement(room, player)
+	var mapPos = room.get_cell_position(position)
 	# TODO change that to change the grid position actually
-	
-	if moveTo != position:
+	print(mapPos, moveTo)
+	if moveTo.distance_to(mapPos) > 0.1:
 		$countFallingDying.travel("Walk")
-	target_position = moveTo
 	idle = false
-	AudioManager.play_sfx(step_sound)
+	pathToFollow = room._getPath(mapPos.x, mapPos.y, moveTo.x, moveTo.y)
+	# target_position = moveTo
 	pass
 
 # checks if valid and returns the grid field the enemy wants to move to
-func get_movement(room: Room):
+func get_movement(room: Room, player: Player):
 	# check all fields in range of the enemy, starting with the closest to the player
 	# for field in grid:
 	# check if the field is not occupied
 	# if grid.isFree(field):
 	# return field
 	
-	return room.get_random_cell_position(1, 24, 1, 12)
+	var player_pos = room.get_cell_position(player.position)
+	var choices = room.get_adjacent_cells(player_pos)
+	
+	return choices[randi_range(0, len(choices) - 1)]
 	pass
 
 # returns the action of the enemy for this turn
@@ -59,5 +92,6 @@ func get_next_action():
 	# pass_turn()
 	inTurn = false
 	AudioManager.play_sfx(attack_sound)
+	$countFallingDying.travel("Strike")
 	print("Attack!")
 	pass
