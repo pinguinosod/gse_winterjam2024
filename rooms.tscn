@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://crj37bo36phwd"]
+[gd_scene load_steps=23 format=3 uid="uid://crj37bo36phwd"]
 
 [ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
@@ -71,6 +71,10 @@ shape = SubResource("BoxShape3D_hmtjr")
 
 [node name="countessLockpickingDress" parent="." instance=ExtResource("3_omxne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
+visible = false
+
+[node name="countessLockpickingDress2" parent="." instance=ExtResource("6_wgigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
 
 [node name="Pickups" type="Node3D" parent="."]
 transform = Transform3D(0.998926, 0, 0, 0, 0.998926, 0, 0, 0, 0.998926, 17.547, 1, 10.4931)
