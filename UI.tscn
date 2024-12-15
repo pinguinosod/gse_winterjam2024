@@ -271,13 +271,17 @@ theme_override_fonts/font = ExtResource("8_d6jhs")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("16_c4so3")
 
+[node name="HSeparator" type="HSeparator" parent="HUDPanel/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
 [node name="PickupItemButton" type="Button" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("8_d6jhs")
 theme_override_font_sizes/font_size = 22
 disabled = true
-text = "Pick up"
+text = "Pick Up Weapon"
 script = ExtResource("14_eouhr")
 
 [node name="CheckButton" type="CheckButton" parent="HUDPanel/GridContainer"]
@@ -285,7 +289,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("8_d6jhs")
 theme_override_font_sizes/font_size = 22
-text = "Attack"
+text = "Enable Attack Mode"
 script = ExtResource("14_qrf13")
 
 [node name="EndTurnButton" type="Button" parent="HUDPanel/GridContainer"]
