@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3n3e4vjd3syp"]
+[gd_scene load_steps=13 format=3 uid="uid://d3n3e4vjd3syp"]
 
 [ext_resource type="PackedScene" uid="uid://crj37bo36phwd" path="res://rooms.tscn" id="1_iektr"]
 [ext_resource type="PackedScene" uid="uid://be1nsbcipwe44" path="res://player.tscn" id="2_tjp8u"]
 [ext_resource type="AudioStream" uid="uid://3888qdr7wrwn" path="res://audio/Punch.mp3" id="2_vtln1"]
-[ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="3_fuddb"]
+[ext_resource type="AudioStream" uid="uid://cjy0qimvkpn3w" path="res://audio/Lena5.mp3" id="3_t38fo"]
+[ext_resource type="PackedScene" uid="uid://ew76xgg6uiu" path="res://countess_lockpicking_dress.tscn" id="4_0503l"]
 [ext_resource type="PackedScene" uid="uid://082rgmto1mon" path="res://objects.tscn" id="4_vypmj"]
 [ext_resource type="PackedScene" uid="uid://ch7lfvfup1r3d" path="res://UI.tscn" id="5_3od5a"]
-[ext_resource type="AudioStream" uid="uid://04nk0eep1mpy" path="res://audio/Clapping.mp3" id="5_8yy2t"]
 [ext_resource type="Script" path="res://objects.gd" id="6_jj2ed"]
 [ext_resource type="PackedScene" uid="uid://dhml57ffwa4iu" path="res://GameManager.tscn" id="8_130yo"]
 [ext_resource type="PackedScene" uid="uid://da5e5spud2jvw" path="res://camera_3d.tscn" id="8_eh1c4"]
+[ext_resource type="AudioStream" uid="uid://c73kkv1fndqa7" path="res://audio/Kick.mp3" id="10_8qsej"]
 
 [sub_resource type="Environment" id="Environment_6gimq"]
 
@@ -20,35 +21,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00271797, -0.00320196, -0.
 
 [node name="Room02" parent="Rooms" index="1"]
 attack_sound = ExtResource("2_vtln1")
+win_sound = ExtResource("3_t38fo")
 
-[node name="Skeleton3D" parent="Rooms/Room02/countFallingDying/Armature" index="0"]
-bones/1/rotation = Quaternion(-1.77723e-15, -1.11077e-16, -0.0312457, 0.999512)
-bones/4/rotation = Quaternion(1.77723e-15, 2.10438e-17, 0.0312457, 0.999512)
-bones/6/rotation = Quaternion(-1.72715e-16, 0.707107, -5.42762e-15, 0.707107)
-bones/7/rotation = Quaternion(-0.00337343, -0.631962, 0.774988, -0.0024029)
-bones/8/rotation = Quaternion(-0.0693744, 0.000444774, -0.00639646, 0.99757)
-bones/9/rotation = Quaternion(-0.0327508, -7.21805e-05, 0.00220262, 0.999461)
-bones/11/rotation = Quaternion(0.774778, 0.00527609, -0.00710901, 0.632172)
-bones/12/rotation = Quaternion(-0.068748, -0.00107806, 0.0156424, 0.997511)
-bones/13/rotation = Quaternion(-0.0330674, 0.000218469, -0.0066028, 0.999431)
-bones/15/rotation = Quaternion(-6.66342e-05, -0.0178693, 0.999833, -0.00373691)
-bones/16/rotation = Quaternion(0.0191336, 0.000467153, 0.0244414, 0.999518)
-bones/17/rotation = Quaternion(0.255206, -0.668436, 0.263685, 0.646942)
-bones/20/rotation = Quaternion(-1.96056e-05, 0.0178694, 0.99984, 0.00109379)
-bones/21/rotation = Quaternion(-0.0191298, -0.000569266, 0.029739, 0.999374)
-bones/22/rotation = Quaternion(0.26237, -0.647365, 0.253865, 0.669054)
-bones/23/rotation = Quaternion(0.37502, 0.00288944, -0.00116896, 0.927011)
+[node name="countFallingDying" parent="Rooms/Room02" index="2"]
+transform = Transform3D(-0.127117, 0, -0.991888, 0, 1, 0, 0.991888, 0, -0.127117, 3.738, 1.09885, 9.10704)
+
+[node name="PlayerCutsceneStrike" parent="Rooms/Room02" index="3"]
+transform = Transform3D(0.19906, 0, 0.979987, 0, 1, 0, -0.979987, 0, 0.19906, 2.98498, 1.08041, 9.17122)
+
+[node name="countessLockpickingDress2" parent="Rooms/Room02" index="4" instance=ExtResource("4_0503l")]
+process_mode = 1
+transform = Transform3D(-0.209311, 0, -0.977849, 0, 1, 0, 0.977849, 0, -0.209311, 4.72199, 1.43038, 5.39269)
+script = null
 
 [node name="gardenScene" parent="Rooms" index="3"]
 transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 11.3925, -1.24064, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_tjp8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691039, 0)
-
-[node name="Enemies" parent="." instance=ExtResource("3_fuddb")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.62584, 1.11972, 3.59007)
-visible = false
-step_sound = ExtResource("5_8yy2t")
 
 [node name="Objects" parent="." instance=ExtResource("4_vypmj")]
 script = ExtResource("6_jj2ed")
@@ -61,10 +51,12 @@ environment = SubResource("Environment_6gimq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.573577, 0.79124, -0.212012, 0, 0.258819, 0.965926, 0.819152, 0.554032, -0.148453, 0, 20, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("parentRoom") instance=ExtResource("8_130yo")]
 alwaysOn = null
+attack_sound = ExtResource("10_8qsej")
 parentRoom = NodePath("../Rooms")
 
 [node name="Camera" parent="." instance=ExtResource("8_eh1c4")]

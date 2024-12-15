@@ -14,6 +14,7 @@ class_name GameManager
 @export var alwaysOn: AudioStream
 @export var loseSound: AudioStream
 @export var winSound: AudioStream
+@export var attack_sound: AudioStream
 
 var enemyPool: Array[Enemy] = []
 var freeEnemies: Array[Enemy] = []
@@ -65,7 +66,8 @@ func load_next_scene():
 	if currentScene >= len(combatScenesToRun):
 		$"../UI".show_win()
 		AudioManager.stop_bg_music()
-		AudioManager.play_sfx_override(winSound, 80)
+		AudioManager.play_sfx(winSound, 0)
+		print("Playing sound")
 		currentScene = 0
 		clear_enemies()
 		return
@@ -242,7 +244,7 @@ func endPlayerTurn():
 	if player.current_path_index < player.pathToFollow.size():
 		return
 	playerTurn = false
-	showText("Enemy Turn", 1.5)
+	showText("Enemy Turn (Press ENTER to skip)", 3.5)
 	for enemy in occupiedEnemies:
 		enemyTurnQueue.append(enemy)
 		print("Enemy inTurn" + str(enemy.inTurn))
@@ -288,6 +290,7 @@ func attack_enemy_on_position(position: Vector3):
 	print(player.currentWeapon)
 	if player.currentWeapon and enemyToFree:
 		player.currentWeapon.attack()
+		AudioManager.play_sfx_override(attack_sound, 0)
 		enemyToFree.die()
 		free_enemy(enemyToFree)
 

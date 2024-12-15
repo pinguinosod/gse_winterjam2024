@@ -13,6 +13,7 @@ var enemy: AnimationTree
 var enemyAnimator: AnimationNodeStateMachinePlayback
 
 @export var attack_sound: AudioStream
+@export var win_sound: AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,7 +40,7 @@ func _process(delta: float) -> void:
 	if started:
 		timeElapsed += delta
 		if timeElapsed > 2.5:
-			AudioManager.play_sfx_override(attack_sound, 80)
+			AudioManager.play_sfx_override(attack_sound, 0)
 			enemyAnimator.travel("Death")
 			started = false
 			done = true
@@ -47,3 +48,4 @@ func _process(delta: float) -> void:
 		timeElapsed += delta
 		if timeElapsed > 5:
 			$"../../GameManager".load_next_scene()
+			done = false
