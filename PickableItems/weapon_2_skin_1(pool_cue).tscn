@@ -6,7 +6,7 @@
 [node name="Weapon 2 (Pool Cue)" instance=ExtResource("1_7ftvb")]
 
 [node name="poolCueWeapon" parent="WeaponSpinner" index="0" instance=ExtResource("2_ni706")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 1.4377, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.44889, -0.388228, 0, 0.388228, 1.44889, 0, 1.66047, 0)
 
 [node name="skiStickWeapon2" parent="WeaponSpinner" index="2"]
 visible = false

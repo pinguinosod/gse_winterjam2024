@@ -74,6 +74,7 @@ script = ExtResource("1_i73o7")
 [node name="WeaponSpinner" type="Node3D" parent="."]
 
 [node name="skiWeapon2" parent="WeaponSpinner" instance=ExtResource("2_eb3j6")]
+transform = Transform3D(1.3, 0, 0, 0, 1.2557, -0.336465, 0, 0.336465, 1.2557, 9.74001e-09, 0.65364, -3.89599e-08)
 
 [node name="skiWeapon" parent="WeaponSpinner" instance=ExtResource("2_lcuxp")]
 visible = false
