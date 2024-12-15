@@ -7,7 +7,7 @@ var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 p
 var currentPathIndex = 0
 @export var base_speed: float = 5.0
 var speed
-var perTurnAP = 3
+var perTurnAP = 4
 var currentAP = perTurnAP
 @export var max_range: float = 3.0
 var idle = true
@@ -42,8 +42,7 @@ func rotateTowardsDirection(direction: Vector2i):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if currentPathIndex < pathToFollow.size():
-		currentAP -= 1
-		AudioManager.play_sfx(step_sound)
+		AudioManager.play_sfx(step_sound, 80)
 		var target_position: Vector2i = pathToFollow[currentPathIndex]# + Vector2(1,1)
 		var direction = target_position - currentRoom.get_cell_position(position)
 		rotateTowardsDirection(direction)
@@ -69,10 +68,12 @@ func take_turn(room: Room, player: Player):
 	self.player = player
 	var moveTo = get_movement(room, player)
 	var mapPos = room.get_cell_position(position)
-	
+	AudioManager.play_sfx_override(step_sound)
+	print("Take Turn, my AP: " + str(currentAP))
 	if moveTo.distance_to(mapPos) > 0.1:
 		$countFallingDying.travel("Walk")
 	idle = false
+	#print(mapPos, moveTo)
 	pathToFollow = room._getPath(mapPos.x, mapPos.y, moveTo.x, moveTo.y)
 	setPathToFollow(pathToFollow)
 	# target_position = moveTo
@@ -83,7 +84,7 @@ func setPathToFollow(_pathToFollow: PackedVector2Array) -> void:
 	var totalMovementCostPerTile = 1
 	var longestPossiblePathSize = roundi(currentAP / totalMovementCostPerTile)
 	pathToFollow = _pathToFollow.slice(0, longestPossiblePathSize + 1)
-	# currentPathIndex = 0
+	currentPathIndex = 0
 	# Expend the players action points accordingly
 	currentAP -= (pathToFollow.size() - 1) * totalMovementCostPerTile
 	#print(currentAP)
@@ -108,13 +109,18 @@ func get_next_action():
 	# if player.position in self.weapon.range:
 	# self.weapon.attack()
 	# pass_turn()
+	if not inTurn:
+		return
 	inTurn = false
-	$countFallingDying.travel("Strike")
+	$countFallingDying.travel("Idle")
 	if player.position.distance_to(position) <= 1:
-		AudioManager.play_sfx(attack_sound)
+		print("Attack player, I am currently inTurn: " + str(inTurn))
+		$countFallingDying.travel("Strike")
+		AudioManager.play_sfx_override(attack_sound, 40)
 		if not game_manager:
 			game_manager = $"../../../GameManager"
 		game_manager.attack_player()
+	
 	pass
 
 func turn_start():

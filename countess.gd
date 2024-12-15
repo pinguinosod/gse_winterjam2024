@@ -9,6 +9,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if randf() < 0.01:
+	if randf() < 0.001:
 		AudioManager.play_sfx(randomSounds[randi_range(0, randomSounds.size() - 1)], 30)
 	pass

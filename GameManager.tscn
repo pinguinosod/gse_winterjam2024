@@ -1,25 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhml57ffwa4iu"]
+[gd_scene load_steps=9 format=3 uid="uid://dhml57ffwa4iu"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_brgg7"]
 [ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_0ajky"]
 [ext_resource type="PackedScene" uid="uid://cyysjuf2pl57c" path="res://enemies.tscn" id="2_4iq3d"]
 [ext_resource type="Resource" uid="uid://cvvg7vxnelgmm" path="res://CombatScenes/scene1.tres" id="3_rlxk1"]
-[ext_resource type="Resource" uid="uid://bpke3qdqn6e81" path="res://CombatScenes/scene2.tres" id="4_6pw4v"]
 [ext_resource type="AudioStream" uid="uid://dr8oj3feglwbh" path="res://audio/Creepy Wind.mp3" id="6_koyc7"]
 [ext_resource type="AudioStream" uid="uid://bsvcey8kgqkuo" path="res://audio/Music/alien-xenomorph-hissing-and-growling-with-and-without-fx-22773.mp3" id="7_d3jkn"]
+[ext_resource type="AudioStream" uid="uid://cjy0qimvkpn3w" path="res://audio/Lena5.mp3" id="8_3k0v6"]
 [ext_resource type="AudioStream" uid="uid://dt3cii1fkhwh5" path="res://audio/aww_you_lose.mp3" id="8_abxix"]
-[ext_resource type="AudioStream" uid="uid://b42itt1larv3v" path="res://audio/Yeehaw.mp3" id="9_qm744"]
 
 [node name="GameManager" type="Node3D" node_paths=PackedStringArray("enemyPoolHolder", "textDisplay")]
 script = ExtResource("1_brgg7")
-combatScenesToRun = Array[ExtResource("2_0ajky")]([ExtResource("3_rlxk1"), ExtResource("4_6pw4v")])
+combatScenesToRun = Array[ExtResource("2_0ajky")]([ExtResource("3_rlxk1")])
 enemyScene = ExtResource("2_4iq3d")
 enemyPoolHolder = NodePath("EnemyPoolHolder")
 textDisplay = NodePath("Label")
 nextWaveAlarm = ExtResource("6_koyc7")
 alwaysOn = ExtResource("7_d3jkn")
 loseSound = ExtResource("8_abxix")
-winSound = ExtResource("9_qm744")
+winSound = ExtResource("8_3k0v6")
 
 [node name="EnemyPoolHolder" type="Node3D" parent="."]
 

@@ -13,6 +13,8 @@ var ignoreClicks = false
 
 var game_manager: GameManager
 
+var escapeRoute: PackedVector2Array = PackedVector2Array()
+
 func _ready():
 	game_manager = $"../GameManager"
 	currentRoom = $Room01
@@ -62,6 +64,11 @@ func _unhandled_input(event):
 		print("Clicked " + str(cellClicked))
 		if GlobalStates.PLAYER_SELECTION_MODE ==GlobalStates.PlayerSelectionMode.WALK:
 			var targetPosition = Vector3(cellClicked.x, 1, cellClicked.z)
+			if Vector2(cellClicked.x, cellClicked.z) in escapeRoute:
+				var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
+				var playerPath = _getPath(playerPosition.x, playerPosition.z, targetPosition.x, targetPosition.z)
+				if get_node("/root/main/Player").canReach(playerPath):
+					game_manager.load_next_scene()
 			if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:
 				if internalGrid[targetPosition.x][targetPosition.z] == GridMap.INVALID_CELL_ITEM:
 					var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
@@ -115,3 +122,5 @@ func cell_blocked(cell: Vector2):
 		return true
 	return internalGrid[cell.x][cell.y] != GridMap.INVALID_CELL_ITEM
 	
+func setWinCon(escapeRoute: PackedVector2Array):
+	self.escapeRoute = escapeRoute

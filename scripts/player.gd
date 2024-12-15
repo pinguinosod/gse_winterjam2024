@@ -1,6 +1,5 @@
 extends Node3D
 class_name Player
-
 var game_manager
 var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 points
 var speed: float = 5.0
@@ -10,7 +9,7 @@ var maxHP = 5
 var currentHP = 5
 var perTurnAP = 15
 var currentAP = perTurnAP
-var currentWeapon:EquippedWeapon = null
+var currentWeapon: EquippedWeapon = null
 
 var idle = true
 
@@ -100,3 +99,14 @@ func equipWeapon() -> void:
 	currentWeapon = newEquippedWeapon
 	get_node("/root/main/UI/GridContainer/Equipment/LabelWeaponName").text = itemColliding.weaponName
 	itemColliding.get_parent().queue_free()
+	
+func canReach(_pathToFollow) -> bool:
+	var totalMovementCostPerTile = 1
+	if currentWeapon != null:
+		totalMovementCostPerTile += currentWeapon.movementCost
+	var longestPossiblePathSize = roundi(currentAP / totalMovementCostPerTile)
+	# Expend the players action points accordingly
+	var AP = currentAP
+	AP -= (_pathToFollow.size()) * totalMovementCostPerTile
+	return AP >= 0
+	

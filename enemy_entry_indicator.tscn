@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqvs5ofvuy7qp"]
+
+[ext_resource type="PackedScene" uid="uid://b25fq8hpn4cf7" path="res://exit_indicator.tscn" id="1_11yxw"]
+
+[node name="ExitIndicator" instance=ExtResource("1_11yxw")]
