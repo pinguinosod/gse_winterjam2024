@@ -239,6 +239,8 @@ func check_win():
 			
 
 func endPlayerTurn():
+	if player.current_path_index < player.pathToFollow.size():
+		return
 	playerTurn = false
 	showText("Enemy Turn", 1.5)
 	for enemy in occupiedEnemies:
@@ -269,11 +271,11 @@ func _input(event: InputEvent) -> void:
 		currentEnemy.speed *= 300
 		for enemy in enemyTurnQueue:
 			enemy.speed *= 300
-	if Input.is_action_just_pressed("DEBUG_KILL_ALL") and not enemyTurn():
-		clear_enemies()
-	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and not enemyTurn():
-		clear_enemies()
-		load_next_scene()
+	#if Input.is_action_just_pressed("DEBUG_KILL_ALL") and not enemyTurn():
+	#	clear_enemies()
+	#if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and not enemyTurn():
+	#	clear_enemies()
+	#	load_next_scene()
 
 func attack_enemy_on_position(position: Vector3):
 	var mapPos = parentRoom.get_cell_position(position)
