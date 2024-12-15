@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://crj37bo36phwd"]
+[gd_scene load_steps=23 format=3 uid="uid://crj37bo36phwd"]
 
 [ext_resource type="MeshLibrary" uid="uid://cb68cd7vsqlkw" path="res://MeshLibrary.tres" id="1_aqf6v"]
 [ext_resource type="Script" path="res://scripts/rooms.gd" id="2_xim5h"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3or1thien0hc" path="res://models/CharactersAnimations/countessLockpickingDress.glb" id="3_omxne"]
 [ext_resource type="PackedScene" uid="uid://bni2edah137j8" path="res://models/Deco/evilDoor.glb" id="4_om6u3"]
 [ext_resource type="PackedScene" uid="uid://b2yw7qh31m1jr" path="res://PickableItems/weapon_1_(lamp).tscn" id="6_o5c1p"]
+[ext_resource type="PackedScene" uid="uid://ew76xgg6uiu" path="res://countess_lockpicking_dress.tscn" id="6_wgigk"]
 [ext_resource type="PackedScene" uid="uid://ccvb6q28khbj2" path="res://PickableItems/weapon_2_(ski_stick).tscn" id="7_wa2e1"]
 [ext_resource type="PackedScene" uid="uid://cik5veric2ysk" path="res://PickableItems/weapon_3_(ski).tscn" id="8_fe4lj"]
 [ext_resource type="PackedScene" uid="uid://c68jlq0my3nvd" path="res://PickableItems/weapon_4_(book).tscn" id="9_erj83"]
@@ -70,6 +71,10 @@ shape = SubResource("BoxShape3D_hmtjr")
 
 [node name="countessLockpickingDress" parent="." instance=ExtResource("3_omxne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4238, 1.16972, 6.54379)
+visible = false
+
+[node name="countessLockpickingDress2" parent="." instance=ExtResource("6_wgigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9676, 1.16972, 6.96035)
 
 [node name="Pickups" type="Node3D" parent="."]
 transform = Transform3D(0.998926, 0, 0, 0, 0.998926, 0, 0, 0, 0.998926, 17.547, 1, 10.4931)
@@ -77,19 +82,19 @@ transform = Transform3D(0.998926, 0, 0, 0, 0.998926, 0, 0, 0, 0.998926, 17.547, 
 [node name="Weapon 1 (Lamp)" parent="Pickups" instance=ExtResource("6_o5c1p")]
 
 [node name="Weapon 2 (Ski Stick)" parent="Pickups" instance=ExtResource("7_wa2e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95283, 0, 1.14884)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.953, 1, 1.149)
 
 [node name="weapon 3 (Ski)" parent="Pickups" instance=ExtResource("8_fe4lj")]
-transform = Transform3D(1, -1.49012e-08, 0, 0, 1, 0, 1.49012e-08, 5.96046e-08, 1, 2.70662, 0, 1.93419)
+transform = Transform3D(1, -1.49012e-08, 0, 0, 1, 0, 1.49012e-08, 5.96046e-08, 1, 2.707, 1, 1.934)
 
 [node name="Weapon 4 (Book)" parent="Pickups" instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09837, 0, -3.0095)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09837, 1, -3.0095)
 
 [node name="Weapon 4 (Book)2" parent="Pickups" instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08132, 0, -5.99696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08132, 1, -5.99696)
 
 [node name="Weapon 4 (Book)3" parent="Pickups" instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84165, 0, -4.8948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84165, 1, -4.8948)
 
 [node name="Weapon 5 (Fire Book)" parent="Pickups" instance=ExtResource("10_eq80y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1427, -0.0731399, -8.00557)
@@ -113,10 +118,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08411, -0.0731399, -8.0514
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94286, -0.0731399, 2.04007)
 
 [node name="Weapon 4 (Book)4" parent="Pickups" instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98995, 0, -7.01205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98995, 1, -7.01205)
 
 [node name="Weapon 4 (Book)5" parent="Pickups" instance=ExtResource("9_erj83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88395, 0, -4.96905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88395, 1, -4.96905)
 
 [node name="Weapon 1 (Lamp)4" parent="Pickups" instance=ExtResource("6_o5c1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03551, -0.0731399, -1.00897)
