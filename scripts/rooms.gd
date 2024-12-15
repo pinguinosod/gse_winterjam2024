@@ -7,6 +7,7 @@ var internalGrid = []
 var maxX = 26
 var maxZ = 14
 var AStar = AStar2D.new()
+@export var countess: Node3D
 
 var ignoreClicks = false
 
