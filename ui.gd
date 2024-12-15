@@ -59,7 +59,7 @@ func _change_slide():
 func _go_into_game():
 	#going into game
 	game_manager.load_next_scene()
-	$"GridContainer".show()
+	$HUDPanel.show()
 	
 func _on_start_game_button_pressed() -> void:
 	print("START Button pressed!!")

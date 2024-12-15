@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=23 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -14,10 +14,13 @@
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
 [ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="10_en5uf"]
 [ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
+[ext_resource type="Script" path="res://label_action_points.gd" id="14_jo06l"]
 [ext_resource type="Script" path="res://attack_button.gd" id="14_qrf13"]
+[ext_resource type="Script" path="res://label_movement_cost.gd" id="15_08ekw"]
 [ext_resource type="Texture2D" uid="uid://di4lp07rgm8gq" path="res://ui_images/endslide.png" id="15_gh4em"]
 [ext_resource type="Script" path="res://end_turn_button.gd" id="16_0e42g"]
 [ext_resource type="Texture2D" uid="uid://vduivwe6iciu" path="res://ui_images/failslide.png" id="16_c0i48"]
+[ext_resource type="Script" path="res://label_weapon_durability.gd" id="16_c4so3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kxiuq"]
 font = ExtResource("8_d6jhs")
@@ -133,36 +136,79 @@ offset_right = 933.0
 offset_bottom = 36.0
 text = "5 XP"
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="HUDPanel" type="Panel" parent="."]
+visible = false
+offset_top = 276.0
+offset_right = 372.0
+offset_bottom = 512.0
+
+[node name="GridContainer" type="GridContainer" parent="HUDPanel"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -31.0
-offset_right = 98.0
+offset_left = 16.0
+offset_top = -225.0
+offset_right = 400.0
+offset_bottom = -16.0
 grow_vertical = 0
 
-[node name="Equipment" type="HBoxContainer" parent="GridContainer"]
+[node name="ActionPoints" type="HBoxContainer" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GridContainer/Equipment"]
+[node name="Label" type="Label" parent="HUDPanel/GridContainer/ActionPoints"]
+layout_mode = 2
+text = "Action Points: "
+
+[node name="LabelActionPoints" type="Label" parent="HUDPanel/GridContainer/ActionPoints"]
+layout_mode = 2
+script = ExtResource("14_jo06l")
+
+[node name="MovementCost" type="HBoxContainer" parent="HUDPanel/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDPanel/GridContainer/MovementCost"]
+layout_mode = 2
+text = "Movement Cost:"
+
+[node name="LabelMovementCost" type="Label" parent="HUDPanel/GridContainer/MovementCost"]
+layout_mode = 2
+script = ExtResource("15_08ekw")
+
+[node name="Equipment" type="HBoxContainer" parent="HUDPanel/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDPanel/GridContainer/Equipment"]
 layout_mode = 2
 text = "Equipped Weapon: "
 
-[node name="LabelWeaponName" type="Label" parent="GridContainer/Equipment"]
+[node name="LabelWeaponName" type="Label" parent="HUDPanel/GridContainer/Equipment"]
+layout_mode = 2
+text = "-"
+
+[node name="WeaponDurability" type="HBoxContainer" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 
-[node name="PickupItemButton" type="Button" parent="GridContainer"]
+[node name="Label" type="Label" parent="HUDPanel/GridContainer/WeaponDurability"]
+layout_mode = 2
+text = "Weapon Durability"
+
+[node name="LabelWeaponDurability" type="Label" parent="HUDPanel/GridContainer/WeaponDurability"]
+layout_mode = 2
+script = ExtResource("16_c4so3")
+
+[node name="PickupItemButton" type="Button" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 disabled = true
 text = "Pick up"
 script = ExtResource("14_eouhr")
 
-[node name="CheckButton" type="CheckButton" parent="GridContainer"]
+[node name="CheckButton" type="CheckButton" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 text = "Attack"
 script = ExtResource("14_qrf13")
 
-[node name="EndTurnButton" type="Button" parent="GridContainer"]
+[node name="EndTurnButton" type="Button" parent="HUDPanel/GridContainer"]
 layout_mode = 2
 text = "End Turn"
 script = ExtResource("16_0e42g")
@@ -182,4 +228,4 @@ texture = ExtResource("16_c0i48")
 [connection signal="pressed" from="TextureRect_start/StartGame_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/settings_menu" to="TextureRect_start/settings_menu" method="_on_pressed"]
-[connection signal="pressed" from="GridContainer/PickupItemButton" to="GridContainer/PickupItemButton" method="_on_pressed"]
+[connection signal="pressed" from="HUDPanel/GridContainer/PickupItemButton" to="HUDPanel/GridContainer/PickupItemButton" method="_on_pressed"]
