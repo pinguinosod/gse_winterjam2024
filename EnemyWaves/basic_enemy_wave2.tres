@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyWave" load_steps=2 format=3 uid="uid://djjjlht3ntft2"]
+[gd_resource type="Resource" script_class="EnemyWave" load_steps=2 format=3 uid="uid://lqxshiqtid3p"]
 
 [ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_eodbx"]
 
