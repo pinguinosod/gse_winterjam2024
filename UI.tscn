@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=24 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
-[ext_resource type="Script" path="res://ui_image.gd" id="3_hy5lo"]
 [ext_resource type="AudioStream" uid="uid://c25pvaxicxsd8" path="res://audio/IMSLP449569-PMLP15322-O,_wie_will_ich_triumphieren_KARAOKE_PIANO_ACCOMPANIMENT_-_Entführung_aus_dem_Serail_-_Mozart.mp3" id="4_ivtb0"]
 [ext_resource type="Texture2D" uid="uid://cwcidpyvum70d" path="res://ui_images/start_button_normal.png" id="5_77ufg"]
 [ext_resource type="Texture2D" uid="uid://bphsny4uxy2yb" path="res://ui_images/story_1.png" id="5_dn7ii"]
@@ -30,14 +29,17 @@ bg_color = Color(0, 0, 0, 0)
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_87y67")
 
-[node name="TextureRect_start" type="TextureRect" parent="."]
+[node name="TextureRect_start" type="TextureButton" parent="."]
 visible = false
 offset_right = 963.0
-offset_bottom = 509.0
+offset_bottom = 512.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_jjj1s")
-script = ExtResource("3_hy5lo")
+texture_normal = ExtResource("2_jjj1s")
+texture_pressed = ExtResource("2_jjj1s")
+texture_hover = ExtResource("2_jjj1s")
+texture_disabled = ExtResource("2_jjj1s")
+texture_focused = ExtResource("2_jjj1s")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_start"]
 stream = ExtResource("4_ivtb0")
@@ -90,11 +92,15 @@ script = ExtResource("9_2f8wj")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect_start/settings_menu"]
 stream = ExtResource("10_en5uf")
 
-[node name="TextureRect_0" type="TextureRect" parent="."]
+[node name="TextureRect_0" type="TextureButton" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_dn7ii")
+offset_right = 960.0
+offset_bottom = 512.0
+texture_normal = ExtResource("5_dn7ii")
+texture_pressed = ExtResource("5_dn7ii")
+texture_hover = ExtResource("5_dn7ii")
+texture_disabled = ExtResource("5_dn7ii")
+texture_focused = ExtResource("5_dn7ii")
 
 [node name="Label" type="Label" parent="TextureRect_0"]
 visible = false
@@ -110,11 +116,15 @@ MAX: Nonsense. My Lord, now you are the only count, and if we lose You, a thousa
 "
 label_settings = ExtResource("12_ldonh")
 
-[node name="TextureRect_1" type="TextureRect" parent="."]
+[node name="TextureRect_1" type="TextureButton" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_o03d0")
+offset_right = 960.0
+offset_bottom = 512.0
+texture_normal = ExtResource("7_o03d0")
+texture_pressed = ExtResource("7_o03d0")
+texture_hover = ExtResource("7_o03d0")
+texture_disabled = ExtResource("7_o03d0")
+texture_focused = ExtResource("7_o03d0")
 
 [node name="Label" type="Label" parent="TextureRect_1"]
 visible = false
@@ -301,5 +311,7 @@ texture = ExtResource("16_c0i48")
 [connection signal="pressed" from="TextureRect_start/StartGame_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/settings_menu" to="TextureRect_start/settings_menu" method="_on_pressed"]
+[connection signal="pressed" from="TextureRect_0" to="." method="_on_texture_rect_0_pressed"]
+[connection signal="pressed" from="TextureRect_1" to="." method="_on_texture_rect_1_pressed"]
 [connection signal="pressed" from="HUDPanel/GridContainer/PickupItemButton" to="HUDPanel/GridContainer/PickupItemButton" method="_on_pressed"]
 [connection signal="pressed" from="HUDPanel/GridContainer/EndTurnButton" to="HUDPanel/GridContainer/EndTurnButton" method="_on_pressed"]
