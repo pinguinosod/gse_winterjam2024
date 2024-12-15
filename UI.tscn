@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ch7lfvfup1r3d"]
+[gd_scene load_steps=18 format=3 uid="uid://ch7lfvfup1r3d"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_87y67"]
 [ext_resource type="Texture2D" uid="uid://crwn4fdn5uhba" path="res://ui_images/start_menu_background.png" id="2_jjj1s"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://hwest7fcmslk" path="res://ui_images/Settings_menu.png" id="8_vb24i"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
 [ext_resource type="AudioStream" uid="uid://dwbueww2l6obw" path="res://ui_music/countess_scream.mp3" id="10_sypnm"]
+[ext_resource type="Script" path="res://attack_button.gd" id="14_qrf13"]
+[ext_resource type="Texture2D" uid="uid://di4lp07rgm8gq" path="res://ui_images/endslide.png" id="15_gh4em"]
+[ext_resource type="Texture2D" uid="uid://vduivwe6iciu" path="res://ui_images/failslide.png" id="16_c0i48"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kxiuq"]
 font = ExtResource("8_d6jhs")
@@ -21,6 +24,7 @@ font = ExtResource("8_d6jhs")
 script = ExtResource("1_87y67")
 
 [node name="TextureRect_start" type="TextureRect" parent="."]
+visible = false
 offset_right = 963.0
 offset_bottom = 509.0
 size_flags_horizontal = 4
@@ -126,6 +130,32 @@ offset_top = 13.0
 offset_right = 933.0
 offset_bottom = 36.0
 text = "5 XP"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 98.0
+grow_vertical = 0
+
+[node name="CheckButton" type="CheckButton" parent="GridContainer"]
+layout_mode = 2
+text = "Attack"
+script = ExtResource("14_qrf13")
+
+[node name="Win" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_gh4em")
+
+[node name="Lose" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c0i48")
 
 [connection signal="pressed" from="TextureRect_start/StartGame_button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="TextureRect_start/Button" to="." method="_on_button_pressed"]

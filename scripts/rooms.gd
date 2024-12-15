@@ -38,10 +38,15 @@ func get_cell_position(world_position: Vector3):
 	return Vector2i(cell.x, cell.z)
 	
 func get_adjacent_cells(map_pos: Vector2i):
-	return [Vector2i(map_pos.x - 1, map_pos.y), Vector2i(map_pos.x + 1, map_pos.y),
+	var all_possibilities = [Vector2i(map_pos.x - 1, map_pos.y), Vector2i(map_pos.x + 1, map_pos.y),
 			Vector2i(map_pos.x, map_pos.y + 1), Vector2i(map_pos.x, map_pos.y - 1),
 			Vector2i(map_pos.x - 1, map_pos.y + 1), Vector2i(map_pos.x + 1, map_pos.y - 1),
 			Vector2i(map_pos.x - 1, map_pos.y - 1), Vector2i(map_pos.x + 1, map_pos.y + 1)]
+	var possibilities = []
+	for possibility in all_possibilities:
+		if inBounds(possibility):
+			possibilities.append(possibility)
+	return possibilities
 	
 func get_random_cell_position(min_x = 1, max_x = 24, min_z = 1, max_z = 12):
 	return Vector3(randi_range(min_x, max_x) + 0.5, 1, randi_range(min_z, max_z) + 0.5)
@@ -50,12 +55,15 @@ func _unhandled_input(event):
 	if !ignoreClicks and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		var clickPosition = get_cursor_world_position()
 		var cellClicked = currentRoom.local_to_map(clickPosition)
-		var targetPosition = Vector3(cellClicked.x, 1, cellClicked.z)
-		if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:
-			if internalGrid[targetPosition.x][targetPosition.z] == GridMap.INVALID_CELL_ITEM:
-				var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
-				var playerPath = _getPath(playerPosition.x, playerPosition.z, targetPosition.x, targetPosition.z)
-				get_node("/root/main/Player").setPathToFollow(playerPath)
+		if GlobalStates.PLAYER_SELECTION_MODE ==GlobalStates.PlayerSelectionMode.WALK:
+			var targetPosition = Vector3(cellClicked.x, 1, cellClicked.z)
+			if targetPosition.x <= maxX and targetPosition.x >= 1 and targetPosition.z <= maxZ and targetPosition.z >= 1:
+				if internalGrid[targetPosition.x][targetPosition.z] == GridMap.INVALID_CELL_ITEM:
+					var playerPosition = currentRoom.local_to_map(get_node("/root/main/Player").position)
+					var playerPath = _getPath(playerPosition.x, playerPosition.z, targetPosition.x, targetPosition.z)
+					get_node("/root/main/Player").setPathToFollow(playerPath)
+		else:
+			$"../GameManager".attack_enemy_on_position(cellClicked)
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 128
@@ -86,3 +94,6 @@ func _getPath(x1,y1,x2,y2) -> PackedVector2Array: #Godot's built-in aStar script
 	
 func toggleClickIgnore(toggle) -> void:
 	ignoreClicks = toggle;
+	
+func inBounds(point: Vector2i):
+	return point.x > 0 and point.x < maxX - 1 and point.y > 0 and point.y < maxZ - 1

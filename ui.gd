@@ -49,7 +49,7 @@ func _change_slide():
 			playingAudio.stop()
 			
 		texture_rect = $TextureRect_3
-		_play_audio_new_slide()
+		# _play_audio_new_slide()
 		_go_into_game()
 		
 	texture_rect.visible = true
@@ -58,6 +58,7 @@ func _change_slide():
 func _go_into_game():
 	#going into game
 	game_manager.load_next_scene()
+	$"GridContainer".show()
 	
 func _on_start_game_button_pressed() -> void:
 	print("START Button pressed!!")
@@ -70,3 +71,9 @@ func _on_start_game_button_pressed() -> void:
 func _on_button_pressed() -> void:
 	$TextureRect_start/AudioStreamPlayer.stream_paused = !$TextureRect_start/settings_menu.visible
 	$TextureRect_start/settings_menu.visible = !$TextureRect_start/settings_menu.visible
+
+func show_win():
+	$"Win".show()
+	
+func show_lose():
+	$"Lose".show()

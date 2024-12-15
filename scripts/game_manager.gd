@@ -59,7 +59,7 @@ func load_next_scene():
 	currentCombatScene = combatScenesToRun[currentScene]
 	AudioManager.stop_bg_music()
 	AudioManager.play_bg_music(currentCombatScene.bgm)
-	AudioManager.play_bg_music(alwaysOn)
+	# AudioManager.play_bg_music(alwaysOn)
 	currentScene += 1
 	currentWave = 0
 	load_next_wave()
@@ -157,17 +157,20 @@ func _process(delta: float) -> void:
 			currentEnemy = enemyTurnQueue.pop_front()
 			currentEnemy.take_turn(currentRoom, player)
 		playerTurn = true
-	check_win()
+	# check_win()
 	
 
 func check_win():
-	for enemy in occupiedEnemies:
-		if enemy.position.distance_to($"../Player".position) <= 0.1:
-			showText("You lose!", 3.5)
-			AudioManager.stop_bg_music()
-			AudioManager.play_sfx(loseSound)
-			currentScene = 0
-			clear_enemies()
+	if not player:
+		return
+	if player.currentHP <= 0:
+		#showText("You lose!", 3.5)
+		$"../UI".show_lose()
+		AudioManager.stop_bg_music()
+		AudioManager.play_sfx(loseSound)
+		currentScene = 0
+		clear_enemies()
+			
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("end_turn") and not enemyTurn():
@@ -181,4 +184,20 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("DEBUG_NEXT_SCENE") and not enemyTurn():
 		clear_enemies()
 		load_next_scene()
+
+func attack_enemy_on_position(position: Vector3):
+	var mapPos = currentRoom.get_cell_position(position)
+	var enemyToFree = null
+	for enemy in occupiedEnemies:
+		var enemyPos = currentRoom.get_cell_position(enemy.position)
+		if mapPos == enemyPos:
+			enemyToFree = enemy
+			break
+	if enemyToFree:
+		free_enemy(enemyToFree)
+
+func attack_player():
+	player.take_damage()
+	showText("Ouch, you took 1 damage!", 1.5)
+	check_win()
 	

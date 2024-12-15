@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_isqk8")
-basicEnemyCount = 100
+basicEnemyCount = 10
 eliteEnemyCount = 0
-waveName = "Basic Enemy Wave"
+waveName = "No one shall reach the Count!"
 waveNumber = 1

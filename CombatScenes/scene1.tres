@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="CombatScene" load_steps=5 format=3 uid="uid://cvvg7vxnelgmm"]
+[gd_resource type="Resource" script_class="CombatScene" load_steps=6 format=3 uid="uid://cvvg7vxnelgmm"]
 
 [ext_resource type="AudioStream" uid="uid://cgfykobfatltc" path="res://audio/Music/ACTION BACKGROUND MUSIC[NO COPYRIGHT MUSIC] Action Music No Copyright - YOUTUBE AUDIO LIBRARY 2020.mp3" id="1_4lqqf"]
 [ext_resource type="Script" path="res://scripts/enemy_wave.gd" id="1_habvi"]
-[ext_resource type="Resource" uid="uid://lqxshiqtid3p" path="res://EnemyWaves/basic_enemy_wave2.tres" id="2_2mtqw"]
+[ext_resource type="Resource" uid="uid://djjjlht3ntft2" path="res://EnemyWaves/basic_enemy_wave2.tres" id="2_2mtqw"]
 [ext_resource type="Script" path="res://scripts/combat_scene.gd" id="2_ga4hk"]
+[ext_resource type="Resource" uid="uid://dnhv5ovxvbr14" path="res://EnemyWaves/basic_enemy_wave.tres" id="2_nwmtp"]
 
 [resource]
 script = ExtResource("2_ga4hk")
-enemyWaves = Array[ExtResource("1_habvi")]([ExtResource("2_2mtqw")])
+enemyWaves = Array[ExtResource("1_habvi")]([ExtResource("2_nwmtp"), ExtResource("2_2mtqw")])
 doorOpensAfterTurns = 3
 bgm = ExtResource("1_4lqqf")

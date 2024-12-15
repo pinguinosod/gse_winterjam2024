@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ImageManager="*res://ImageManager.gd"
 AudioManager="*res://audio_manager.gd"
+GlobalStates="*res://global_states.gd"
 
 [display]
 

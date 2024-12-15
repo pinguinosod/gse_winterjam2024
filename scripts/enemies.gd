@@ -5,7 +5,7 @@ class_name Enemy
 var target_position: Vector3 = Vector3.ZERO
 var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 points
 var currentPathIndex = 0
-@export var base_speed: float = 3.0
+@export var base_speed: float = 5.0
 var speed
 @export var max_range: float = 3.0
 var idle = true
@@ -15,10 +15,13 @@ var inTurn = false
 @export var attack_sound: AudioStream
 
 var currentRoom: Room
+var player: Player
+var game_manager: GameManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# AudioManager.play_bg_music(step_sound)
+	game_manager = $"../../../GameManager"
 	speed = base_speed
 	pass # Replace with function body.
 
@@ -59,10 +62,10 @@ func _process(delta: float) -> void:
 func take_turn(room: Room, player: Player):
 	inTurn = true
 	currentRoom = room
+	self.player = player
 	var moveTo = get_movement(room, player)
 	var mapPos = room.get_cell_position(position)
-	# TODO change that to change the grid position actually
-	print(mapPos, moveTo)
+	
 	if moveTo.distance_to(mapPos) > 0.1:
 		$countFallingDying.travel("Walk")
 	idle = false
@@ -91,7 +94,10 @@ func get_next_action():
 	# self.weapon.attack()
 	# pass_turn()
 	inTurn = false
-	AudioManager.play_sfx(attack_sound)
 	$countFallingDying.travel("Strike")
-	print("Attack!")
+	if player.position.distance_to(position) <= 1:
+		AudioManager.play_sfx(attack_sound)
+		if not game_manager:
+			game_manager = $"../../../GameManager"
+		game_manager.attack_player()
 	pass

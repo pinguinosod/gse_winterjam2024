@@ -1,14 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://buuc6fpud4fcd"]
+[gd_scene load_steps=7 format=3 uid="uid://buuc6fpud4fcd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsb8n"]
+[ext_resource type="PackedScene" uid="uid://hq421rsoj582" path="res://models/player_strike_anim.tscn" id="2_1oclv"]
+[ext_resource type="Script" path="res://models/animation_controller.gd" id="3_qhufq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnlpf"]
 albedo_color = Color(0.329412, 1, 0.211765, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sop14"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.815686, 0, 0.168627, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mt6nt"]
+material = SubResource("StandardMaterial3D_sop14")
+
 [node name="Player" type="Node3D" groups=["Player"]]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 script = ExtResource("1_xsb8n")
 
+[node name="playerStrikeAnim" parent="." node_paths=PackedStringArray("tree") instance=ExtResource("2_1oclv")]
+script = ExtResource("3_qhufq")
+tree = NodePath("AnimationTree")
+
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_dnlpf")
 
 [node name="Weapon" type="Node3D" parent="."]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.3
+one_shot = true
+mesh = SubResource("SphereMesh_mt6nt")
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 3.0
+radial_accel_max = 10.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+
+[editable path="playerStrikeAnim"]
