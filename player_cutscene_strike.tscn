@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpnlwlvvnqwy5"]
+[gd_scene load_steps=7 format=3 uid="uid://cpnlwlvvnqwy5"]
 
 [ext_resource type="PackedScene" uid="uid://cahonli0q608n" path="res://models/CharactersAnimations/playerStrikeAnim.glb" id="1_k27d1"]
+[ext_resource type="PackedScene" uid="uid://b4tj50ahsiq3o" path="res://models/firehookWeapon.glb" id="2_axxvr"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bct3o"]
 animation = &"Armature|mixamo_com|Layer0"
@@ -20,19 +21,37 @@ graph_offset = Vector2(69, -7)
 [node name="PlayerCutsceneStrike" instance=ExtResource("1_k27d1")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(1.77688e-15, -5.55276e-17, -0.0243251, 0.999704)
-bones/4/rotation = Quaternion(1.03428e-25, 1.22551e-17, 0.0243252, 0.999704)
-bones/7/rotation = Quaternion(-0.00550656, -0.600951, 0.799257, -0.0040558)
-bones/8/rotation = Quaternion(-0.13248, 0.000883398, -0.00660832, 0.991163)
-bones/9/rotation = Quaternion(-0.00750064, 4.21628e-06, -0.000564652, 0.999972)
-bones/11/rotation = Quaternion(0.799242, 0.00431702, -0.00585605, 0.600966)
-bones/15/rotation = Quaternion(-6.95939e-05, -0.0300272, 0.999546, -0.00232319)
-bones/16/rotation = Quaternion(0.0402374, 0.00101723, 0.0252051, 0.998872)
-bones/17/rotation = Quaternion(0.248096, -0.678821, 0.263609, 0.638874)
-bones/18/rotation = Quaternion(0.37482, 0.0256554, -0.0103769, 0.926685)
-bones/20/rotation = Quaternion(0.00025966, 0.0300262, 0.999512, -0.00866049)
-bones/21/rotation = Quaternion(-0.0402368, -0.000809093, 0.0200336, 0.998989)
+bones/0/position = Vector3(-0.71315, 0.656851, -53.014)
+bones/0/rotation = Quaternion(-0.0642825, 0.720008, -0.690091, -0.0350813)
+bones/1/rotation = Quaternion(-0.00789875, -0.0249673, -0.0689513, 0.997276)
+bones/2/rotation = Quaternion(-0.00867658, -0.0238299, -0.0424817, 0.998775)
+bones/3/rotation = Quaternion(-0.00880644, -0.0233541, -0.0427057, 0.998776)
+bones/4/rotation = Quaternion(0.00341367, 0.101161, 0.0791243, 0.991713)
+bones/5/rotation = Quaternion(0.0536781, 0.566405, -0.0440664, 0.821195)
+bones/6/rotation = Quaternion(7.21775e-09, -5.96047e-08, 7.68341e-09, 1)
+bones/7/rotation = Quaternion(-0.126887, -0.634488, 0.758418, -0.0782707)
+bones/8/position = Vector3(5.87752e-06, 10.7469, -4.1887e-06)
+bones/8/rotation = Quaternion(0.0326937, -0.0665081, 0.604409, 0.79322)
+bones/9/position = Vector3(1.2151e-06, 16.7271, -7.86923e-07)
+bones/9/rotation = Quaternion(-0.0376926, 2.91877e-06, 0.717232, 0.695814)
+bones/11/rotation = Quaternion(0.717498, 0.0525637, -0.083369, 0.689553)
+bones/12/position = Vector3(5.61742e-06, 10.7469, 5.11563e-06)
+bones/12/rotation = Quaternion(0.0165929, 0.313054, -0.00350646, 0.949584)
+bones/13/rotation = Quaternion(0.361702, 0.136866, -0.829783, 0.402368)
+bones/14/position = Vector3(1.01374e-06, 19.7858, -9.86643e-06)
+bones/15/rotation = Quaternion(0.159349, -0.237569, 0.917433, -0.276561)
+bones/16/rotation = Quaternion(0.0679238, 0.0920893, -0.363926, 0.924372)
+bones/17/rotation = Quaternion(0.43243, -0.66265, 0.277921, 0.544664)
+bones/18/rotation = Quaternion(0.376569, 0.0234773, -0.0112801, 0.926023)
+bones/20/rotation = Quaternion(-0.0811344, 0.100549, 0.944054, -0.30343)
+bones/21/rotation = Quaternion(-0.0172397, 0.0358323, -0.445349, 0.894473)
+bones/22/rotation = Quaternion(0.332266, -0.534455, 0.450754, 0.63307)
+bones/23/rotation = Quaternion(0.373775, -0.0256388, 0.0103366, 0.927107)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_fcfc8")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="firehookWeapon" parent="." index="3" instance=ExtResource("2_axxvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170337, -1.19209e-07, 0.549625)
