@@ -79,7 +79,8 @@ func load_next_scene():
 	player.position = get_player_start_position()
 	
 	for i in range(parentRoom.get_child_count()):
-		parentRoom.get_child(i).hide()
+		if parentRoom.get_child(i) is GridMap:
+			parentRoom.get_child(i).hide()
 		if i == currentCombatScene.roomToActivate:
 			currentRoom = parentRoom.get_child(i)
 			currentRoom.show()
