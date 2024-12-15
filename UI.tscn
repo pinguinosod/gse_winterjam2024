@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://hwest7fcmslk" path="res://ui_images/Settings_menu.png" id="8_vb24i"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="9_2f8wj"]
 [ext_resource type="AudioStream" uid="uid://bejcg4mn5kwux" path="res://audio/NOPEEKING.mp3" id="10_en5uf"]
-[ext_resource type="LabelSettings" uid="uid://cgrp1dvquoavn" path="res://ui_fonts/font_labels.tres" id="12_ldonh"]
+[ext_resource type="LabelSettings" path="res://ui_fonts/font_labels.tres" id="12_ldonh"]
 [ext_resource type="Script" path="res://pickup_item_button.gd" id="14_eouhr"]
 [ext_resource type="Script" path="res://label_action_points.gd" id="14_jo06l"]
 [ext_resource type="Script" path="res://label_hp.gd" id="14_p3dr6"]

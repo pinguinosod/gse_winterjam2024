@@ -58,6 +58,6 @@ tree_root = SubResource("AnimationNodeStateMachine_kslor")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="PlayerCutsceneStrike" parent="." index="3" instance=ExtResource("3_a22u7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.28262, 1.24467, 4.66787)
+transform = Transform3D(0.19906, 0, 0.979987, 0, 1, 0, -0.979987, 0, 0.19906, 6.53464, 1.08041, 3.88439)
 
 [editable path="countFallingDying"]
