@@ -157,7 +157,6 @@ func _process(delta: float) -> void:
 			currentEnemy = enemyTurnQueue.pop_front()
 			currentEnemy.take_turn(currentRoom, player)
 		playerTurn = true
-	# check_win()
 	
 
 func check_win():
@@ -200,4 +199,11 @@ func attack_player():
 	player.take_damage()
 	showText("Ouch, you took 1 damage!", 1.5)
 	check_win()
+	
+func get_actor_positions() -> PackedVector2Array:
+	var result = PackedVector2Array()
+	for enemy in occupiedEnemies:
+		result.append(currentRoom.get_cell_position(enemy.position))
+	result.append(currentRoom.get_cell_position(player.position))
+	return result
 	

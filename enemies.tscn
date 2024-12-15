@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scripts/enemies.gd" id="1_1yk5q"]
 [ext_resource type="AudioStream" uid="uid://dmst6ds0yifac" path="res://audio/Footsteps Sound Effect  NO COPYRIGHT.mp3" id="2_2l50l"]
 [ext_resource type="AudioStream" uid="uid://3888qdr7wrwn" path="res://audio/Punch.mp3" id="3_1cv4b"]
-[ext_resource type="PackedScene" uid="uid://dln8thhlxs611" path="res://models/count_falling_dying.tscn" id="4_gpatt"]
+[ext_resource type="PackedScene" uid="uid://cl158bgei8482" path="res://models/count_falling_dying.tscn" id="4_gpatt"]
 
 [node name="Enemy" type="Node3D" groups=["Enemy"]]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_1yk5q")
 step_sound = ExtResource("2_2l50l")
 attack_sound = ExtResource("3_1cv4b")

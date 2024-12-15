@@ -10,7 +10,10 @@ var AStar = AStar2D.new()
 
 var ignoreClicks = false
 
+var game_manager: GameManager
+
 func _ready():
+	game_manager = $"../GameManager"
 	currentRoom = $Room01
 	for x in maxX:
 		internalGrid.append([])
@@ -97,3 +100,16 @@ func toggleClickIgnore(toggle) -> void:
 	
 func inBounds(point: Vector2i):
 	return point.x > 0 and point.x < maxX - 1 and point.y > 0 and point.y < maxZ - 1
+
+func cell_blocked(cell: Vector2):
+	if not inBounds(cell):
+		return true
+	if not game_manager:
+		game_manager = $"../GameManager"
+	var actor_positions = PackedVector2Array()
+	if game_manager:
+		actor_positions = game_manager.get_actor_positions()
+	if cell in actor_positions:
+		return true
+	return internalGrid[cell.x][cell.y] != GridMap.INVALID_CELL_ITEM
+	
