@@ -29,10 +29,11 @@ albedo_color = Color(0, 1, 0, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_atp7n"]
 material = SubResource("StandardMaterial3D_7vd8q")
 
-[node name="Rooms" type="Node3D"]
+[node name="Rooms" type="Node3D" node_paths=PackedStringArray("countess")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14441e-05, 0)
 script = ExtResource("2_xim5h")
 offSet = Vector3(85, 0, 0)
+countess = NodePath("countessLockpickingDress2")
 
 [node name="Room01" type="GridMap" parent="."]
 mesh_library = ExtResource("1_aqf6v")

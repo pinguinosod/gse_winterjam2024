@@ -7,7 +7,7 @@ var pathToFollow: PackedVector2Array  #  the pathToFollow is a list of Vector2 p
 var currentPathIndex = 0
 @export var base_speed: float = 5.0
 var speed
-var perTurnAP = 15
+var perTurnAP = 5
 var currentAP = perTurnAP
 @export var max_range: float = 3.0
 var idle = true
@@ -43,7 +43,7 @@ func rotateTowardsDirection(direction: Vector2i):
 func _process(delta: float) -> void:
 	if currentPathIndex < pathToFollow.size():
 		currentAP -= 1
-		AudioManager.play_sfx(step_sound)
+		AudioManager.play_sfx(step_sound, 80)
 		var target_position: Vector2i = pathToFollow[currentPathIndex]# + Vector2(1,1)
 		var direction = target_position - currentRoom.get_cell_position(position)
 		rotateTowardsDirection(direction)
@@ -69,7 +69,7 @@ func take_turn(room: Room, player: Player):
 	self.player = player
 	var moveTo = get_movement(room, player)
 	var mapPos = room.get_cell_position(position)
-	
+	AudioManager.play_sfx_override(step_sound)
 	if moveTo.distance_to(mapPos) > 0.1:
 		$countFallingDying.travel("Walk")
 	idle = false
@@ -111,7 +111,7 @@ func get_next_action():
 	inTurn = false
 	$countFallingDying.travel("Strike")
 	if player.position.distance_to(position) <= 1:
-		AudioManager.play_sfx(attack_sound)
+		AudioManager.play_sfx_override(attack_sound, 40)
 		if not game_manager:
 			game_manager = $"../../../GameManager"
 		game_manager.attack_player()

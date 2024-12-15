@@ -23,3 +23,8 @@ func play_sfx(sfx, volume=0):
 		sfx_player.stream = sfx
 		sfx_player.volume_db = volume
 		sfx_player.play()
+
+func play_sfx_override(sfx, volume=0):
+	sfx_player.stream = sfx
+	sfx_player.volume_db = volume
+	sfx_player.play()

@@ -190,6 +190,8 @@ func _process(delta: float) -> void:
 			currentEnemy = enemyTurnQueue.pop_front()
 			if currentEnemy:
 				currentEnemy.take_turn(currentRoom, player)
+	if not enemyTurn() and not playerTurn:
+		showText("Player Turn", 1.5)
 		playerTurn = true
 		player.turn_start()
 	
